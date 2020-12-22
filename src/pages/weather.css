@@ -1,0 +1,23 @@
+.App {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  min-height: 99vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+}
+.day{
+  background-color: #afcaff;
+  color: black;
+}
+.night{
+  background-color: #282c34;
+  color: white;
+}
+.loading{
+  height: 2em;
+  width: 2em;
+}
