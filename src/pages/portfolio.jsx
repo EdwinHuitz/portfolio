@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-
+import Footer from '../components/footer'
 function Portfolio(){
    useEffect(() => {
       let i=0
@@ -202,6 +202,7 @@ function Portfolio(){
                </div>
             </section>
          </main>
+         <Footer/>
       </>
    )
 }
