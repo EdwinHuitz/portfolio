@@ -87,6 +87,10 @@
   padding:0px;
   margin:0px;
 }
+.refreshSpin{
+  animation:spinner 0.5s infinite;
+  animation-timing-function:ease;
+}
 .refresh:hover{
   animation:spinner 0.5s 1;
   animation-timing-function:ease;

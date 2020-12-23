@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Footer from '../components/footer'
+import axios from 'axios'
 function Portfolio(){
    useEffect(() => {
       let i=0
@@ -38,9 +39,21 @@ function Portfolio(){
       }
    }, [])
    const [skill,setSkill]=useState('')
-   
-   function validateForm(){
+   const [formI,setFormI]=useState({name:'',email:'',subject:'',message:''})
+   const [msg,setMsg]=useState(2)
 
+   function updateValues(e){
+      setMsg(0)
+      setFormI({...formI,[e.target.name]:e.target.value})
+   }
+   function validateForm(e){
+      setMsg(1)
+      if(formI.name && formI.email && formI.subject && formI.message){
+         axios.post('api/'+[formI.name,formI.email,formI.subject,formI.message])
+         .catch(e=>setMsg(3))
+         .then(e=>setMsg(2))
+      }
+      e.preventDefault()
    }
    return(
       <>
@@ -179,33 +192,33 @@ function Portfolio(){
                         </div>
                      </div>
                      <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                        <form id ="contact-form" name="contact-form" action="forms/mail.php" method="POST"  onSubmit={validateForm()} className="php-email-form">
+                        <form id ="contact-form" onSubmit={validateForm} className="email-form">
                         <div className="form-row">
                            <div className="form-group col-md-6">
                               <label htmlFor="name">Your Name</label>
-                              <input type="text" name="name" className="form-control" id="name" data-rule="minlen:4" data-msg="Please enter a name consisting of at least 4 characters" />
+                              <input type="text" name="name" className="form-control" id="name" data-rule="minlen:4" data-msg="Please enter a name consisting of at least 4 characters" onChange={(e)=>updateValues(e)} />
                               <div className="validate"></div>
                            </div>
                            <div className="form-group col-md-6">
                               <label htmlFor="name">Your Email</label>
-                              <input type="email" className="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email address" />
+                              <input type="text" className="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email address" value={formI.email} onChange={(e)=>updateValues(e)} />
                               <div className="validate"></div>
                            </div>
                         </div>
                         <div className="form-group">
                            <label htmlFor="name">Subject</label>
-                           <input type="text" className="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter a subject consisting of at least 4 characters" />
+                           <input type="text" className="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter a subject consisting of at least 4 characters" value={formI.subject} onChange={(e)=>updateValues(e)} />
                            <div className="validate"></div>
                         </div>
                         <div className="form-group">
                            <label htmlFor="name">Message</label>
-                           <textarea className="form-control" name="message" id="message" rows="10" data-rule="required" data-msg="Please write a message"></textarea>
+                           <textarea className="form-control" name="message" id="message" rows="10" data-rule="required" data-msg="Please write a message" value={formI.message} onChange={(e)=>updateValues(e)} ></textarea>
                            <div className="validate"></div>
                         </div>
                         <div>
                            <div id="status"></div>
                         </div>
-                        <div className="text-center"><button type="submit" onClick={validateForm()}>Send Message</button></div>
+                        <div className="text-center"><button type="submit">{msg===0?<span style={{fontSize:'1.1em'}}>Send Message</span>:msg===1?<><i className="refreshSpin bx bx-loader" style={{fontSize:'1.1em'}}></i><span style={{fontSize:'1.1em'}}> Loading...</span></>:msg===2?<i className="bx bx-check" style={{fontSize:'1.1em'}}> Success!</i>:<i className="bx bx-error" style={{fontSize:'1.1em'}}> Error!</i>}</button></div>
                         </form>
                      </div>
                   </div>
