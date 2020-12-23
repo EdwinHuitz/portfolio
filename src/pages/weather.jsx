@@ -63,9 +63,8 @@ function Weather() {
     }
     if(h>11){t='PM'}
     if(h>12){h=(h-12)}
-    if(h<10){h='0'+h.toString()}
     if(m<10){m='0'+m.toString()}
-    let str=wd+' '+h+':'+m+' '+t+''
+    let str=wd+' '+h.toString()+':'+m+' '+t+''
     return str
   }
   function checkNull(...i){
@@ -78,29 +77,25 @@ function Weather() {
   let dateTime=checkNull('info.name','info.sys.country')
   return (
     <>
-        <div className={getTime()?'App day':'App night'}>
+        <div className='App'>
           <header className="App-header">
-              {(info!=null)?<>
-            <div className="dateTime">
-                <h4>
-                  {dateTime[0]+', '+dateTime[1]}<br/>{currentTime()}
-                </h4>
-            </div>
-                </>:''}
+              {(info!=null)?<h4>{dateTime[0]+', '+dateTime[1]} | {currentTime()}</h4>:''}
           </header>
           {info!=null?
           <main className='weatherBox'>
-            <div className={getTime()?"tempBox day":"tempBox night"}>
+            <div className="tempBox">
+              <div className="iconS">
+                <i className={getIcon()}></i>
+              </div>
               <div className="mainS">
                 {loading?<img src="/assets/img/loading.webp" className="loading" alt="loading" />:''}
-                <i className={getIcon()}></i>
-                <br/>{Math.round(info.main.temp)}°F<br/>
-                <span style={{fontSize:'.1em !important'}}>feels like {Math.round(info.main.feels_like)}°F</span>
-              </div>
+                {Math.round(info.main.temp)}°F</div>
+                <div className="middleS">feels like {Math.round(info.main.feels_like)}°F
+                <hr style={{backgroundColor:"white",opacity:"20%",width:"90%"}} />
+                </div>
             <div className="bottomA"><i className="bx bx-upvote"></i> {Math.round(info.main.temp_max)}°F<br/><i className="bx bx-downvote"></i> {Math.round(info.main.temp_min)}°F</div>
             <div className="bottomB"><i className="bx bx-droplet"></i> {Math.round(info.main.humidity)}%<br/><i className="bx bx-wind"></i> {Math.round(info.wind.speed)} MPH</div>
             </div>
-            <p style={{color:'white'}}>The temperature in {info.name} is currently {info.main.temp}°F and it feels like {info.main.feels_like}°F</p>
           </main>:
             <><p>
               {info===null?'Click the button below to take a look at today\'s weather forecast':''}

@@ -9,36 +9,49 @@
   align-items: center;
   justify-content: center;
   font-size: 1em;
-}
-.dateTime{
-  position:absolute;
-  top:6vh;
-  right:0vw;
+  background-color:#040b14;
+  color:white;
 }
 .weatherBox{
   border-radius:calc(.25rem - 1px);
-  padding:1px;
+  padding:.25rem;
   color:white;
   text-shadow:.1em .1em black;
   background-color:#149ddd;
 }
 .tempBox{
+  background-color: #282c34;
   padding:.25rem;
   border-radius:calc(.25rem - 1px);
   color:white;
-  text-shadow:.2em .2em black;
   opacity:95%;
   display:grid;
   grid-template-columns: auto;
   grid-template-rows:auto;
   grid-template-areas:
+  "iconS iconS"
   "mainS mainS"
+  "middleS middleS"
   "bottomA bottomB";
+}
+.iconS{
+  display:flex;
+  text-align: center;
+  font-size:12em;
+  text-shadow:.03em .03em black;
+  justify-content: center;
+  grid-area:iconS;
 }
 .mainS{
   grid-area:mainS;
   font-size:10em;
   text-shadow:.05em .05em black;
+  font-weight:bold;
+}
+.middleS{
+  grid-area:middleS;
+  font-size:1.5em;
+  text-shadow:.12em .12em black;
   font-weight:bold;
 }
 .bottomA{
@@ -50,14 +63,11 @@
 .bottomA,.bottomB{
   font-size:1.5em;
   font-weight: bold;
+  text-shadow:.1em .1em black;
 }
 .day{
-  background-color: #afcaff;
+  background-color: #92b6ff;
   color: black;
-}
-.night{
-  background-color: #282c34;
-  color: white;
 }
 .loading{
   height: 2em;
