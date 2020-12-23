@@ -108,6 +108,7 @@ function Portfolio(){
                      <div className="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
                         <li data-filter="*" className="filter-active">All</li>
+                        <li data-filter=".filter-react">React</li>
                         <li data-filter=".filter-javascript">Java-Script</li>
                         <li data-filter=".filter-django">Django</li>
                         <li data-filter=".filter-python">Python</li>
@@ -115,11 +116,20 @@ function Portfolio(){
                      </div>
                   </div>
                   <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
+                     <div className="col-lg-4 col-md-6 portfolio-item filter-javascript filter-react">
+                        <div className="portfolio-wrap">
+                           <img src="assets/img/portfolio/weather.png" className="img-fluid" alt=""/>
+                           <div className="portfolio-links">
+                              <a href="assets/img/portfolio/weather.png" data-gall="portfolioGallery" className="venobox" title="Daily Weather Forcast"><i className="bx bx-zoom-in"></i></a>
+                              <a href="/weather" title="More Details"><i className="bx bx-link"></i></a>
+                           </div>
+                        </div>
+                     </div>
                      <div className="col-lg-4 col-md-6 portfolio-item filter-javascript">
                         <div className="portfolio-wrap">
                            <img src="assets/img/portfolio/game.png" className="img-fluid" alt=""/>
                            <div className="portfolio-links">
-                              <a href="assets/img/portfolio/game.png" data-gall="portfolioGallery" className="venobox" title="App 1"><i className="bx bx-zoom-in"></i></a>
+                              <a href="assets/img/portfolio/game.png" data-gall="portfolioGallery" className="venobox" title="Arcade Game"><i className="bx bx-zoom-in"></i></a>
                               <a href="http://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer" title="More Details"><i className="bx bx-link"></i></a>
                            </div>
                         </div>
@@ -202,7 +212,7 @@ function Portfolio(){
                </div>
             </section>
          </main>
-         <Footer/>
+         <Footer color={['white','black']} />
       </>
    )
 }

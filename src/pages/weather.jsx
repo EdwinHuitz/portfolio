@@ -5,10 +5,8 @@ import axios from 'axios';
 
 function Weather() {
   const [info,setInfo]=useState(null)
-  const [loading,setLoading]=useState(false)
 
   function getCoords(){
-    setLoading(true)
     navigator.geolocation.getCurrentPosition(getData)
   }
   async function getData(gps){
@@ -19,7 +17,6 @@ function Weather() {
     .catch((err)=>console.log(err))
     .then((res)=>{
       setInfo(res.data)
-      setLoading(false)
     })
     console.log('Done!')
   }
@@ -31,9 +28,9 @@ function Weather() {
     else if(num>=500&&num<600){ans+="bx-cloud-rain"}
     else if(num>=600&&num<700){ans+="bx-cloud-snow"}
     else if(num>=700&&num<800){ans+="bx-water"}
-    else if(num===800){ans+="bx-sun"}
+    else if(num===800){if(getTime()){ans+="bx-sun"}else{ans+="bx-moon"}}
     else if(num>=800&&num<900){ans+="bx-cloud"}
-    else{ans="bx-sun"}
+    else{if(getTime()){ans+="bx-sun"}else{ans+="bx-moon"}}
     return ans
   }
   function getTime(){
@@ -77,7 +74,7 @@ function Weather() {
   let dateTime=checkNull('info.name','info.sys.country')
   return (
     <>
-        <div className='App'>
+        <div className='wApp'>
           <header className="App-header">
               {(info!=null)?<h4>{dateTime[0]+', '+dateTime[1]} | {currentTime()}</h4>:''}
           </header>
@@ -88,7 +85,6 @@ function Weather() {
                 <i className={getIcon()}></i>
               </div>
               <div className="mainS">
-                {loading?<img src="/assets/img/loading.webp" className="loading" alt="loading" />:''}
                 {Math.round(info.main.temp)}°F</div>
                 <div className="middleS">feels like {Math.round(info.main.feels_like)}°F
                 <hr style={{backgroundColor:"white",opacity:"20%",width:"90%"}} />
@@ -97,12 +93,10 @@ function Weather() {
             <div className="bottomB"><i className="bx bx-droplet"></i> {Math.round(info.main.humidity)}%<br/><i className="bx bx-wind"></i> {Math.round(info.wind.speed)} MPH</div>
             </div>
           </main>:
-            <><p>
-              {info===null?'Click the button below to take a look at today\'s weather forecast':''}
-            </p>
-          <button onClick={getCoords}>Click Me</button></>}
+            <><h5>'Click the button below to take a look at today's weather forecast</h5><br/>
+          <button className="wBtn" onClick={getCoords}><i className="refresh bx bx-refresh"></i></button></>}
         </div>
-        <Footer />
+        <Footer color={['#040b14','white']} />
     </>
   );
 }

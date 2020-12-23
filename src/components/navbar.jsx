@@ -20,7 +20,7 @@ function Nav(){
                      <li className="active"><a href="assets/files/Edwin_Huitz_2020.pdf"><i className="bx bx-file"></i> <span>Resume</span></a></li>
                      <li><a href="/#hero"><i className="bx bx-home"></i> <span>Home</span></a></li>
                      <li><a href="/#portfolio"><i className="bx bx-book-content"></i> Portfolio</a></li>
-                     <li><a href="#contact"><i className="bx bx-game"></i> Game</a></li>
+                     <li><a href="http://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer"><i className="bx bx-game"></i>Arcade Game</a></li>
                      <li><a href="/weather"><i className="bx bx-cloud-lightning"></i> Weather</a></li>
                   </ul>
                </nav>

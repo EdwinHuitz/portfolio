@@ -1,21 +1,20 @@
-.App {
+.wApp {
   padding: 0px;
   margin: 0px;
   text-align: center;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 1em;
-  background-color:#040b14;
   color:white;
+  background-color:#040b14;
 }
 .weatherBox{
   border-radius:calc(.25rem - 1px);
   padding:.25rem;
-  color:white;
   text-shadow:.1em .1em black;
   background-color:#149ddd;
 }
@@ -23,7 +22,6 @@
   background-color: #282c34;
   padding:.25rem;
   border-radius:calc(.25rem - 1px);
-  color:white;
   opacity:95%;
   display:grid;
   grid-template-columns: auto;
@@ -69,7 +67,37 @@
   background-color: #92b6ff;
   color: black;
 }
-.loading{
-  height: 2em;
-  width: 2em;
+.wBtn{
+  height:10em;
+  width:10em;
+  background-color:#040b14;
+  border-color:#149ddd;
+  border-width: 0.25em;
+  border-radius:50%;
+  padding:0px;
+  margin:0px;
+}
+.wBtn:hover{
+  background-color: #282c34;
+}
+.refresh{
+  font-size:8em;
+  width:100%;
+  color:white;
+  padding:0px;
+  margin:0px;
+}
+.refresh:hover{
+  animation:spinner 0.5s 1;
+  animation-timing-function:ease;
+}
+.wBtn:active,.refresh:active{
+  animation:spinner 0.5s infinite;
+  animation-timing-function:ease;
+  
+}
+
+@keyframes spinner{
+  0%{transform:rotate(360deg);}
+  100%{transform:rotate(0deg);}
 }
