@@ -40,7 +40,7 @@ function Portfolio(){
    }, [])
    const [skill,setSkill]=useState('')
    const [formI,setFormI]=useState({name:'',email:'',subject:'',message:''})
-   const [msg,setMsg]=useState(2)
+   const [msg,setMsg]=useState(0)
 
    function updateValues(e){
       setMsg(0)
@@ -49,7 +49,8 @@ function Portfolio(){
    function validateForm(e){
       setMsg(1)
       if(formI.name && formI.email && formI.subject && formI.message){
-         axios.post('api/'+[formI.name,formI.email,formI.subject,formI.message])
+         axios.defaults.baseURL = "https://" + window.location.hostname + ":9001"
+         axios.post('/api/'+[formI.name,formI.email,formI.subject,formI.message])
          .catch(e=>setMsg(3))
          .then(e=>setMsg(2))
       }
