@@ -7,7 +7,7 @@ function Portfolio(){
       let erase=false
       let letters = ''
       let pause,loop
-      const langs=["HTML5", "Python", "React.js", "CSS3", "Django", "Node.js", "JavaScript"]
+      const langs=["HTML5", "Python", "React.js", "CSS3", "Django", "Node.js", "JavaScript(ES6)"]
       loop = setInterval(async() => {
          if(erase===false){
             if(letters.length!==langs[i].length){
@@ -197,29 +197,31 @@ function Portfolio(){
                         <div className="form-row">
                            <div className="form-group col-md-6">
                               <label htmlFor="name">Your Name</label>
-                              <input type="text" name="name" className="form-control" id="name" data-rule="minlen:4" data-msg="Please enter a name consisting of at least 4 characters" onChange={(e)=>updateValues(e)} />
-                              <div className="validate"></div>
+                              <input type="text" name="name" className="form-control" id="name" onChange={(e)=>updateValues(e)} />
+                              <div>{(formI.name.length>0 && formI.name.length<2)?<b style={{color:"red"}}>Please enter a valid name</b>:''}</div>
                            </div>
                            <div className="form-group col-md-6">
                               <label htmlFor="name">Your Email</label>
-                              <input type="text" className="form-control" name="email" id="email" data-rule="email" data-msg="Please enter a valid email address" value={formI.email} onChange={(e)=>updateValues(e)} />
-                              <div className="validate"></div>
+                              <input type="text" className="form-control" name="email" id="email" value={formI.email} onChange={(e)=>updateValues(e)} />
+                              <div>
+                                 {(formI.email.length>0 && ((!formI.email.match(/[@]/) && !formI.email.match(/[.]/)) ||
+                                    (!formI.email.match(/[@]/) && formI.email.match(/[.]/)) ||
+                                    (!formI.email.match(/[.]/) && formI.email.match(/[@]/)) || !formI.email.match(/[a-zA-Z]$/g)))?
+                                    <b style={{color:"red"}}>Please enter a valid email address</b>:''}
+                              </div>
                            </div>
                         </div>
                         <div className="form-group">
                            <label htmlFor="name">Subject</label>
-                           <input type="text" className="form-control" name="subject" id="subject" data-rule="minlen:4" data-msg="Please enter a subject consisting of at least 4 characters" value={formI.subject} onChange={(e)=>updateValues(e)} />
-                           <div className="validate"></div>
+                           <input type="text" className="form-control" name="subject" id="subject" value={formI.subject} onChange={(e)=>updateValues(e)} />
+                           <div>{(formI.subject.length>0 && formI.subject.length<5)?<b style={{color:"red"}}>Please enter a subject with a minimum of 5 characters</b>:''}</div>
                         </div>
                         <div className="form-group">
                            <label htmlFor="name">Message</label>
-                           <textarea className="form-control" name="message" id="message" rows="10" data-rule="required" data-msg="Please write a message" value={formI.message} onChange={(e)=>updateValues(e)} ></textarea>
-                           <div className="validate"></div>
+                           <textarea className="form-control" name="message" id="message" rows="10" value={formI.message} onChange={(e)=>updateValues(e)} ></textarea>
+                           <div>{(formI.message.length>0 && formI.message.length<10)?<b style={{color:"red"}}>Please enter a message with a minimum of 10 characters</b>:''}</div>
                         </div>
-                        <div>
-                           <div id="status"></div>
-                        </div>
-                        <div className="text-center"><button type="submit">{msg===0?<span style={{fontSize:'1.1em'}}>Send Message</span>:msg===1?<><i className="refreshSpin bx bx-loader" style={{fontSize:'1.1em'}}></i><span style={{fontSize:'1.1em'}}> Loading...</span></>:msg===2?<i className="bx bx-check" style={{fontSize:'1.1em'}}> Success!</i>:<i className="bx bx-error" style={{fontSize:'1.1em'}}> Error!</i>}</button></div>
+                        <div className="text-center"><button type="submit" disabled={formI.name.length<2 && formI.email.length<6 && formI.subject.length<5 && formI.message.length<10}>{msg===0?<span style={{fontSize:'1.1em'}}>Send Message</span>:msg===1?<><i className="refreshSpin bx bx-loader" style={{fontSize:'1.1em'}}></i><span style={{fontSize:'1.1em'}}> Sending...</span></>:msg===2?<i className="bx bx-check" style={{fontSize:'1.1em'}}> Success!</i>:<i className="bx bx-error" style={{fontSize:'1.1em'}}> Error!</i>}</button></div>
                         </form>
                      </div>
                   </div>
