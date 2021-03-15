@@ -17,7 +17,7 @@ function Nav(){
                </div>
                <nav className="nav-menu">
                   <ul>
-                     <li className="active"><a href="assets/files/Edwin_Huitz_Resume_2020.pdf" target="_blank" rel="noreferrer"><i className="bx bx-file"></i> <span>Resume</span></a></li>
+                     <li className="active"><a href={"assets/files/Edwin_Huitz_Resume_"+new Date().getFullYear()+".pdf"} target="_blank" rel="noreferrer"><i className="bx bx-file"></i> <span>Resume</span></a></li>
                      <li><a href="/#hero"><i className="bx bx-home"></i> <span>Home</span></a></li>
                      <li><a href="/#portfolio"><i className="bx bx-book-content"></i> Portfolio</a></li>
                      <li><a href="http://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer"><i className="bx bx-game"></i>Arcade Game</a></li>
