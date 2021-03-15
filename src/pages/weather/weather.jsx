@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 import './weather.css';
-import Footer from '../components/footer'
+import Footer from '../../components/footer'
 import axios from 'axios';
-
+import {currentTime,weekDay} from '../../plugins/localTime.js'
 function Weather() {
   const [info,setInfo]=useState(null)
+  const [spin,setSpin]=useState("")
 
   function getCoords(){
+    setSpin("Spin")
     navigator.geolocation.getCurrentPosition(getData)
   }
   async function getData(gps){
@@ -14,7 +16,8 @@ function Weather() {
     let loc = gps.coords
     let unit = 'imperial'
     axios.defaults.baseURL = "https://" + window.location.hostname + ":9001"
-    await axios.get(`api/${loc.longitude}&${loc.latitude}&${unit}`)
+    await axios.get(`http://localhost:9001/api/${loc.longitude}&${loc.latitude}&${unit}`)
+    //await axios.get(`api/${loc.longitude}&${loc.latitude}&${unit}`)
     .catch((err)=>console.log(err))
     .then((res)=>{
       setInfo(res.data)
@@ -43,28 +46,6 @@ function Weather() {
       else return false
     }
   }
-  function currentTime(){
-    let d=new Date();
-    let wd=d.getDay()
-    let h =d.getHours()
-    let m =d.getMinutes()
-    let t ='AM'
-    switch(wd){
-      case 0:wd='Sunday';break;
-      case 1:wd='Monday';break;
-      case 2:wd='Tuesday';break;
-      case 3:wd='Wednesday';break;
-      case 4:wd='Thursday';break;
-      case 5:wd='Friday';break;
-      case 6:wd='Saturday';break;
-      default:wd='Some Day';break;
-    }
-    if(h>11){t='PM'}
-    if(h>12){h=(h-12)}
-    if(m<10){m='0'+m.toString()}
-    let str=wd+' '+h.toString()+':'+m+' '+t+''
-    return str
-  }
   function checkNull(...i){
     let line=[]
     if(info!==null){
@@ -76,7 +57,7 @@ function Weather() {
   return (
     <>
         <div className='wApp'>
-          <header className="App-header">{(info!=null)?<h4>{dateTime[0]+', '+dateTime[1]} | {currentTime()}</h4>:''}</header>
+          <header className="App-header">{(info!=null)?<h4>{dateTime[0]+', '+dateTime[1]} | {weekDay()+' '+currentTime()}</h4>:''}</header>
           {info!=null?
             <main className='weatherBox'>
               <div className="tempBox">
@@ -91,7 +72,7 @@ function Weather() {
             </main>
           :
             <><h5>Click the button below to take a look at today's weather forecast</h5><br/>
-            <button className="wBtn" onClick={getCoords}><i className="refresh bx bx-refresh"></i></button></>
+            <button className="wBtn" onClick={getCoords}><i className={"refresh "+spin+" bx bx-refresh"}></i></button></>
           }
         </div>
         <Footer color={['#040b14','white']} />

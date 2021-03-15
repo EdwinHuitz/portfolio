@@ -89,21 +89,11 @@
   padding:0px;
   margin:0px;
 }
-.refreshSpin{
-  animation:spinner 0.5s infinite;
-  animation-timing-function:ease;
-}
-.refresh:hover{
-  animation:spinner 0.5s 1;
-  animation-timing-function:ease;
-}
-.wBtn:active,.refresh:active{
-  animation:spinner 0.5s infinite;
-  animation-timing-function:ease;
-  
+.Spin{
+  animation:spinner 0.75s infinite;
+  animation-timing-function:linear;
 }
 
 @keyframes spinner{
   0%{transform:rotate(360deg);}
-  100%{transform:rotate(0deg);}
 }

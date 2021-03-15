@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import './App.css';
 import Nav from './components/navbar'
 import Portfolio from './pages/portfolio'
-import Weather from './pages/weather'
+import Weather from './pages/weather/weather'
 function App() {
   return (
     <BrowserRouter>
