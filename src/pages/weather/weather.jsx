@@ -16,8 +16,9 @@ function Weather() {
     let loc = gps.coords
     let unit = 'imperial'
     axios.defaults.baseURL = "https://" + window.location.hostname + ":9001"
-    //await axios.get(`http://localhost:9001/api/${loc.longitude}&${loc.latitude}&${unit}`)
-    await axios.get(`api/${loc.longitude}&${loc.latitude}&${unit}`)
+    await axios.get('http://localhost:9001/api/',{params:{data:'weather',long:loc.longitude,lat:loc.latitude,unit:unit}})
+
+    //await axios.get('api/',{params:{data:'weather',long:loc.longitude,loc:lat.latitude,unit:unit}})
     .catch((err)=>console.log(err))
     .then((res)=>{
       setInfo(res.data)
