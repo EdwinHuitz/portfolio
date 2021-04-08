@@ -32,15 +32,23 @@
   "iconS iconS"
   "mainS mainS"
   "middleS middleS"
+  "forcast forcast"
   "bottomA bottomB";
 }
 .iconS{
   display:flex;
+  flex-flow:column;
   text-align: center;
   font-size:12em;
   text-shadow:.03em .03em black;
   justify-content: center;
   grid-area:iconS;
+}
+.forcast{
+  grid-area:forcast;
+  font-size:1em;
+  text-shadow:.12em .12em black !important;
+  margin-top:-0.5em;
 }
 .mainS{
   grid-area:mainS;

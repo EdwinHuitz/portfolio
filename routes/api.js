@@ -4,9 +4,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/',async (req,res)=>{
-   //console.log(req.query)
    let q=req.query
-   let rep//=await data.getWeather(q)
+   let rep
    switch(q.data){
       case "weather":rep=await data.getWeather(q);break
       case "location":rep=await data.getLocation(q);break

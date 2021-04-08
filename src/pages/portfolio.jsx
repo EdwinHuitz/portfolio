@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import Footer from '../components/footer'
 import axios from 'axios'
-function Portfolio(){
+export default function Portfolio(){
    useEffect(() => {
       let i=0
       let erase=false
       let letters = ''
       let pause,loop
-      const langs=["HTML5", "Python", "React.js", "CSS3", "Django", "Node.js", "JavaScript(ES6)"]
+      const langs=["HTML5", "Python", "React.js", "CSS3", "Django", "Node.js", "JavaScript"]
       loop = setInterval(async() => {
          if(erase===false){
             if(letters.length!==langs[i].length){
@@ -232,4 +232,3 @@ function Portfolio(){
       </>
    )
 }
-export default Portfolio;

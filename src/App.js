@@ -4,6 +4,7 @@ import './App.css';
 import Nav from './components/navbar'
 import Portfolio from './pages/portfolio'
 import Weather from './pages/weather/weather'
+import Shopping from './pages/shopping/shopping'
 function App() {
   return (
     <BrowserRouter>
@@ -12,6 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/"><Portfolio/></Route>
           <Route path="/weather"><Weather/></Route>
+          <Route path="/shopping"><Shopping/></Route>
         </Switch>
       </div>
     </BrowserRouter>
