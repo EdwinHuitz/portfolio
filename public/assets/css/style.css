@@ -115,8 +115,8 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 1199px) {
   #header {
-    left: -50vw;
-    width:40vw;
+    left: -110vw;
+    width:90%;
   }
   #main {
     margin-left: 0;

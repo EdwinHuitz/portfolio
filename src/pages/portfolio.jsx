@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import Footer from '../components/footer'
 import axios from 'axios'
-export default function Portfolio(){
+import Handicap from '../plugins/handicap_icon'
+
+export default function Portfolio(props){
    useEffect(() => {
       let i=0
       let erase=false
@@ -41,6 +43,7 @@ export default function Portfolio(){
    const [skill,setSkill]=useState('')
    const [formI,setFormI]=useState({name:'',email:'',subject:'',message:''})
    const [msg,setMsg]=useState(0)
+   const [fonts,setFonts]=useState(0)
 
    function updateValues(e){
       setMsg(0)
@@ -56,17 +59,31 @@ export default function Portfolio(){
       }
       e.preventDefault()
    }
+   function changeFonts(){
+      let doc=document.body.style
+      if(fonts===0){
+         setFonts(1)
+         doc.fontFamily="dyslexia"
+      }
+      else{
+         setFonts(0)
+         doc.fontFamily="Open Sans,sans-serif"
+      }
+   }
    return(
       <>
+      <span title={(fonts===0)?"Dyslexia Friendly Font":"Standard Font"} onClick={changeFonts}>
+            <Handicap />
+          </span>
          <section id="hero" className="d-flex flex-column justify-content-center align-items-center">
-            <div className="hero-container" data-aos="fade-in">
+            <div className="hero-container" data-aos="fade-in" title="Edwin Huitz: Full-Stack Web Developer">
                <h1>Edwin Huitz </h1>
-               <h3 style={{color:"white"}}><u>Full-Stack Developer</u></h3><br/>
+               <h3 style={{color:"white"}}><u>Full-Stack Web Developer</u></h3><br/>
                <p>{skill}<span className="cursor">|</span> Developer.</p>
             </div>
          </section>
          <main id="main">
-            <section id="about" className="about">
+            <section id="about" className="about" title="About Me">
                <div className="container">
                   <div className="section-title">
                      <h2>About</h2>
@@ -76,7 +93,7 @@ export default function Portfolio(){
             </section>
             <section id="skills" className="about skills section-bg">
                <div className="container">
-                  <div className="section-title">
+                  <div className="section-title" title="My Skills">
                      <h2>Skills</h2>
                   </div>
                <div className="row">
@@ -114,55 +131,58 @@ export default function Portfolio(){
             </section>
             <section id="portfolio" className="portfolio section-bg">
                <div className="container">
-                  <div className="section-title">
+                  <div className="section-title" title="My Portfolio">
                      <h2>Portfolio</h2>
                      <p>The items below are a select number of projects that I have worked with and/or built independently.</p>
                   </div>
                   <div className="row" data-aos="fade-up">
                      <div className="col-lg-12 d-flex justify-content-center">
                         <ul id="portfolio-flters">
-                        <li data-filter="*" className="filter-active">All</li>
-                        <li data-filter=".filter-react">React</li>
-                        <li data-filter=".filter-javascript">Java-Script</li>
-                        <li data-filter=".filter-django">Django</li>
-                        <li data-filter=".filter-python">Python</li>
+                        <li title="All" data-filter="*" className="filter-active">All</li>
+                        <li title="React" data-filter=".filter-react">React</li>
+                        <li title="Java-Script" data-filter=".filter-javascript">Java-Script</li>
+                        <li title="Django" data-filter=".filter-django">Django</li>
+                        <li title="Python" data-filter=".filter-python">Python</li>
                         </ul>
                      </div>
                   </div>
                   <div className="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
                      <div className="col-lg-4 col-md-6 portfolio-item filter-javascript filter-react">
-                        <div className="portfolio-wrap">
-                           <img src="assets/img/portfolio/weather.png" className="img-fluid" alt=""/>
+                        <div className="portfolio-wrap" title="Daily Weather Forcast">
+                           <img src="assets/img/portfolio/weather.png" className="img-fluid" alt="Daily Weather Forecast"/>
                            <div className="portfolio-links">
-                              <a href="assets/img/portfolio/weather.png" data-gall="portfolioGallery" className="venobox" title="Daily Weather Forcast"><i className="bx bx-zoom-in"></i></a>
-                              <a href="/weather" title="More Details"><i className="bx bx-link"></i></a>
+                              <a href="assets/img/portfolio/weather.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                              <a href="/weather" title="View Project"><i className="bx bx-link"></i></a>
+                              {/* <a href="/weather" title="View Project"><i className="bx bx-link"></i></a> */}
                            </div>
                         </div>
                      </div>
                      <div className="col-lg-4 col-md-6 portfolio-item filter-javascript">
-                        <div className="portfolio-wrap">
-                           <img src="assets/img/portfolio/game.png" className="img-fluid" alt=""/>
+                        <div className="portfolio-wrap" title="Arcade Game">
+                           <img src="assets/img/portfolio/game.png" className="img-fluid" alt="Arcade Game"/>
                            <div className="portfolio-links">
-                              <a href="assets/img/portfolio/game.png" data-gall="portfolioGallery" className="venobox" title="Arcade Game"><i className="bx bx-zoom-in"></i></a>
-                              <a href="http://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer" title="More Details"><i className="bx bx-link"></i></a>
+                              <a href="assets/img/portfolio/game.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                              <a href="http://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer" title="View Project"><i className="bx bx-link"></i></a>
+                              <a href="https://github.com/EdwinHuitz/arcade-game/" target="_blank" rel="noreferrer" title="View Source Code"><i className="bx bx-code-curly"></i></a>
                            </div>
                         </div>
                      </div>
                      <div className="col-lg-4 col-md-6 portfolio-item filter-django filter-python">
-                        <div className="portfolio-wrap">
-                           <img src="assets/img/portfolio/HAT.png" className="img-fluid" alt=""/>
+                        <div className="portfolio-wrap" title="Honest Apartment Testimonies">
+                           <img src="assets/img/portfolio/HAT.png" className="img-fluid" alt="Honest Apartment Testimonies"/>
                            <div className="portfolio-links">
-                              <a href="assets/img/portfolio/HAT.png" data-gall="portfolioGallery" className="venobox" title="Honest Apartment Testimonies"><i className="bx bx-zoom-in"></i></a>
-                              <a href="https://bigmacwithbacon.herokuapp.com/" target="_blank" rel="noreferrer" title="More Details"><i className="bx bx-link"></i></a>
+                              <a href="assets/img/portfolio/HAT.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                              <a href="https://bigmacwithbacon.herokuapp.com/" target="_blank" rel="noreferrer" title="View Project"><i className="bx bx-link"></i></a>
+                              <a href="https://github.com/EdwinHuitz/h-a-t/" target="_blank" rel="noreferrer" title="View Source Code"><i className="bx bx-code-curly"></i></a>
                            </div>
                         </div>
                      </div>
                      <div className="col-lg-4 col-md-6 portfolio-item filter-python">
-                        <div className="portfolio-wrap">
-                           <img src="assets/img/portfolio/covid.png" className="img-fluid" alt=""/>
+                        <div className="portfolio-wrap" title="Covid-19 World-Wide Statistics">
+                           <img src="assets/img/portfolio/covid.png" className="img-fluid" alt="Covid-19 World-Wide Statistics"/>
                            <div className="portfolio-links">
-                              <a href="assets/img/portfolio/covid.png" data-gall="portfolioGallery" className="venobox" title="Covid-19 World-Wide Statistics"><i className="bx bx-zoom-in"></i></a>
-                              <a href="https://github.com/EdwinHuitz/python-applets" target="_blank" rel="noreferrer" title="More Details"><i className="bx bx-link"></i></a>
+                              <a href="assets/img/portfolio/covid.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                              <a href="https://github.com/EdwinHuitz/python-applets/" target="_blank" rel="noreferrer" title="View Source Code"><i className="bx bx-code-curly"></i></a>
                            </div>
                         </div>
                      </div>
@@ -171,7 +191,7 @@ export default function Portfolio(){
             </section>
             <section id="contact" className="contact">
                <div className="container">
-                  <div className="section-title">
+                  <div className="section-title" title="Contact Me">
                      <h2>Contact</h2>
                      <p>I am located in the DMV area and am willing to travel and/or relocate if necessary. For all inquiries I can be reached via phone or email, but you may also reach me seamlessly by using the form below.</p>
                   </div>
@@ -194,34 +214,41 @@ export default function Portfolio(){
                      </div>
                      <div className="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
                         <form id ="contact-form" onSubmit={validateForm} className="email-form">
-                        <div className="form-row">
-                           <div className="form-group col-md-6">
-                              <label htmlFor="name">Your Name</label>
-                              <input type="text" name="name" className="form-control" id="name" onChange={(e)=>updateValues(e)} />
-                              <div>{(formI.name.length>0 && formI.name.length<2)?<b style={{color:"red"}}>Please enter a valid name</b>:''}</div>
-                           </div>
-                           <div className="form-group col-md-6">
-                              <label htmlFor="name">Your Email</label>
-                              <input type="text" className="form-control" name="email" id="email" value={formI.email} onChange={(e)=>updateValues(e)} />
-                              <div>
-                                 {(formI.email.length>0 && ((!formI.email.match(/[@]/) && !formI.email.match(/[.]/)) ||
-                                    (!formI.email.match(/[@]/) && formI.email.match(/[.]/)) ||
-                                    (!formI.email.match(/[.]/) && formI.email.match(/[@]/)) || !formI.email.match(/[a-zA-Z]$/g)))?
-                                    <b style={{color:"red"}}>Please enter a valid email address</b>:''}
+                           <div className="form-row">
+                              <div className="form-group col-md-6">
+                                 <label htmlFor="name">Your Name</label>
+                                 <input type="text" name="name" title="Name" className="form-control" id="name" onChange={(e)=>updateValues(e)} />
+                                 <div>{(formI.name.length>0 && formI.name.length<2)?<b style={{color:"red"}}>Please enter a valid name</b>:''}</div>
+                              </div>
+                              <div className="form-group col-md-6">
+                                 <label htmlFor="name">Your Email</label>
+                                 <input type="text" className="form-control" name="email" title="E-Mail Address" id="email" value={formI.email} onChange={(e)=>updateValues(e)} />
+                                 <div>
+                                    {(formI.email.length>0 && ((!formI.email.match(/[@]/) && !formI.email.match(/[.]/)) ||
+                                       (!formI.email.match(/[@]/) && formI.email.match(/[.]/)) ||
+                                       (!formI.email.match(/[.]/) && formI.email.match(/[@]/)) || !formI.email.match(/[a-zA-Z]$/g)))?
+                                       <b style={{color:"red"}}>Please enter a valid email address</b>:''}
+                                 </div>
                               </div>
                            </div>
-                        </div>
-                        <div className="form-group">
-                           <label htmlFor="name">Subject</label>
-                           <input type="text" className="form-control" name="subject" id="subject" value={formI.subject} onChange={(e)=>updateValues(e)} />
-                           <div>{(formI.subject.length>0 && formI.subject.length<5)?<b style={{color:"red"}}>Please enter a subject with a minimum of 5 characters</b>:''}</div>
-                        </div>
-                        <div className="form-group">
-                           <label htmlFor="name">Message</label>
-                           <textarea className="form-control" name="message" id="message" rows="10" value={formI.message} onChange={(e)=>updateValues(e)} ></textarea>
-                           <div>{(formI.message.length>0 && formI.message.length<10)?<b style={{color:"red"}}>Please enter a message with a minimum of 10 characters</b>:''}</div>
-                        </div>
-                        <div className="text-center"><button type="submit" disabled={formI.name.length<2 && formI.email.length<6 && formI.subject.length<5 && formI.message.length<10}>{msg===0?<span style={{fontSize:'1.1em'}}>Send Message</span>:msg===1?<><i className="refreshSpin bx bx-loader" style={{fontSize:'1.1em'}}></i><span style={{fontSize:'1.1em'}}> Sending...</span></>:msg===2?<i className="bx bx-check" style={{fontSize:'1.1em'}}> Success!</i>:<i className="bx bx-error" style={{fontSize:'1.1em'}}> Error!</i>}</button></div>
+                           <div className="form-group">
+                              <label htmlFor="name">Subject</label>
+                              <input type="text" className="form-control" name="subject" title="Subject" id="subject" value={formI.subject} onChange={(e)=>updateValues(e)} />
+                              <div>{(formI.subject.length>0 && formI.subject.length<5)?<b style={{color:"red"}}>Please enter a subject with a minimum of 5 characters</b>:''}</div>
+                           </div>
+                           <div className="form-group">
+                              <label htmlFor="name">Message</label>
+                              <textarea className="form-control" name="message" title="Message" id="message" rows="10" value={formI.message} onChange={(e)=>updateValues(e)} ></textarea>
+                              <div>{(formI.message.length>0 && formI.message.length<10)?<b style={{color:"red"}}>Please enter a message with a minimum of 10 characters</b>:''}</div>
+                           </div>
+                           <div className="text-center">
+                              <button type="submit" title="Send Message" disabled={formI.name.length<2 && formI.email.length<6 && formI.subject.length<5 && formI.message.length<10}>
+                                 {msg===0?<span style={{fontSize:'1.1em'}}>Send Message</span>:
+                                 msg===1?<><i className="refreshSpin bx bx-loader" style={{fontSize:'1.1em'}}></i><span style={{fontSize:'1.1em'}}> Sending...</span></>:
+                                 msg===2?<i className="bx bx-check" style={{fontSize:'1.1em'}}> Success!</i>:
+                                 <i className="bx bx-error" style={{fontSize:'1.1em'}}> Error!</i>}
+                              </button>
+                           </div>
                         </form>
                      </div>
                   </div>
