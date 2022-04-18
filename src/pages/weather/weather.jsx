@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import './weather.css';
-import Footer from '../../components/footer'
 import axios from 'axios';
 import {currentTime,weekDay} from '../../plugins/localTime.js'
 export default function Weather() {
@@ -65,7 +64,7 @@ export default function Weather() {
         <div className='wApp'>
           <header className="App-header">{(info!=null)?<h4>{dateTime[0]+', '+dateTime[1]} | {weekDay()+' '+currentTime()}</h4>:''}</header>
           {info!=null?
-            <main className='weatherBox'>
+            <div className='weatherBox'>
               <div className="tempBox">
                 <div className="iconS"><i className={getIcon()}></i></div>
                 <div className="mainS">{Math.round(info.main.temp)}°F</div>
@@ -76,13 +75,12 @@ export default function Weather() {
                 <div className="bottomA"><i className="bx bx-upvote"></i> {Math.round(info.main.temp_max)}°F<br/><i className="bx bx-downvote"></i> {Math.round(info.main.temp_min)}°F</div>
                 <div className="bottomB"><i className="bx bx-droplet"></i> {Math.round(info.main.humidity)}%<br/><i className="bx bx-wind"></i> {Math.round(info.wind.speed)} MPH</div>
               </div>
-            </main>
+            </div>
           :
             <><h5>Click the button below to take a look at today's weather forecast</h5><br/>
             <button className="wBtn" onClick={getCoords}><i className={"refresh "+spin+" bx bx-refresh"}></i></button></>
           }
         </div>
-        <Footer color={['#040b14','white']} />
     </>
   );
 }

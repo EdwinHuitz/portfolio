@@ -1,0 +1,11 @@
+footer{
+   position:fixed;
+   z-index:998;
+   bottom:0;
+   width:100vw;
+}
+footer div{
+   display:flex;
+   justify-content:center;
+}
+/* @media(max-width:1199px){} */
