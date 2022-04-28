@@ -53,14 +53,21 @@ div #portfolio_main{
    opacity:.4;
    margin-top:-10px;
 }
+.portfolio_links button{
+   margin:0px;
+   padding:0px;
+   background:none;
+   border:none;
+   color:#149ddd;
+   opacity:.4;
+}
 .portfolio_links a{
    opacity:.4;
 }
-.portfolio_links:hover, .portfolio_links a:hover{
+.portfolio_links:hover, .portfolio_links a:hover, .portfolio_links button:hover{
    opacity:1;
 }
 #left-chev, #right-chev{
-   z-index:1000;
    position:fixed;
    top:45vh;
    color:white;
@@ -69,10 +76,26 @@ div #portfolio_main{
    width:5vw;
    text-align:center;
    box-shadow:0px 0px 10px white;
-   text-shadow: 0 0 10px white;
+   text-shadow: 0px 0px 10px white;
    border-radius: 10px;
 }
-#left-chev:hover,#right-chev:hover{
+#exit-btn{
+   position:fixed;
+   background:none;
+   border:none;
+   padding:0px;
+   width:1.5em;
+   height:1.75em;
+   top:1vh;
+   right:1vw;
+   color:white;
+   font-size:2em;
+   text-align:center;
+   box-shadow: 0px 0px 10px white;
+   text-shadow: 0px 0px 10px white;
+   border-radius:10px;
+}
+#left-chev:hover,#right-chev:hover,#exit-btn:hover{
    transition: all 0.3s ease-in-out;
    background-color:#149ddd;
 }
@@ -82,11 +105,28 @@ div #portfolio_main{
 #right-chev{
    right:10px;
 }
+#zoom-img{
+   height:90vh;
+   width:74vw;
+   position:fixed;
+   top:5vh;
+   left:19.5vw;
+}
 .hide{
    display:none;
 }
 .show{
+   z-index:10000;
+}
+.zoom-bg{
    display:block;
+   position:fixed;
+   opacity:.75;
+   top:0px;
+   left:10vw;
+   width:95vw;
+   height:100vh;
+   background-color:black;
 }
 @media(max-width:1199px){
    div #main{
@@ -100,4 +140,15 @@ div #portfolio_main{
    #left-chev{left:10px;}
    .projects{margin-left:0px;}
    .portfolio_item{margin-left:0px;}
+   #exit-btn{
+      left:1vw;
+   }
+   .zoom-bg{
+      left:0px;
+      width:100vw;
+      height:100vh;
+   }
+   #zoom-img{
+      left:12vw;
+   }
 }
