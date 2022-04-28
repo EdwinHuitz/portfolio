@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react"
 import './home.css'
 //!Add stars to background
-export default function Home(props){
+export default function Home(){
    useEffect(() => {
       let i=0
       let erase=false
@@ -41,7 +41,7 @@ export default function Home(props){
    const [skill,setSkill]=useState('')
    return(
       <div id="home" className="d-flex justify-content-center align-items-center">
-         <div className="hero-container" title="Edwin Huitz: Full-Stack Web Developer">
+         <div className="name" title="Edwin Huitz: Full-Stack Web Developer">
             <h1>Edwin Huitz</h1>
             <div className="links mt-3 text-center">
                <a href="mailto:edwinhuitz@gmail.com" title="My E-Mail"><i className="bx bx-envelope"></i></a>

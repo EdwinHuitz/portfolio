@@ -30,13 +30,13 @@ export default function Nav(){
    }
 
    let hash= window.location.hash
-   let tags=['#home','#portfolio','#game','#weather','#contact']
+   let tags=['#home','#portfolio','#game','#weather','#shopping','#contact']
    return(
       <>
          <button type="button" className="mobile-nav-toggle d-xl-none" title={(n===0)?"Open Navigation Menu":"Close Navigation Menu"} onClick={toggleMenu}>
             <i className="bx bx-menu"></i>
          </button>
-         <header id="header" ref={header} style={{backgroundColor:hash===tags[4]?"#0B1828":"#040b14"}}>
+         <header id="header" ref={header} style={{backgroundColor:hash===tags[1]?"#0F052E":hash===tags[5]?"#0B1828":"#040b14"}}>
             <div className="d-flex flex-column">
                <nav className="nav-menu">
                   <ul>
@@ -53,6 +53,9 @@ export default function Nav(){
                         <a href="/#weather" ><i className="bx bx-cloud-lightning"></i> Weather</a>
                      </li>
                      <li className={hash===tags[4]?"active":""}>
+                        <a href="#shopping" ><i className="bx bx-cart"></i> Shopping Page</a>
+                     </li>
+                     <li className={hash===tags[5]?"active":""}>
                         <a href="/#contact" ><i className="bx bx-envelope"></i> Contact</a>
                      </li>
                   </ul>

@@ -1,23 +1,18 @@
 #home {
-   width: 100vw;
-   height: 100vh;
-   margin-left:-20vw;
-   background-size: cover;
+   margin:0px;
    transition: all 0.3s ease-in-out;
 }
 
-@media(max-width:1199px){
+/* @media(max-width:1199px){
    #home{margin-left:0px}
-}
+} */
 
-#home .hero-container {
+#home .name {
    position: relative;
-   z-index: 2;
    min-width: 300px;
 }
 
 #home h1 {
-   margin: 0 0 10px 0;
    font-size: 64px;
    font-weight: 700;
    line-height: 56px;
@@ -40,10 +35,5 @@
    #home h1 {
       font-size: 28px;
       line-height: 36px;
-   }
-   #home h2 {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 30px;
    }
 }

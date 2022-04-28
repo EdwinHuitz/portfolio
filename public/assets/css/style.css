@@ -18,16 +18,17 @@ a:hover {
 }
 
 #main {
-  width:80vw;
-  margin-left: 20vw;
+  display:flex;
+  justify-content: center;
+  align-self: center;
+  width:100vw;
 }
 
-@media (max-width: 1199px) {
+/* @media (max-width: 1199px) {
   #main {
     width:100vw;
-    margin-left: 0;
   }
-}
+} */
 
 .links{
   padding:1em;
@@ -53,10 +54,7 @@ a:hover {
   color: #fff;
   text-decoration: none;
 }
-/*--------------------------------------------------------------
-# Sections General
---------------------------------------------------------------*/
-section {
+/* section {
   padding: 60px 0;
   overflow: hidden;
 }
@@ -93,9 +91,6 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# About
---------------------------------------------------------------*/
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
@@ -121,9 +116,7 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
+
 .portfolio .portfolio-item {
   margin-bottom: 30px;
 }
@@ -221,9 +214,7 @@ section {
   bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
+
 .breadcrumbs {
   padding: 20px 0;
   background: #f9f9f9;
@@ -266,9 +257,7 @@ section {
   }
 }
 
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
+
 .portfolio-details {
   padding-top: 40px;
 }
@@ -351,4 +340,4 @@ section {
     position: static;
     margin-top: 30px;
   }
-}
+} */

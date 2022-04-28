@@ -3,6 +3,7 @@ footer{
    z-index:998;
    bottom:0;
    width:100vw;
+   transition: all 0.3s ease-in-out;
 }
 footer div{
    display:flex;

@@ -1,0 +1,61 @@
+import React from 'react'
+import './portfolio.css'
+
+export default function Portfolio(){
+   //! This will be a carousel with circular motions and a zoom-in ability for the screenshots. the screenshots will also include links and titles which become visible on hover
+
+   return(
+   <div id="portfolio_main" className="col">
+      <div className="row hide">
+         <i id="left-chev" className="bx bx-chevron-left"></i>
+         <i id="right-chev" className="bx bx-chevron-right"></i>
+      </div>
+      <div className="sample_list">
+         <h2>Portfolio</h2><br/>
+         <p>My name is Edwin Huitz and I am a full-stack developer. I have spent over 480 hours total training in web development as part of a fellowship with the multinational corporation General Assembly. During this time I worked my way up to becoming a full-stack developer by spending hundreds of hours coding alongside teammates to build high quality websites, some of which can be seen below in my portfolio.</p><br/>
+         <hr /><br/>
+         <p>The items below are a select number of projects that I have worked with and/or built independently.</p>
+         <div className="row">
+            {/* <div className="col-lg-12 d-flex justify-content-center">
+               <table>
+                  <tr>
+                     <td >All</td>
+                     <td className="median">|</td>
+                     <td>React</td>
+                     <td className="median">|</td>
+                     <td>JavaScript</td>
+                     <td className="median">|</td>
+                     <td>Django</td>
+                  </tr>
+               </table>
+            </div> */}
+         </div><br/>
+         <div className="projects d-flex justify-content-evenly">
+            <div className="portfolio_item" title="Arcade Game">
+               <img src="assets/img/portfolio/game.png" className="img-fluid" alt="Arcade Game"/>
+               <div className="portfolio_links">
+                  <a href="assets/img/portfolio/game.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                  <a href="https://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer" title="View Project"><i className="bx bx-link"></i></a>
+                  <a href="https://github.com/EdwinHuitz/arcade-game/" target="_blank" rel="noreferrer" title="View Source Code"><i className="bx bx-code-curly"></i></a>
+               </div>
+            </div>
+            <div className="portfolio_item" title="Daily Weather Forcast">
+               <img src="assets/img/portfolio/weather.png" className="img-fluid" alt="Daily Weather Forcast"/>
+               <div className="portfolio_links">
+                  <a href="assets/img/portfolio/weather.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                  <a href="/#weather" target="_blank" rel="noreferrer" title="View Project"><i className="bx bx-link"></i></a>
+                  <a href="https://github.com/EdwinHuitz/portfolio/src/pages/weather/" target="_blank" rel="noreferrer" title="View Source Code"><i className="bx bx-code-curly"></i></a>
+               </div>
+            </div>
+            <div className="portfolio_item" title="Honest Apartment Testimonies">
+               <img src="assets/img/portfolio/HAT.png" className="img-fluid" alt="Honest Apartment Testimonies"/>
+               <div className="portfolio_links">
+                  <a href="assets/img/portfolio/HAT.png" data-gall="portfolioGallery" className="venobox" title="More Details"><i className="bx bx-zoom-in"></i></a>
+                  <a href="https://bigmacwithbacon.herokuapp.com/" target="_blank" rel="noreferrer" title="View Project"><i className="bx bx-link"></i></a>
+                  <a href="https://github.com/EdwinHuitz/h-a-t/" target="_blank" rel="noreferrer" title="View Source Code"><i className="bx bx-code-curly"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>)
+}
