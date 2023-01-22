@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './portfolio.css'
 
 export default function Portfolio(){
-   //! needs more animations and title for zoomed in images
+   //! needs more animations, links, and titles for zoomed in images
    const [bigPic,setPic] = useState(0)
    const pic = ["game","game","weather","HAT"]
    const descr = ["JavaScript based browser game","JavaScript based browser game","React.js weather app","Python Django based Apartments rating website"]

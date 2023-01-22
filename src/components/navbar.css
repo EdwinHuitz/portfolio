@@ -1,7 +1,7 @@
 #header {
    position: fixed;
    top: 0;
-   left: 0;
+   left: -110vw;
    bottom: 0;
    width: 14.5vw;
    transition: all ease-in-out 0.3s;
@@ -48,7 +48,6 @@
 
 @media (max-width: 1199px) {
    #header {
-      left: -110vw;
       width:60vw;
    }
 }
@@ -98,7 +97,7 @@
 /* Mobile Navigation */
 .mobile-nav-toggle {
    position: fixed;
-   right: 10px;
+   left: 10px;
    top: 10px;
    z-index: 9998;
    border: 0;
