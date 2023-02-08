@@ -4,10 +4,10 @@
    min-height:100vh;
    min-width:100vw;
    padding-top:10vh;
-   padding-left:10vw;
+   margin-left:-5vw;
  }
 .contact h2{
-   margin-left:-5vw;
+   /* margin-left:-5vw; */
    color:white;
 }
 .contact .info {
@@ -31,12 +31,14 @@
    border-radius: 50px;
 }
 
-.contact .info h4 {
-padding: 0 0 0 60px;
-font-size: 22px;
-font-weight: 600;
-margin-bottom: 5px;
-color: #050d18;
+.contact .infoDetail {
+padding-bottom: 20px;
+}
+
+.contact .info .infoDetail h5 {
+   font-size: 15px;
+   font-weight: 600;
+   color: #050d18;
 }
 
 .contact .info p {
@@ -78,10 +80,10 @@ color: #173b6c;
  }
 @media(max-width:1199px){
    .contact{
-      padding-top:0px;
-      padding-left:0px;
+      padding:10px;
       width:90vw;
       height:90vh;
+      margin:0vw;
    }
    .contact .info {
       position:absolute;
@@ -89,8 +91,9 @@ color: #173b6c;
       display:none;
    }
    .contact .email-form {
-      width:90vw;
+      width:99vw;
       box-shadow: 0px 0px 20px 10px #172B3E;
+      margin-left:-51vw;
    }
 }
 .hiddenphone {

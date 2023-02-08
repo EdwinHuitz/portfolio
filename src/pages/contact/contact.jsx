@@ -39,15 +39,13 @@ export default function Contact(){
          <div className="row align-items-end offset-md-1">
             <div id="location_box" className="col">
                <div className="info">
-                  <div className="address">
+                  <div className="infoDetail">
                      <i className="bx bx-map"></i>
-                     <h4>Location:</h4>
-                     <p>Washington, DC</p>
+                     <h5>Washington, DC</h5>
                   </div>
-                  <div className="phone">
+                  <div className="infoDetail">
                      <i className="bx bx-phone"></i>
-                     <h4>Call:</h4>
-                     <p>(<span className="hiddenphone">01</span><span>2</span><span className="hiddenphone">01</span><span>4</span><span className="hiddenphone">02</span><span>0</span><span className="hiddenphone">03</span>) - <span>7</span><span className="hiddenphone">05</span><span>2</span><span className="hiddenphone">08</span><span>2</span><span className="hiddenphone">13</span> - <span>8</span><span className="hiddenphone">21</span><span>7</span><span className="hiddenphone">34</span><span>7</span><span className="hiddenphone">55</span><span>1</span><span className="hiddenphone">89</span></p>
+                     <h5>(<span className="hiddenphone">01</span><span>2</span><span className="hiddenphone">01</span><span>4</span><span className="hiddenphone">02</span><span>0</span><span className="hiddenphone">03</span>) - <span>7</span><span className="hiddenphone">05</span><span>2</span><span className="hiddenphone">08</span><span>2</span><span className="hiddenphone">13</span> - <span>8</span><span className="hiddenphone">21</span><span>7</span><span className="hiddenphone">34</span><span>7</span><span className="hiddenphone">55</span><span>1</span><span className="hiddenphone">89</span></h5>
                   </div>
                   <iframe title="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d397483.9561786603!2d-77.29476234483174!3d38.893261661226475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6de5af6e45b%3A0xd6e28ec00254a198!2sDistrict%20of%20Columbia!5e0!3m2!1sen!2sus!4v1603425816092!5m2!1sen!2sus>" frameBorder="0" style={{border:"0", borderRadius:"5px", width: "100%", height: "30vh"}} allowFullScreen></iframe>
                </div>
