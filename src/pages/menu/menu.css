@@ -1,0 +1,27 @@
+.menuNav{
+   position:absolute;
+   top:0px;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   padding:0px;
+   margin:0px;
+}
+.menuNav .title{
+   font-size:3em;
+   font-weight:bolder;
+}
+.menuNav .tabs{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+}
+.tabs button{
+   text-align:center;
+   text-decoration: none;
+   background:none;
+   border:none;
+}
+.tabs button:hover{
+   color:#149ddd;
+}

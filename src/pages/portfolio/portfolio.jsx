@@ -5,7 +5,7 @@ export default function Portfolio(){
    //! needs more animations, links, and titles for zoomed in images
    const [bigPic,setPic] = useState(0)
    const pic = ["game","game","weather","HAT"]
-   const descr = ["JavaScript based browser game","JavaScript based browser game","React.js weather app","Python Django based Apartments rating website"]
+   const descriptions = ["JavaScript based browser game","JavaScript based browser game","React.js weather app","Python Django based Apartments rating website"]
    function move(dir){
       if(dir===0){
          bigPic <= 1?setPic(pic.length-1):
@@ -70,7 +70,7 @@ export default function Portfolio(){
       </div>
       <div className={bigPic===0?"row hide":"row show"}>
          <span className="zoom-bg"></span>
-         <img id="zoom-img" src={"assets/img/portfolio/"+pic[bigPic]+".png"} alt={descr[bigPic]} />
+         <img id="zoom-img" src={"assets/img/portfolio/"+pic[bigPic]+".png"} alt={descriptions[bigPic]} />
          <i id="left-chev" className="bx bx-chevron-left" onClick={()=>move(0)}></i>
          <i id="right-chev" className="bx bx-chevron-right" onClick={()=>move(1)}></i>
          <button id="exit-btn" onClick={()=>setPic(0)}>X</button>
