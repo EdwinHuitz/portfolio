@@ -1,27 +1,75 @@
+.menuWrap{
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+}
 .menuNav{
-   position:absolute;
-   top:0px;
    display:flex;
    flex-direction: column;
    justify-content: center;
    padding:0px;
    margin:0px;
 }
+.menuNav hr{
+   background-color: #149ddd;
+   align-self: center;
+   width:60%;
+   height:5px;
+}
 .menuNav .title{
-   font-size:3em;
+   font-size:2em;
    font-weight:bolder;
 }
-.menuNav .tabs{
+.menuNav .tabs {
+   width:60vw;
    display: flex;
    flex-direction: row;
    justify-content: space-evenly;
 }
 .tabs button{
+   padding:2%;
+   color:#149ddd;
    text-align:center;
    text-decoration: none;
    background:none;
    border:none;
+   border-radius: 10%;
+   transition: 0.5s ease-in-out;
 }
 .tabs button:hover{
+   background-color:#149ddd;
+   color:white;
+}
+.menuItem{
+   display:flex;
+   flex-direction: row;
+   width:50vw;
+}
+.menuItem img{
+   width:auto;
+   height:15vh;
+   margin-right:1vw;
+   border:solid #149ddd;
+}
+.foodText{
+   display:flex;
+   padding:0px;
+   margin:0px;
+   justify-content: space-between;
+}
+.foodDetail{
+   display:flex;
+   flex-direction: column;
+   width:40vw;
+}
+.foodDetail hr{
    color:#149ddd;
+}
+.foodPrice{
+   color:#149ddd;
+}
+@media (max-width: 1080px) {
+   img{
+      height:33vh;
+   }
 }
