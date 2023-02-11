@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './menu.css'
 
 export default function Menu(){
+   const [cat,setCat]=useState(3)
 
    let arr=[[0,"Pancakes"],[0,"Waffles"],[0,"Omelette"],[0,"Biscuits & Gravy"],[0,"Eggs Benedict"],[0,"Hashbrown"],[1,"Loaded Fries"],[1,"Bacon Cheeseburger"],[1,"Reuben Sandwich"],[2,"Milkshake"],[2,"Iced-Tea"],[2,"Coffee"]];
    let path="assets/img/food/"
+
    function menuItems(foodType,foodName){
       let newName=''
       let newPath=''
@@ -15,8 +17,9 @@ export default function Menu(){
       else{
          newPath = path+foodName+".jpg"
       }
+      console.log(foodType)
          return (<>
-               <div className="menuItem" id={foodType}>
+               <div className="menuItem" id={foodType} style={{display:foodType===cat?'flex':cat===3?'flex':'none'}}>
                      <img src={newPath} alt="" className="foodPic"></img>
                      <div className="foodDetail">
                         <span className="foodText"><b>{foodName}</b> <b className="foodPrice">$15</b></span>
@@ -28,13 +31,14 @@ export default function Menu(){
    
    }
    //!restaurant menu similar to this page https://react-projects-5-menu.netlify.app/
+   
    return(
    <>
       <div className="menuWrap">
          <div className="menuNav">
             <h1 className="title">Sunny's Diner</h1>
             <hr/>
-            <h3 className="tabs"><button>All</button><button>Breakfast</button><button>Lunch</button><button>Drinks</button>
+            <h3 className="tabs"><button onClick={()=>setCat(3)}>All</button><button onClick={()=>setCat(0)}>Breakfast</button><button onClick={()=>setCat(1)}>Lunch</button><button onClick={()=>setCat(2)}>Drinks</button>
             </h3>
          </div>
          <div className="menuList">
