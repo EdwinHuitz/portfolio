@@ -4,16 +4,18 @@
    justify-content: center;
 }
 .menuNav{
+   align-items: flex-start center;
    display:flex;
    flex-direction: column;
-   justify-content: center;
    padding:0px;
    margin:0px;
+   margin-top:10vh;
+   margin-bottom:10vh;
 }
 .menuNav hr{
    background-color: #149ddd;
    align-self: center;
-   width:60%;
+   width:20vw;
    height:5px;
 }
 .menuNav .title{
@@ -21,13 +23,16 @@
    font-weight:bolder;
 }
 .menuNav .tabs {
-   width:60vw;
    display: flex;
    flex-direction: row;
-   justify-content: space-evenly;
+   justify-content: center;
 }
 .tabs button{
-   padding:2%;
+   padding:10px;
+   margin-left:10px;
+   margin-right:10px;
+   padding-top:1px;
+   padding-bottom:1px;
    color:#149ddd;
    text-align:center;
    text-decoration: none;
@@ -40,10 +45,18 @@
    background-color:#149ddd;
    color:white;
 }
-.menuItem{
-   display:flex;
+.menuList{
+   width: 90vw;
+   display: flex;
    flex-direction: row;
-   width:50vw;
+   justify-content: space-evenly;
+   flex-wrap:wrap;
+}
+.menuItem{
+   display: flex;
+   flex-direction: row;
+   width:40vw;
+   height:25vh;
 }
 .menuItem img{
    width:auto;
@@ -71,5 +84,16 @@
 @media (max-width: 1080px) {
    img{
       height:33vh;
+   }
+   .menuList{
+      width:100vw;
+      padding-left:22vw;
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+   }
+   .menuItem{
+      width:90vw;
+      height:40vh;
    }
 }
