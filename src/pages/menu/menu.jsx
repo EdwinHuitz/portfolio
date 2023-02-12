@@ -17,7 +17,6 @@ export default function Menu(){
       else{
          newPath = path+foodName+".jpg"
       }
-      console.log(foodType)
          return (<>
                <div className="menuItem" id={foodType} style={{display:foodType===cat?'flex':cat===3?'flex':'none'}}>
                      <img src={newPath} alt="" className="foodPic"></img>
