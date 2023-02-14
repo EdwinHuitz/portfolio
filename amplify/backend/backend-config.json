@@ -8,47 +8,15 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "mainServices"
+          "resourceName": "mainLambda"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     }
   },
-  "auth": {
-    "portfolio": {
-      "dependsOn": [],
-      "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
-        },
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito",
-      "serviceType": "managed"
-    }
-  },
   "function": {
-    "mainServices": {
-      "build": true,
-      "dependsOn": [],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "servicesLambda": {
+    "mainLambda": {
       "build": true,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
@@ -56,51 +24,27 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_mainServices_deploymentBucketName": {
+    "AMPLIFY_function_mainLambda_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "mainServices"
+          "resourceName": "mainLambda"
         }
       ]
     },
-    "AMPLIFY_function_mainServices_s3Key": {
+    "AMPLIFY_function_mainLambda_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "mainServices"
+          "resourceName": "mainLambda"
         }
       ]
     },
-    "AMPLIFY_function_mainServices_secretsPathAmplifyAppId": {
+    "AMPLIFY_function_mainLambda_secretsPathAmplifyAppId": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "mainServices"
-        }
-      ]
-    },
-    "AMPLIFY_function_servicesLambda_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "servicesLambda"
-        }
-      ]
-    },
-    "AMPLIFY_function_servicesLambda_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "servicesLambda"
-        }
-      ]
-    },
-    "AMPLIFY_function_servicesLambda_secretsPathAmplifyAppId": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "servicesLambda"
+          "resourceName": "mainLambda"
         }
       ]
     }

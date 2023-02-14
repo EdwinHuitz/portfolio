@@ -14,7 +14,7 @@ export default function Weather() {
     console.log('fetching data...')
     let loc = gps.coords
     let unit = 'imperial'
-    let des = 'https://lwvckcq8u6.execute-api.us-east-1.amazonaws.com/dev'
+    let des = 'https://6xiseb1eui.execute-api.us-east-1.amazonaws.com/dev'
     axios.defaults.baseURL = "https://" + window.location.hostname
     try{
       await axios.get(des,{params:{data:'weather',long:loc.longitude,lat:loc.latitude,unit:unit}})

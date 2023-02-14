@@ -3,7 +3,7 @@
   "paths": {
     "/services": {
       "name": "/services",
-      "lambdaFunction": "mainServices",
+      "lambdaFunction": "mainLambda",
       "permissions": {
         "setting": "open"
       }

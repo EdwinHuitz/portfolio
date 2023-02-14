@@ -50,12 +50,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "mainServices",
+            "mainLambda",
             {
               "Fn::Join": [
                 "",
                 [
-                  "mainServices",
+                  "mainLambda",
                   "-",
                   {
                     "Ref": "env"
@@ -87,7 +87,7 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "mainServices"
+                        "functionName": "mainLambda"
                       }
                     ]
                   },
@@ -109,7 +109,7 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "mainServices"
+                        "functionName": "mainLambda"
                       }
                     ]
                   },
@@ -136,12 +136,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "portfolioLambdaRole7bdf9ad3",
+            "portfolioLambdaRolede75ce51",
             {
               "Fn::Join": [
                 "",
                 [
-                  "portfolioLambdaRole7bdf9ad3",
+                  "portfolioLambdaRolede75ce51",
                   "-",
                   {
                     "Ref": "env"
@@ -292,7 +292,7 @@
                           "env": {
                             "Ref": "env"
                           },
-                          "functionName": "mainServices"
+                          "functionName": "mainLambda"
                         }
                       ]
                     },

@@ -39,6 +39,7 @@ app.use(function(req, res, next) {
   next()
 });
 
+
 const data = require('../../../../../controllers/data')
 const mailer = require('../../../../controllers/mailer')
 
@@ -53,6 +54,9 @@ app.get('/',async (req,res)=>{
   res.send(rep)
 })
 app.post('/:mail',mailer)
+
+
+
 /**********************
  * Example get method *
  **********************/
