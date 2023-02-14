@@ -1,6 +1,6 @@
 const axios=require('axios')
-const locationKey=process.env.REACT_APP_ENV_API_KEY.LOCATION
-const weatherKey=process.env.REACT_APP_ENV_API_KEY.WEATHER
+const locationKey=process.env.REACT_APP_LOCATION_KEY
+const weatherKey=process.env.REACT_APP_WEATHER_KEY
 async function getLocation(coords){
    let res
    await axios.get('https://api.geoapify.com/v1/geocode/reverse',{
