@@ -29,19 +29,6 @@ const awsServerlessExpressMiddleware = require('aws-serverless-express/middlewar
 
 const data = require('../../../../../controllers/data')
 const mailer = require('../../../../controllers/mailer')
-const router = express.Router();
-
-router.get('/',async (req,res)=>{
-   let q=req.query
-   let rep
-   switch(q.data){
-      case "weather":rep=await data.getWeather(q);break
-      case "location":rep=await data.getLocation(q);break
-      default:res.status(400).send("ERROR: invalid dataset")
-   }
-   res.send(rep)
-})
-router.post('/:mail',mailer)
 
 // declare a new express app
 const app = express()
@@ -54,6 +41,25 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "*")
   next()
 });
+
+
+
+//Custom routes
+
+
+
+app.get('/',async (req,res)=>{
+  let q=req.query
+  let rep
+  switch(q.data){
+     case "weather":rep=await data.getWeather(q);break
+     case "location":rep=await data.getLocation(q);break
+     default:res.status(400).send("ERROR: invalid dataset")
+  }
+  res.send(rep)
+})
+app.post('/:mail',mailer)
+
 
 
 /**********************
