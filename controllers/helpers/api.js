@@ -1,6 +1,14 @@
 const axios=require('axios')
-const locationKey=process.env.REACT_APP_LOCATION_KEY
-const weatherKey=process.env.REACT_APP_WEATHER_KEY
+const aws = require('aws-sdk');
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["LOCATION","WEATHER"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+const locationKey=Parameters[1][1]
+const weatherKey=Parameters[3][1]
 async function getLocation(coords){
    let res
    await axios.get('https://api.geoapify.com/v1/geocode/reverse',{
