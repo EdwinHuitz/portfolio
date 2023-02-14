@@ -9,7 +9,6 @@
 } */
 
 #home .name {
-   position: relative;
    min-width: 300px;
 }
 
@@ -31,10 +30,20 @@
    padding-bottom: 4px;
    letter-spacing: 1px;
 }
-
+.links{
+   width:100vw;
+   display:flex;
+   flex-direction:row;
+   align-items:center;
+   justify-content:center;
+   margin-left:2.5vw;
+}
 @media (max-width: 768px) {
    #home h1 {
       font-size: 28px;
       line-height: 36px;
+   }
+   .links{
+      margin-left:5.5vw;
    }
 }

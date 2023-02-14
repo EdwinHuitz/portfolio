@@ -40,15 +40,13 @@ export default function Home(){
    }, [])
    const [skill,setSkill]=useState('')
    return(
-      <div id="home" className="d-flex justify-content-center align-items-center">
-         <div className="name" title="Edwin Huitz: Full-Stack Web Developer">
-            <h1>Edwin Huitz</h1>
-            <div className="links mt-3 text-center">
-               <a href="mailto:edwinhuitz@gmail.com" title="My E-Mail"><i className="bx bx-envelope"></i></a>
-               <a href="https://www.linkedin.com/in/edwin-huitz/" target="_blank" rel="noreferrer" title="My LinkedIn"><i className="bx bxl-linkedin"></i></a>
-               <a href="https://github.com/EdwinHuitz" target="_blank" rel="noreferrer" title="My GitHub"><i className="bx bxl-github"></i></a>
-            </div>
-            <p>{skill}<span className="cursor">|</span> Developer.</p>
+   <div id="home" className="d-flex flex-column justify-content-center align-items-center">
+         <h1 className="name" title="Edwin Huitz: Full-Stack Web Developer">Edwin Huitz</h1>
+         <p>{skill}<span className="cursor">|</span> Developer.</p>
+         <div className="links">
+            <a href="mailto:edwinhuitz@gmail.com" title="My E-Mail"><i className="bx bx-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/edwin-huitz/" target="_blank" rel="noreferrer" title="My LinkedIn"><i className="bx bxl-linkedin"></i></a>
+            <a href="https://github.com/EdwinHuitz" target="_blank" rel="noreferrer" title="My GitHub"><i className="bx bxl-github"></i></a>
          </div>
       </div>
    )
