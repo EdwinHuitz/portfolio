@@ -17,7 +17,7 @@ export default function Weather() {
     let des = ''
     axios.defaults.baseURL = "https://" + window.location.hostname
     try{
-      (process.env.NODE_ENV==='development')?des='http://localhost:8080/api/':des='api/'
+      (process.env.NODE_ENV==='development')?des='http://localhost:8080/services/':des='services/'
       await axios.get(des,{params:{data:'weather',long:loc.longitude,lat:loc.latitude,unit:unit}})
       .catch((err)=>console.log(err))
       .then((res)=>{setInfo(res.data)})
