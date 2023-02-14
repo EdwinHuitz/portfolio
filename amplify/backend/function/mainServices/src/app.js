@@ -27,9 +27,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 
-const data = require('../../../../../controllers/data')
-const mailer = require('../../../../controllers/mailer')
-
 // declare a new express app
 const app = express()
 app.use(bodyParser.json())
@@ -42,11 +39,8 @@ app.use(function(req, res, next) {
   next()
 });
 
-
-
-//Custom routes
-
-
+const data = require('../../../../../controllers/data')
+const mailer = require('../../../../controllers/mailer')
 
 app.get('/',async (req,res)=>{
   let q=req.query
@@ -59,9 +53,6 @@ app.get('/',async (req,res)=>{
   res.send(rep)
 })
 app.post('/:mail',mailer)
-
-
-
 /**********************
  * Example get method *
  **********************/

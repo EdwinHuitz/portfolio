@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Lambda Function resource stack creation using Amplify CLI",
+  "Description": "{\"createdOn\":\"Windows\",\"createdBy\":\"Amplify\",\"createdWith\":\"10.7.2\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -50,12 +50,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "servicesLambda",
+            "mainServices",
             {
               "Fn::Join": [
                 "",
                 [
-                  "servicesLambda",
+                  "mainServices",
                   "-",
                   {
                     "Ref": "env"
@@ -87,7 +87,7 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "servicesLambda"
+                        "functionName": "mainServices"
                       }
                     ]
                   },
@@ -109,7 +109,7 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "servicesLambda"
+                        "functionName": "mainServices"
                       }
                     ]
                   },
@@ -136,12 +136,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "portfolioLambdaRolea633dacd",
+            "portfolioLambdaRole7bdf9ad3",
             {
               "Fn::Join": [
                 "",
                 [
-                  "portfolioLambdaRolea633dacd",
+                  "portfolioLambdaRole7bdf9ad3",
                   "-",
                   {
                     "Ref": "env"
@@ -292,7 +292,7 @@
                           "env": {
                             "Ref": "env"
                           },
-                          "functionName": "servicesLambda"
+                          "functionName": "mainServices"
                         }
                       ]
                     },
@@ -336,6 +336,14 @@
     "CloudWatchEventRule": {
       "Value": {
         "Ref": "CloudWatchEvent"
+      }
+    },
+    "LambdaExecutionRoleArn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "LambdaExecutionRole",
+          "Arn"
+        ]
       }
     }
   }
