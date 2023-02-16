@@ -16,7 +16,7 @@
         "mainLambda": {
           "secretsPathAmplifyAppId": "dnfzmryt7q432",
           "deploymentBucketName": "amplify-portfolio-dev-53125-deployment",
-          "s3Key": "amplify-builds/mainLambda-3477582b544d6237704f-build.zip"
+          "s3Key": "amplify-builds/mainLambda-613046456e5553525032-build.zip"
         }
       },
       "api": {

@@ -1,38 +1,10 @@
 /*
-Use the following code to retrieve configured secrets from SSM:
-
-const aws = require('aws-sdk');
-
-const { Parameters } = await (new aws.SSM())
-  .getParameters({
-    Names: ["LOCATION","WEATHER","test"].map(secretName => process.env[secretName]),
-    WithDecryption: true,
-  })
-  .promise();
-
-Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
-*/
-/*
-Use the following code to retrieve configured secrets from SSM:
-
-const aws = require('aws-sdk');
-
-const { Parameters } = await (new aws.SSM())
-  .getParameters({
-    Names: ["LOCATION","WEATHER","test"].map(secretName => process.env[secretName]),
-    WithDecryption: true,
-  })
-  .promise();
-
-Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
-*/
-/*
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
-    http://aws.amazon.com/apache2.0/
-    or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and limitations under the License.
-    */
+http://aws.amazon.com/apache2.0/
+or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and limitations under the License.
+*/
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -59,17 +31,17 @@ app.use(function(req, res, next) {
 app.get('/services', (req, res)=> {
   const data = require('./controllers/data')
   let q=req.query
-  let rep=''
-  async()=>{
+  let rep
+  async function queries(){
     switch(q.data){
       case "weather":rep=await data.getWeather(q);break
       case "location":rep=await data.getLocation(q);break
-      default:res.status(400).send("ERROR: invalid dataset")
+      default:rep="ERROR: invalid dataset"
     }
+    res.send(rep)
   }
-    //res.json(rep)
-    res.send('test')
-  })
+  queries()
+})
   // app.get('/services', function(req, res) {
     //   // Add your code here
 //   res.json({success: 'get call succeed!', url: req.url});

@@ -1,15 +1,15 @@
 const axios=require('axios')
 const aws = require('aws-sdk');
-const { Parameters } = await (new aws.SSM())
+
+
+async function getLocation(coords){
+   const { Parameters } = await (new aws.SSM())
   .getParameters({
-    Names: ["LOCATION","WEATHER"].map(secretName => process.env[secretName]),
+    Names: ["LOCATION"].map(secretName => process.env[secretName]),
     WithDecryption: true,
   })
-  .promise();
-
-const locationKey=Parameters[0]
-const weatherKey=Parameters[1]
-async function getLocation(coords){
+   .promise();
+   const locationKey=Parameters[0]["Value"]
    let res
    await axios.get('https://api.geoapify.com/v1/geocode/reverse',{
       params:{
@@ -23,6 +23,13 @@ async function getLocation(coords){
 }
 
 async function getWeather(coords){
+   const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["WEATHER"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+   const weatherKey=Parameters[0]["Value"]
    let res
    await axios.get('https://api.openweathermap.org/data/2.5/weather',{
       params:{
