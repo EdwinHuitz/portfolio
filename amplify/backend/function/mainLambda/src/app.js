@@ -5,7 +5,21 @@ const aws = require('aws-sdk');
 
 const { Parameters } = await (new aws.SSM())
   .getParameters({
-    Names: ["LOCATION","WEATHER"].map(secretName => process.env[secretName]),
+    Names: ["LOCATION","WEATHER","test"].map(secretName => process.env[secretName]),
+    WithDecryption: true,
+  })
+  .promise();
+
+Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }[]
+*/
+/*
+Use the following code to retrieve configured secrets from SSM:
+
+const aws = require('aws-sdk');
+
+const { Parameters } = await (new aws.SSM())
+  .getParameters({
+    Names: ["LOCATION","WEATHER","test"].map(secretName => process.env[secretName]),
     WithDecryption: true,
   })
   .promise();
@@ -16,12 +30,9 @@ Parameters will be of the form { Name: 'secretName', Value: 'secretValue', ... }
 Copyright 2017 - 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
     http://aws.amazon.com/apache2.0/
-or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
-*/
-
-
-
+    or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and limitations under the License.
+    */
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -40,31 +51,29 @@ app.use(function(req, res, next) {
 });
 
 
-const data = require('../../../../../controllers/data')
-const mailer = require('../../../../controllers/mailer')
-
-app.get('/',async (req,res)=>{
-  let q=req.query
-  let rep
-  switch(q.data){
-     case "weather":rep=await data.getWeather(q);break
-     case "location":rep=await data.getLocation(q);break
-     default:res.status(400).send("ERROR: invalid dataset")
-  }
-  res.send(rep)
-})
-app.post('/:mail',mailer)
-
-
 
 /**********************
  * Example get method *
- **********************/
+**********************/
 
-app.get('/services', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
-});
+app.get('/services', (req, res)=> {
+  const data = require('./controllers/data')
+  let q=req.query
+  let rep=''
+  async()=>{
+    switch(q.data){
+      case "weather":rep=await data.getWeather(q);break
+      case "location":rep=await data.getLocation(q);break
+      default:res.status(400).send("ERROR: invalid dataset")
+    }
+  }
+    //res.json(rep)
+    res.send('test')
+  })
+  // app.get('/services', function(req, res) {
+    //   // Add your code here
+//   res.json({success: 'get call succeed!', url: req.url});
+// });
 
 app.get('/services/*', function(req, res) {
   // Add your code here
@@ -72,7 +81,7 @@ app.get('/services/*', function(req, res) {
 });
 
 /****************************
-* Example post method *
+ * Example post method *
 ****************************/
 
 app.post('/services', function(req, res) {
@@ -80,13 +89,18 @@ app.post('/services', function(req, res) {
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
 
-app.post('/services/*', function(req, res) {
-  // Add your code here
+app.post('/services:mail',()=>{
+  const mailer = require('./controllers/mailer')
+  mailer
+})
+
+  app.post('/services/*', function(req, res) {
+    // Add your code here
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
 
 /****************************
-* Example put method *
+ * Example put method *
 ****************************/
 
 app.put('/services', function(req, res) {
@@ -100,7 +114,7 @@ app.put('/services/*', function(req, res) {
 });
 
 /****************************
-* Example delete method *
+ * Example delete method *
 ****************************/
 
 app.delete('/services', function(req, res) {
@@ -113,8 +127,11 @@ app.delete('/services/*', function(req, res) {
   res.json({success: 'delete call succeed!', url: req.url});
 });
 
+app.all('/services/*',(req,res)=>res.status(418).send('ERROR: coffee not found!'))
+
+
 app.listen(3000, function() {
-    console.log("App started")
+  console.log("App started")
 });
 
 // Export the app object. When executing the application local this does nothing. However,

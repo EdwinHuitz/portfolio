@@ -2,6 +2,7 @@
   "lambdaLayers": [],
   "secretNames": [
     "LOCATION",
-    "WEATHER"
+    "WEATHER",
+    "test"
   ]
 }
