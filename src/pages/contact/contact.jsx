@@ -15,7 +15,7 @@ export default function Contact(){
       setMsg(1)
       if(formI.name && formI.email && formI.subject && formI.message){
          axios.defaults.baseURL = "https://" + window.location.hostname + ":9001"
-         axios.post('https://6xiseb1eui.execute-api.us-east-1.amazonaws.com/dev/services/?',{mail:[formI.name,formI.email,formI.subject,formI.message]})
+         axios.post('https://6xiseb1eui.execute-api.us-east-1.amazonaws.com/dev/services',{mail:[formI.name,formI.email,formI.subject,formI.message]})
          .then(e=>setMsg(2))
          .catch(e=>setMsg(3))
       }
