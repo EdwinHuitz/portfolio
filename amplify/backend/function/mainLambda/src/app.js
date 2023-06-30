@@ -56,7 +56,7 @@ app.get('/services/*', function(req, res) {
  * Example post method *
 ****************************/
 
-app.post('/services:mail', function(req, res) {
+app.post('/services/mail', function(req, res) {
   const mailer = require('./controllers/mailer')
   mailer(req,res)
 })
