@@ -34,7 +34,7 @@ export default function Contact(){
          <div className="row align-items-start offset-md-1">
             <div className="section-title col align-self-center" title="Contact Me">
                <h2>Contact Me</h2>
-               <p>I am located in the DMV area and am willing to travel and/or relocate if necessary. For all inquiries I can be reached via phone or email, but you may also reach me seamlessly by using the form below.</p>
+               <p>I am located in the Chicago, Illinois area and am willing to travel and/or relocate if necessary. For all inquiries I can be reached via phone or email, but you may also reach me seamlessly by using the form below.</p>
             </div>
          </div>
          <div className="row align-items-end offset-md-1">
@@ -52,7 +52,7 @@ export default function Contact(){
                </div>
             </div>
             <div id="contact_box" className="col">
-               <form id ="contact_form" onSubmit={validateForm} className="row email-form">
+               <form id ="contact_form" onSubmit={validateForm} className="row email-form" action='/services/mail'>
                   <div id="msg_sender_info" className="row">
 {/* name */}
                      <div id="msg_name" className="col">
