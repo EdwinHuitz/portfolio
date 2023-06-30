@@ -14,7 +14,7 @@ export default function Primary(){
    let bgColor="#040b14"
    hash===tags[1]?bgColor="#0F052E":
    hash===tags[4]?bgColor="#e6fbfd":
-   hash===tags[5]?bgColor="#0B1828":
+   hash===tags[5]?bgColor="#232f3e":
    bgColor="#040b14"
    document.body.style.backgroundColor=bgColor
    return(

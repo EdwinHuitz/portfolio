@@ -1,0 +1,14 @@
+.Card{
+   background-color: white;
+   padding:5%;
+   margin:10px;
+   width:12vw;
+   height: 35vh;
+   color:black;
+}
+@media(max-width:1199px){
+   .Card{
+    width:25vw;
+    height:35vh;  
+   }
+}

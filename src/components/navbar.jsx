@@ -36,7 +36,7 @@ export default function Nav(){
          <button type="button" className="mobile-nav-toggle d-block" title={(n===0)?"Open Navigation Menu":"Close Navigation Menu"} onClick={toggleMenu}>
             <i className="bx bx-menu"></i>
          </button>
-         <header id="header" ref={header} style={{backgroundColor:hash===tags[1]?"#0F052E":hash===tags[4]?"#0B1828":hash===tags[5]?"#0B1828":"#040b14"}}>
+         <header id="header" ref={header} style={{backgroundColor:hash===tags[1]?"#0F052E":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14"}}>
             <div className="d-flex flex-column">
                <nav className="nav-menu">
                   <ul>
