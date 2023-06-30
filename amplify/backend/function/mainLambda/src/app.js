@@ -56,15 +56,15 @@ app.get('/services/*', function(req, res) {
  * Example post method *
 ****************************/
 
+app.post('/services:mail', function(req, res) {
+  const mailer = require('./controllers/mailer')
+  mailer(req,res)
+})
+
 app.post('/services', function(req, res) {
-  // Add your code here
+    // Add your code here
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
 });
-
-app.post('/services:mail',()=>{
-  const mailer = require('./controllers/mailer')
-  mailer
-})
 
   app.post('/services/*', function(req, res) {
     // Add your code here
