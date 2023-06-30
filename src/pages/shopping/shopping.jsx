@@ -1,6 +1,5 @@
 import React from 'react'
 import './shopping.css'
-import Footer from '../../components/footer'
 
 export default function Shopping(){
    
@@ -18,6 +17,5 @@ export default function Shopping(){
             <p>main page</p>
          </div>
       </div>
-      <Footer color={['#040b14','white']} />
    </>)
 }

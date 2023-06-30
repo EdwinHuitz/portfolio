@@ -1,6 +1,7 @@
+
 .brand{
    position:relative;
-   left:-5vw;
+   left:-3vw;
    font-family:'Brush Script MT',cursive;
    color:brown !important;
 }
@@ -8,51 +9,51 @@
    cursor:default !important;
 }
 .sApp{
-   margin-left:10vw;
    text-align:center;
    display:flex;
    flex-direction:column;
    align-items:center;
    justify-content:center;
-   min-width:90vw;
+   min-width:10vw;
    min-height:100vh;
 }
 .nav_head{
-   margin-left:9vw;
+   background-color: #131921;
    margin-top:0px;
    padding:0px;
    position:fixed;
    top:0px;
-   width:90vw;
+   width:100vw;
    display:flex;
    flex-flow: row;
    justify-content:space-around;
-   box-shadow:0 0 10px silver;
 }
 .sApp i{
    font-size:3em;
-   color:grey;
+   color:white;
 }
 .sApp i:hover{
-   color:black;
    cursor:pointer;
 }
 .nav_head h1{
-   color:grey;
+   color:white;
+   padding:1%;
+   margin:1px;
 }
 .nav_head h1:hover{
-   color:black;
+   margin:0px;
    cursor:pointer;
+   border-color:white;
+   border:solid;
+   border-width:1px;
 }
 @media(max-width:1199px){
    .sApp{
-      margin-left:0vw;
    }
    .nav_head{
       width:100vw;
-      margin-left:0vw;
    }
    .brand{
-      left:0px;
+      left:25px;
    }
 }
