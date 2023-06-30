@@ -34,7 +34,7 @@ export default function Contact(){
          <div className="row align-items-start offset-md-1">
             <div className="section-title col align-self-center" title="Contact Me">
                <h2>Contact Me</h2>
-               <p>I am located in the Chicago, Illinois area and am willing to travel and/or relocate if necessary. For all inquiries I can be reached via phone or email, but you may also reach me seamlessly by using the form below.</p>
+               <p>I am currently located in the Chicago, Illinois area and I'm willing to travel and/or relocate if necessary. For all inquiries I can be reached via phone or email, but you may also reach me seamlessly by using the form below.</p>
             </div>
          </div>
          <div className="row align-items-end offset-md-1">
@@ -42,7 +42,7 @@ export default function Contact(){
                <div className="info">
                   <div className="infoDetail">
                      <i className="bx bx-map"></i>
-                     <h5>Washington, DC</h5>
+                     <h5>Chicago, Illinois</h5>
                   </div>
                   <div className="infoDetail">
                      <i className="bx bx-phone"></i>
