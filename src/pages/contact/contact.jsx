@@ -15,7 +15,7 @@ export default function Contact(){
    function validateForm(e){
       setMsg(1)
       if(formI.name && formI.email && formI.subject && formI.message){
-         axios.post('https://6xiseb1eui.execute-api.us-east-1.amazonaws.com/dev/services',{mail:[formI.name,formI.email,formI.subject,formI.message]})
+         axios.post('https://6xiseb1eui.execute-api.us-east-1.amazonaws.com/dev/services/mail',{mail:[formI.name,formI.email,formI.subject,formI.message]})
          .then(e=>setMsg(2))
          .catch(e=>setMsg(3))
       }
@@ -52,7 +52,7 @@ export default function Contact(){
                </div>
             </div>
             <div id="contact_box" className="col">
-               <form id ="contact_form" onSubmit={validateForm} className="row email-form" action='/services/mail'>
+               <form id ="contact_form" onSubmit={validateForm} className="row email-form">
                   <div id="msg_sender_info" className="row">
 {/* name */}
                      <div id="msg_name" className="col">
