@@ -8,11 +8,11 @@ export default function Shopping(){
    <>
       <div className="sApp">
          <nav className="navHead">
-            <h1 className="brand">Beige Fashion</h1>
-            <h1>Hats</h1>
-            <h1>Shirts</h1>
-            <h1>Pants</h1>
-            <i className="bx bx-cart"></i>
+            <h4 className="brand">Fashion Front</h4>
+            <h4 className="links">Hats</h4>
+            <h4 className="links">Shirts</h4>
+            <h4 className="links">Pants</h4>
+            <i className="bx bx-cart shoppingCart"></i>
          </nav>
          <div className="mainDisplay">
             <Card i="Hats"/>

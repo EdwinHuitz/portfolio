@@ -1,16 +1,40 @@
+.Grid{
+   display:grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+   grid-template-areas:
+   "title title"
+   "img1 img2"
+   "price1 price2"
+   "img3 img4"
+   "price3 price4";
+}
 .Card{
    background-color: white;
-   padding:5%;
-   margin:10px;
+   padding:1%;
    width:12vw;
    height: 35vh;
    color:black;
 }
+.Title{
+   grid-area:title;
+   width:100%;
+}
 img{
    width:33%;
+   min-width:4em;
    height:33%;
+   min-height:4em;
    margin:3%;
 }
+.Pic1{grid-area: img1;}
+.Pic2{grid-area: img2;}
+.Pic3{grid-area: img3;}
+.Pic4{grid-area: img4;}
+.Price1{grid-area: price1;}
+.Price2{grid-area: price2;}
+.Price3{grid-area: price3;}
+.Price4{grid-area: price4;}
 @media(max-width:1199px){
    .Card{
     width:24vw;

@@ -1,13 +1,3 @@
-
-.brand{
-   position:relative;
-   left:-3vw;
-   font-family:'Brush Script MT',cursive;
-   color:brown !important;
-}
-.brand:hover{
-   cursor:default !important;
-}
 .sApp{
    text-align:center;
    display:flex;
@@ -21,12 +11,13 @@
    background-color: #131921;
    margin-top:0px;
    padding:0px;
+   padding-left:3em;
    position:fixed;
    top:0px;
    width:100vw;
    display:flex;
    flex-flow: row;
-   justify-content:space-around;
+   justify-content:space-evenly;
 }
 .sApp i{
    font-size:3em;
@@ -35,23 +26,41 @@
 .sApp i:hover{
    cursor:pointer;
 }
-.navHead h1{
+.navHead h4{
    color:white;
    padding:1%;
    margin:1px;
 }
-.navHead h1:hover{
+.navHead h4:hover{
    margin:0px;
    cursor:pointer;
-   border-color:white;
-   border:solid;
-   border-width:1px;
 }
 .mainDisplay{
+   background-color:#e3e6e6;
+   width:100vw;
+   height:100vh;
    display:flex;
    justify-content: space-evenly;
    align-items: center;
    align-content: space-around;
+}
+.shoppingCart{
+   padding:1%;
+}
+.links:hover{
+   border-color:white;
+   border:solid;
+   border-width:1px;
+}
+.brand{
+   font-family:'Brush Script MT',cursive;
+   color:orange !important;
+}
+.brand:hover{
+   cursor:default !important;
+   border:solid;
+   border-color:#131921;
+   border-width:1px;
 }
 @media(max-width:1199px){
    .sApp{
@@ -60,6 +69,5 @@
       width:100vw;
    }
    .brand{
-      left:25px;
    }
 }
