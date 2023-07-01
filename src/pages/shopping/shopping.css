@@ -17,7 +17,7 @@
    min-width:10vw;
    min-height:100vh;
 }
-.nav_head{
+.navHead{
    background-color: #131921;
    margin-top:0px;
    padding:0px;
@@ -35,22 +35,28 @@
 .sApp i:hover{
    cursor:pointer;
 }
-.nav_head h1{
+.navHead h1{
    color:white;
    padding:1%;
    margin:1px;
 }
-.nav_head h1:hover{
+.navHead h1:hover{
    margin:0px;
    cursor:pointer;
    border-color:white;
    border:solid;
    border-width:1px;
 }
+.mainDisplay{
+   display:flex;
+   justify-content: space-evenly;
+   align-items: center;
+   align-content: space-around;
+}
 @media(max-width:1199px){
    .sApp{
    }
-   .nav_head{
+   .navHead{
       width:100vw;
    }
    .brand{

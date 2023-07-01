@@ -6,9 +6,14 @@
    height: 35vh;
    color:black;
 }
+img{
+   width:33%;
+   height:33%;
+   margin:3%;
+}
 @media(max-width:1199px){
    .Card{
-    width:25vw;
+    width:24vw;
     height:35vh;  
    }
 }
