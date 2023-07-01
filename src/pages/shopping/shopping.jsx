@@ -15,7 +15,9 @@ export default function Shopping(){
             <i className="bx bx-cart"></i>
          </nav>
          <div className="mainDisplay">
-            <Card/><Card/>
+            <Card i="Hats"/>
+            <Card i="Shirts"/>
+            <Card i="Pants"/>
          </div>
       </div>
    </>)
