@@ -5,26 +5,18 @@ let clothes=["Hats","Shirts","Pants"]
 let hats=["black-fedora","blue-cap","brown-fedora","grey-cap"]
 let shirts=["blue-shirt","orange-shirt","salmon-shirt","white-shirt"]
 let pants=["brown-pants","folded-pants","jeans","slacks"]
-
+let prices=[14.75,12.95,19.49,16.99]
 export default function Card(props){
-   //TODO: turn prices into another map function
-   let choice=props.i===clothes[0]?hats:props.i===clothes[1]?shirts:pants
-   function generatePics(choice){
-      return(
-         <>
-         {choice.map((c,i)=>(
-            <img key={choice+i} className={"cardPic Pic"+i} src={path+props.i.toLowerCase()+"/"+c+".png"} alt={i}></img>
-            ))}
-         </>
-      )
-   }
+   let choices=props.i===clothes[0]?hats:props.i===clothes[1]?shirts:pants
+   function generatePics(){return(<>{choices.map((choice,i)=>(
+   <img key={choices+i} className={"cardPic Pic"+i} src={path+props.i.toLowerCase()+"/"+choice+".png"} alt={i}></img>))}</>)}
+   function generatePrices(){return(<>{prices.map((price,i)=>(<h6 key={price+i} className={"Price"+i}>{price}</h6>))}</>)}
    return(
    <>
       <div className="Grid Card">
          <h5 className="Title">{"Newest "+props.i}</h5>
-         {generatePics(choice)}
-         <h6 className="Price1">19.95</h6><h6 className="Price2">12.95</h6>
-         <h6 className="Price3">14.95</h6><h6 className="Price4">17.95</h6>
+         {generatePics()}
+         {generatePrices()}
       </div>
    </>)
 }
