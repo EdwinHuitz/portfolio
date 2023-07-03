@@ -1,0 +1,35 @@
+.detailCard{
+   display:flex;
+   box-shadow: 1px 3px 6px black;
+}
+.exit{
+   color:rgb(245, 11, 11);
+   position:relative;
+   top:2px;
+   left:80%;
+   box-shadow: 1px,1px,4px,black;
+}
+.hideDetailCard1{
+   display: none;
+}
+.hideDetailCard2{
+   display: none;
+}
+.hideDetailCard3{
+   display: none;
+}
+.hideDetailCard4{
+   display: none;
+}
+.showDetailCard1{
+   display: block;
+}
+.showDetailCard2{
+   display: block;
+}
+.showDetailCard3{
+   display: block;
+}
+.showDetailCard4{
+   display: block;
+}
