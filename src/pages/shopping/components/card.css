@@ -13,7 +13,11 @@
    background-color: white;
    padding:1%;
    width:12vw;
+   min-width: 9em;
+   max-width: 12em;
    height: 35vh;
+   min-height:15em;
+   max-height: 16em;
    color:black;
 }
 .Title{
@@ -27,7 +31,9 @@ img{
 }
 .cardPic{
    height:33%;
+   max-height:5em;
    width:33%;
+   max-width:5em;
    margin:3%;
 }
 .Pic1{grid-area: img1;}

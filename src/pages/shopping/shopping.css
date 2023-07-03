@@ -63,11 +63,14 @@
    border-width:1px;
 }
 @media(max-width:1199px){
-   .sApp{
-   }
+   /* .sApp{
+   } */
    .navHead{
       width:100vw;
    }
-   .brand{
+   /* .brand{
+   } */
+   .mainDisplay{
+      flex-flow: column-wrap;
    }
 }
