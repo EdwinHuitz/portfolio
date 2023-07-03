@@ -4,7 +4,9 @@ import './menu.css'
 export default function Menu(){
    const [cat,setCat]=useState(3)
 
-   let arr=[[0,"Pancakes"],[0,"Waffles"],[0,"Omelette"],[0,"Biscuits & Gravy"],[0,"Eggs Benedict"],[0,"Hashbrown"],[1,"Loaded Fries"],[1,"Bacon Cheeseburger"],[1,"Reuben Sandwich"],[2,"Milkshake"],[2,"Iced-Tea"],[2,"Coffee"]];
+   let foodArray=[[0,"Pancakes"],[0,"Waffles"],[0,"Omelette"],[0,"Biscuits & Gravy"],[0,"Eggs Benedict"],[0,"Hashbrown"],[1,"Loaded Fries"],[1,"Bacon Cheeseburger"],[1,"Reuben Sandwich"],[2,"Milkshake"],[2,"Iced-Tea"],[2,"Coffee"]];
+   //array of numbers that is the total number of food items
+   let numbers = [...Array(12).keys()]
    let path="assets/img/food/"
 
    function menuItems(foodType,foodName){
@@ -30,7 +32,6 @@ export default function Menu(){
    
    }
    //!restaurant menu similar to this page https://react-projects-5-menu.netlify.app/
-   
    return(
    <>
       <div className="menuWrap">
@@ -41,18 +42,9 @@ export default function Menu(){
             </h3>
          </div>
          <div className="menuList">
-            {menuItems(arr[0][0],arr[0][1])}
-            {menuItems(arr[1][0],arr[1][1])}
-            {menuItems(arr[2][0],arr[2][1])}
-            {menuItems(arr[3][0],arr[3][1])}
-            {menuItems(arr[4][0],arr[4][1])}
-            {menuItems(arr[5][0],arr[5][1])}
-            {menuItems(arr[6][0],arr[6][1])}
-            {menuItems(arr[7][0],arr[7][1])}
-            {menuItems(arr[8][0],arr[8][1])}
-            {menuItems(arr[9][0],arr[9][1])}
-            {menuItems(arr[10][0],arr[10][1])}
-            {menuItems(arr[11][0],arr[11][1])}
+            {numbers.map((num)=>(
+               menuItems(foodArray[num][0],foodArray[num][1])
+            ))}
          </div>
       </div>
    </>

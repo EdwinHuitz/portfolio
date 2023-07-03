@@ -21,10 +21,13 @@
    width:100%;
 }
 img{
-   width:33%;
    min-width:4em;
-   height:33%;
    min-height:4em;
+   margin:3%;
+}
+.cardPic{
+   height:33%;
+   width:33%;
    margin:3%;
 }
 .Pic1{grid-area: img1;}
