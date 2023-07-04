@@ -44,6 +44,12 @@ img{
 .Price2{grid-area: price2;}
 .Price3{grid-area: price3;}
 .Price4{grid-area: price4;}
+.hideDetailCard{
+   display: none;
+}
+.showDetailCard{
+   display: block;
+}
 @media(max-width:1199px){
    .Card{
     width:24vw;
