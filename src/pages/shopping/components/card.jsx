@@ -1,31 +1,49 @@
-import React, {useState} from 'react'
+import React, { Component } from 'react'
 import './card.css'
+import GeneratePics from './pic_generator.jsx'
 import DetailCard from './detail_card.jsx'
-let path="assets/img/clothes/"
-let clothes=["Hats","Shirts","Pants"]
-let hats=["black-fedora","blue-cap","brown-fedora","grey-cap"]
-let shirts=["blue-shirt","orange-shirt","salmon-shirt","white-shirt"]
-let pants=["brown-pants","folded-pants","jeans","slacks"]
-let prices=[14.75,12.95,19.49,16.99]
-//on click will pass values to detail card and open it and set details to true
-export default function Card(props){
-   let choices=props.clothes===clothes[0]?hats:props.clothes===clothes[1]?shirts:pants
-   const [details,setDetails]=useState([false,'',0.0])
 
-   function generatePics(){
-      return(<>{choices.map((choice,i)=>(<img key={choices+i} className={"cardPic Pic"+i} src={path+props.clothes.toLowerCase()+"/"+choice+".png"} onClick={()=>setDetails([true,path+props.clothes.toLowerCase()+"/"+choice+".png",choice.replaceAll("-"," "),prices[i]]) && console.log(details)} alt={i}></img>))}</>)}
-   function generatePrices(){
-      return(<>{prices.map((price,i)=>(<h6 key={price+i} className={"Price"+i} onClick={()=>setDetails(true)}>{price}</h6>))}</>)}
-   return(<>
-         <div className={details[0]===false?"hideDetailCard":"showDetailCard"}>
-            <DetailCard bool={details[0]} path={details[1]} clothes={details[2]} price={details[3]} />
-         </div>
-   <div className="Grid Card">
-         
-         <h5 className="Title">{"Newest "+props.clothes}</h5>
-         {generatePics()}
-         {generatePrices()}
-      </div>
-   </>)
+class Card extends Component{
+   constructor(props){
+      super(props)
+      this.state = {
+         preBool:false,
+         bool:false,
+         prePath:"assets/img/clothes/",
+         path:"",
+         allClothes:["Hats","Shirts","Pants"],
+         clothes:props.clothes,
+         hats:["black-fedora","blue-cap","brown-fedora","grey-cap"],
+         shirts:["blue-shirt","orange-shirt","salmon-shirt","white-shirt"],
+         pants:["brown-pants","folded-pants","jeans","slacks"],
+         allPrices:[14.75,12.95,19.49,16.99],
+         price:0.0
+      }
+      this.setPath=this.setPath.bind(this)
+      this.setBool=this.setBool.bind(this)
+   }
+   setPath(n){
+      this.setState({path:n,bool:true})
+   }
+   setBool(){
+      this.setState({bool:false})
+   }
+   render(){
+      //on click will pass values to detail card and open it and set details to true
+      function generatePrices(){
+         return(<>{this.state.allPrices.map((price,i)=>(<h6 key={price+i} className={"Price"+i} >{price}</h6>))}</>)}
+         generatePrices.bind(this)
+         return(<>
+            <div className={this.state.bool===false?"hideDetailCard":"showDetailCard"}>
+               <DetailCard bool={this.state.bool} path={this.state.path} clothes={this.state.clothes} price={this.state.price} setBool={this.setBool} />
+            </div>
+            <div className="Grid Card">
+               <h5 className="Title">{"Newest "+this.props.clothes}</h5>
+               <GeneratePics clothes={this.state.clothes} hats={this.state.hats} shirts={this.state.shirts} pants={this.state.pants} path={this.state.prePath} setPath={this.setPath} />
+            </div>
+      </>)
+   }
 }
-//TODO: recently viewed, detailed view on click, on sale price, random prices
+export default Card
+
+//TODO: recently viewed, on sale price, random prices
