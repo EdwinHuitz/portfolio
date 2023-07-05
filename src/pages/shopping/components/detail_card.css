@@ -44,7 +44,20 @@
 }
 .price{
    grid-area:price;
+}
+.largePrice{
+   font-size:100%;
+}
+.smallPrice{
+   position:relative;
+   top:-.75em;
+   font-size:50%;
+}
+.inStock{
    color:green;
+}
+.outStock{
+   color:red;
 }
 .button{
    grid-area:button;
