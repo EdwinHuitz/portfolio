@@ -64,10 +64,10 @@
    border-color:#131921;
    border-width:1px;
 }
-.large{
+.larger{
    display:block;
 }
-.smalls{
+.smaller{
    display:none;
 }
 @media(max-width:800px){
