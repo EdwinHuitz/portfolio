@@ -6,9 +6,10 @@ class GeneratePics extends Component{
       this.state = {
          allClothes:["Hats","Shirts","Pants"]
       }
-      this.setClothes = this.setClothes.bind(this)
+      this.setClothes.bind(this)
       this.setClothes()
-      this.sendInfo = this.sendInfo.bind(this)
+      this.sendInfo.bind(this)
+      this.genPics.bind(this)
    }
    setClothes(){
       let list
@@ -20,10 +21,13 @@ class GeneratePics extends Component{
    sendInfo(data){
       this.props.setPath(data)
    }
-   render(){
-         return(<>
+   genPics(){
+      return(<>
          {this.setClothes().map((choice,i)=>(
-            <img key={choice+i} className={"cardPic Pic"+i} src={this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png"} onClick={()=>this.sendInfo(this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png")} alt={i}></img>))}
+            <img key={choice+i} className={"cardPic Pic"+i} src={this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png"} onClick={()=>this.sendInfo([this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png",choice,this.props.price[i]])} alt={i}></img>))}
             </>)
+   }
+   render(){
+         return(<>{this.genPics()}</>)
    }
 }export default GeneratePics
