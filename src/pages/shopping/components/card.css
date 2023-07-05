@@ -51,9 +51,9 @@ img{
 .showDetailCard{
    display: block;
 }
-@media(max-width:1199px){
+@media(max-width:800px){
    .Card{
     width:24vw;
-    height:35vh;  
+    height:35vh;
    }
 }

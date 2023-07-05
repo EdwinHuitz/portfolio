@@ -2,20 +2,22 @@
    position:absolute;
    min-height:25em;
    max-height:35em;
-   min-width:25em;
-   max-width:30em;
+   min-width:20em;
+   max-width:25em;
    left:40%;
    top:20%;
    display:grid;
    grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: 6em 6em 6em 7em 5em 5em;
+   grid-template-rows: 1.5em 7em 7em 7em 2em 3em 2em;
    grid-template-areas:
-   " .    .   exit"
-   "img  img  img"
-   "img  img  img"
-   "img  img  img"
-   "title . price"
-   ".    . button";
+   " .     .   exit"
+   " img   img  img"
+   " img   img  img"
+   " img   img  img"
+   " title .  price"
+   "   .   . button"
+   ".      .      .";
+   justify-content: space-evenly;
    box-shadow: 1px 3px 6px black;
    z-index:100;
    background-color:white;
@@ -41,6 +43,7 @@
 }
 .button{
    grid-area:button;
+   justify-self: space-evenly;
    min-height:2em;
    max-height:3em;
    min-width:4.5em;
@@ -49,13 +52,13 @@
 @media(max-width:800px){
 
    .detailCard{
-      grid-template-rows: 1% 25% 25% 25% 15% 10%;
+      grid-template-rows: 1% 25% 25% 25% 15% 10% 5%;
       grid-template-columns: 33% 33% 34%;
       min-height:25em;
       max-height:30em;
       min-width:15em;
       max-width:20em;
       top:20%;
-      left:5%;
+      left:12.5%;
    }
 }

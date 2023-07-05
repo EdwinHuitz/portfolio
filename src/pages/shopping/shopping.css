@@ -62,15 +62,17 @@
    border-color:#131921;
    border-width:1px;
 }
-@media(max-width:1199px){
+@media(max-width:800px){
    /* .sApp{
    } */
    .navHead{
       width:100vw;
+      margin-bottom: 1em;
    }
    /* .brand{
    } */
    .mainDisplay{
-      flex-flow: column-wrap;
+      flex-direction:column;
+      
    }
 }
