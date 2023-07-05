@@ -46,10 +46,10 @@ img{
 .Price4{grid-area: price4;}
 
 .hideDetailCard{
-   display: none;
+   visibility: hidden;
 }
 .showDetailCard{
-   display: block;
+   visibility: visible;
 }
 @media(max-width:800px){
    .Card{

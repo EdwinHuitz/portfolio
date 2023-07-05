@@ -12,10 +12,11 @@ class detailCard extends Component{
    render(){
       return(
          <>
+         <div className="detailBackground"></div>
          <div className="detailCard">
             <img className="zoomImage" src={this.props.path} alt={this.props.clothes}></img>
             <h4 className="title">{this.props.clothes}</h4><h6 className="price">${this.props.price}</h6>
-            <button className="button">Buy Now</button>
+            <button className="button">Add to Cart</button>
             <h5 className="exit" onClick={()=>this.closeWindow()}>X</h5>
          </div>
       </>)

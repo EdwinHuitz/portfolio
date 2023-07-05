@@ -51,10 +51,28 @@
    justify-self: space-evenly;
    min-height:2em;
    max-height:3em;
-   min-width:4.5em;
-   max-width:5em;
+   min-width:6em;
+   max-width:7em;
+   font-size:1em;
+   border-radius:30px;
+   background-color:#ffd814;
 }
-@media(max-width:800px){
+.button:hover{
+   background-color:#ffbb14;
+}
+.button:active{
+   background-color:orange;
+}
+.detailBackground{
+   position:absolute;
+   top:0px;
+   left:0px;
+   width:100vw;
+   height:100vh;
+   background-color:black;
+   opacity:60%;
+}
+@media(max-width:801px){
 
    .detailCard{
       grid-template-rows: 1% 25% 25% 25% 15% 10% 5%;
@@ -65,5 +83,8 @@
       max-width:20em;
       top:20%;
       left:12.5%;
+   }
+   .button{
+      font-size: 0.8em;
    }
 }
