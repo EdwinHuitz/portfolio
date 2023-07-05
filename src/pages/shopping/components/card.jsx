@@ -12,11 +12,12 @@ class Card extends Component{
          prePath:"assets/img/clothes/",
          path:"",
          allClothes:["Hats","Shirts","Pants"],
+         clothesPath:[["black-fedora","blue-cap","brown-fedora","grey-cap"],["blue-shirt","orange-shirt","salmon-shirt","white-shirt"],["tan-pants","folded-pants","blue-jeans","brown-slacks"]],
          clothes:props.clothes,
          currentClothes:"",
-         hats:["black-fedora","blue-cap","brown-fedora","grey-cap"],
-         shirts:["blue-shirt","orange-shirt","salmon-shirt","white-shirt"],
-         pants:["brown-pants","folded-pants","jeans","slacks"],
+         hats:["Black Fedora","Blue Cap","Brown Fedora","Grey Cap"],
+         shirts:["Blue Shirt","Orange Shirt","Salmon Shirt","White Shirt"],
+         pants:["Tan Pants","Folded Pants","Blue Jeans","Brown Slacks"],
          allPrices:[14.75,12.95,19.49,16.99],
          price:14.75
       }
@@ -43,7 +44,7 @@ class Card extends Component{
          </div>
          <div className="Grid Card">
             <h5 className="Title">{"Newest "+this.props.clothes}</h5>
-            <GeneratePics clothes={this.state.clothes} hats={this.state.hats} shirts={this.state.shirts} pants={this.state.pants} path={this.state.prePath} setPath={this.setPath} price={this.state.allPrices} />
+            <GeneratePics clothes={this.state.clothes} clothesPath={this.state.clothesPath} hats={this.state.hats} shirts={this.state.shirts} pants={this.state.pants} path={this.state.prePath} setPath={this.setPath} price={this.state.allPrices} />
             <GeneratePrices prices={this.state.allPrices} setPrice={this.setPrice} />
          </div>
       </>)

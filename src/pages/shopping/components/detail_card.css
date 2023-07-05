@@ -7,23 +7,27 @@
    left:40%;
    top:20%;
    display:grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: 1.5em 7em 7em 7em 2em 3em 2em;
+   grid-template-columns: 7em 7em 7em;
+   grid-template-rows: 2em 7em 7em 7em 2em 3em 2em;
    grid-template-areas:
-   " .     .   exit"
-   " img   img  img"
-   " img   img  img"
-   " img   img  img"
-   " title .  price"
-   "   .   . button"
-   ".      .      .";
-   justify-content: space-evenly;
+   " .      .     exit"
+   " img    img    img"
+   " img    img    img"
+   " img    img    img"
+   " title title price"
+   "   .     .  button"
+   "   .     .     .  ";
+   align-items: center;
+   justify-items:center;
    box-shadow: 1px 3px 6px black;
    z-index:100;
    background-color:white;
 }
 .exit{
    grid-area:exit;
+   align-self:end;
+   justify-self:end;
+   padding-right:0.25em;
    cursor:pointer;
    color:rgb(245, 11, 11);
    box-shadow: 1px,1px,4px,black;
@@ -40,6 +44,7 @@
 }
 .price{
    grid-area:price;
+   color:green;
 }
 .button{
    grid-area:button;
