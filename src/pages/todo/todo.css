@@ -21,6 +21,28 @@
    max-width:25em;
    overflow-y:auto;
 }
+.todoContent .todoRow{
+   display:grid;
+   grid-template-columns: 1.1em 11em 2em;
+   grid-template-rows: 100%;
+   grid-template-areas: "checkBox userInput trash";
+   margin-bottom:5px;
+}
+.todoContent .checkBox{
+   grid-area:checkBox;
+   padding:1em;
+}
+.todoContent .todoText{
+   grid-area:userInput;
+}
+.todoContent .trashBtn{
+   grid-area:trash;
+   border-radius: 20%;
+   border:none;
+   position:relative;
+   top:0.1em;
+   left:0.8em;
+}
 .todoInput{
    position:relative;
    left:0.33em;

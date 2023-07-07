@@ -28,8 +28,13 @@ class Todo extends Component{
          })
       }
    }
-   removeInput(){
-
+   handleSubmit(e){
+      e.preventDefault()
+   }
+   removeInput(key){
+      const list = [...this.state.list]
+      const updatedList = list.filter((item)=>item.id!==key)
+      this.setState({list:updatedList,})
    }
    render(){return(<>
       <div className="todoBody">
@@ -39,16 +44,20 @@ class Todo extends Component{
          <div className="todoContent">
             {this.state.list.map((item,i)=>{
                return(
-                  <div key={i}>
-                     <input type="checkbox"></input><span>{item.value}</span><button></button>
+                  <div className="todoRow" key={i}>
+                     <input className="checkBox" type="checkbox"></input>
+                     <span className="todoText">{item.value}</span>
+                     <button className="trashBtn" onClick={()=>this.removeInput(item.id)}>
+                        <i className="bx bx-trash"></i>
+                     </button>
                   </div>
                )
             })}
          </div>
-         <div className="todoInput">
-            <input className="addInput" placeholder="Add your To-Do items here" value={this.state.input} onChange={(item)=>{this.updateInput(item.target.value)}}></input>
-            <button className="addTodo"><span className="plus" onClick={()=>this.addInput()}>+</span></button>
-         </div>
+         <form className="todoInput" onSubmit={this.handleSubmit}>
+            <input className="addInput" placeholder="Add your To-Do items here" value={this.state.input} onChange={(item)=>{this.updateInput(item.target.value)}} onSubmit={()=>this.addInput()}></input>
+            <button className="addTodo" onClick={()=>this.addInput()}><span className="plus">+</span></button>
+         </form>
       </div>
    </>)}
 }export default Todo
