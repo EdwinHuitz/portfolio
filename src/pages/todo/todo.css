@@ -1,0 +1,45 @@
+.todoBody{
+   background-color:white;
+   min-height:30em;
+   max-height:40em;
+   min-width:20em;
+   max-width:30em;
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border-radius:10px;
+}
+.todoHeader{
+   color:black;
+}
+.todoContent{
+   background-color:silver;
+   min-height:25em;
+   max-height:35em;
+   min-width:15em;
+   max-width:25em;
+   overflow-y:auto;
+}
+.todoInput{
+   position:relative;
+   left:0.33em;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+}
+.todoInput .addInput{
+   min-width:15em;
+   text-align:center;
+}
+.todoInput .addTodo{
+
+   height:2em;
+   border-radius: 45px;
+   border:none;
+}
+.todoInput .plus{
+   position:relative;
+   top:-0.4em;
+   font-size: 2em;
+}

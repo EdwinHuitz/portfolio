@@ -23,4 +23,24 @@ function weekDay(){
   }
   return wd
 }
-export{weekDay,currentTime}
+function currentDate(){
+  let date= d.getDate().toString()
+      let n
+      if(date.length===2){
+         n=date[1]
+      }
+      else{
+         n=date[0]
+      }
+      switch(n){
+         case "1":date=date+"st"
+         break
+         case "2":date=date+"nd"
+         break
+         case "3":date=date+"rd"
+         break
+         default:date=date+"th"
+      }
+      return date
+}
+export{weekDay,currentTime,currentDate}
