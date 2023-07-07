@@ -4,27 +4,30 @@ class GeneratePics extends Component{
    constructor(props){
       super(props)
       this.state = {
-         allClothes:["Hats","Shirts","Pants"]
+         allClothes:["Hats","Scarves","Shirts","Belts","Pants","Shoes"]
       }
       this.setClothesPath.bind(this)
       this.setClothesPath()
-      this.setClothes.bind(this)
-      this.setClothes()
       this.sendInfo.bind(this)
       this.genPics.bind(this)
    }
    setClothesPath(){
       let list
-      this.props.clothes===this.state.allClothes[0]?list=this.props.clothesPath[0]:
-      this.props.clothes===this.state.allClothes[1]?list=this.props.clothesPath[1]:
-      list=this.props.clothesPath[2]
-      return(list)
-   }
-   setClothes(){
-      let list
-      this.props.clothes===this.state.allClothes[0]?list=this.props.hats:
-      this.props.clothes===this.state.allClothes[1]?list=this.props.shirts:
-      list=this.props.pants
+      let clothes=this.props.clothes
+      let allClothes=this.state.allClothes
+      let clothesPath=this.props.clothesPath
+      //0=hats
+      clothes===allClothes[0]?list=clothesPath[0]:
+      //1=scarves
+      clothes===allClothes[1]?list=clothesPath[1]:
+      //2=shirts
+      clothes===allClothes[2]?list=clothesPath[2]:
+      //3=belts
+      clothes===allClothes[3]?list=clothesPath[3]:
+      //4=pants
+      clothes===allClothes[4]?list=clothesPath[4]:
+      //5=shoes
+      list=clothesPath[5]
       return(list)
    }
    sendInfo(data){
@@ -33,7 +36,7 @@ class GeneratePics extends Component{
    genPics(){
       return(<>
          {this.setClothesPath().map((choice,i)=>(
-            <img key={choice+i} className={"cardPic Pic"+i} src={this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png"} onClick={()=>this.sendInfo([this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png",this.setClothes()[i],this.props.price[i]])} alt={i}></img>))}
+            <img key={choice+i} className={"cardPic Pic"+i} src={this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png"} onClick={()=>this.sendInfo([this.props.path+this.props.clothes.toLowerCase()+"/"+choice+".png",choice,this.props.price[i]])} alt={i}></img>))}
             </>)
    }
    render(){

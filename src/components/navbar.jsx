@@ -22,15 +22,25 @@ export default function Nav(){
       if(fonts===0){
          setFonts(1)
          doc.fontFamily="dyslexia"
-      }
-      else{
+         if(window.innerWidth<800){
+            header.current.style.width="70vw"
+         }else{
+            header.current.style.width="17vw"
+         }
+      }else{
          setFonts(0)
          doc.fontFamily="Open Sans,sans-serif"
+         if(window.innerWidth<800){
+            header.current.style.width="65vw"
+         }
+         else{
+            header.current.style.width="15vw"
+         }
       }
    }
 
    let hash= window.location.hash
-   let tags=['#home','#portfolio','#game','#weather','#menu','#shopping','#contact']
+   let tags=['#home','#portfolio','#game','#weather','#todo','#menu','#shopping','#contact']
    return(
       <>
          <button type="button" className="mobile-nav-toggle d-block" title={(n===0)?"Open Navigation Menu":"Close Navigation Menu"} onClick={toggleMenu}>
@@ -40,7 +50,7 @@ export default function Nav(){
             <div className="d-flex flex-column">
                <nav className="nav-menu">
                   <ul>
-                     <li className="active" style={{paddingBottom:"10vh"}}><a href={"assets/files/Edwin_Huitz_Resume_"+new Date().getFullYear()+".pdf"} rel="noreferrer"><i className="bx bx-file"></i> <span>Resume</span></a><br/></li>
+                     <li className="active" style={{paddingBottom:"5vh"}}><a href={"assets/files/Edwin_Huitz_Resume_"+new Date().getFullYear()+".pdf"} rel="noreferrer"><i className="bx bx-file"></i> <span>Resume</span></a><br/></li>
                      <li className={hash===tags[0]?"active":""}>
                         <a href="/#home"onClick={toggleMenu} ><i className="bx bx-home"></i> <span>Home</span></a>
                      </li>
@@ -53,12 +63,15 @@ export default function Nav(){
                         <a href="/#weather"onClick={toggleMenu} ><i className="bx bx-cloud-lightning"></i> Weather</a>
                      </li>
                      <li className={hash===tags[4]?"active":""}>
-                        <a href="#menu"onClick={toggleMenu} ><i className="bx bx-food-menu"></i>Breakfast Menu</a>
+                        <a href="#todo"onClick={toggleMenu} ><i className="bx bx-list-ul"></i>To-Do List</a>
                      </li>
                      <li className={hash===tags[5]?"active":""}>
-                        <a href="#shopping"onClick={toggleMenu} ><i className="bx bx-cart"></i> Shopping Page</a>
+                        <a href="#menu"onClick={toggleMenu} ><i className="bx bx-food-menu"></i>Breakfast Menu</a>
                      </li>
                      <li className={hash===tags[6]?"active":""}>
+                        <a href="#shopping"onClick={toggleMenu} ><i className="bx bx-cart"></i> Shopping Page</a>
+                     </li>
+                     <li className={hash===tags[7]?"active":""}>
                         <a href="/#contact"onClick={toggleMenu} ><i className="bx bx-envelope"></i> Contact</a>
                      </li>
                   </ul>

@@ -20,8 +20,11 @@ export default function Shopping(){
          </nav>
          <div className="mainDisplay">
             <Card clothes="Hats"/>
+            <Card clothes="Scarves"/>
             <Card clothes="Shirts"/>
+            <Card clothes="Belts"/>
             <Card clothes="Pants"/>
+            <Card clothes="Shoes"/>
          </div>
       </div>
    </>)
