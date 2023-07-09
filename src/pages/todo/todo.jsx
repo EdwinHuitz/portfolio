@@ -9,6 +9,7 @@ class Todo extends Component{
          list:[],
          edit:"",
          key:0,
+         tasks:[],
       }
    }
    updateInput(text,int){
@@ -22,10 +23,13 @@ class Todo extends Component{
             value:this.state.input,
          }
          const list = [...this.state.list]
+         const tasks = [...this.state.tasks]
          list.push(userInput)
+         tasks.push(0)
          //reset state for next item
          this.setState({
-            list,
+            list:list,
+            tasks:tasks,
             input:"",
             edit:"",
             key:0,
@@ -37,12 +41,20 @@ class Todo extends Component{
    }
    removeInput(key){
       const list = [...this.state.list]
+      const tasks = [...this.state.tasks]
       const updatedList = list.filter((item)=>item.id!==key)
-      this.setState({list:updatedList,})
+      let updatedTasks=tasks
+      if(updatedTasks.length>updatedList.length && updatedTasks.length>0){
+         updatedTasks=updatedTasks.slice(0,-1)
+      }
+      this.setState({list:updatedList,tasks:updatedTasks,})
+   }
+   checkTask(key){
+
    }
    showInput(item,key){
       return(<>
-         <input className="checkBox" type="checkbox"></input>
+         <input className="checkBox" type="checkbox" onClick={()=>this.checkTask(key)}></input>
          <span className="todoText">{item}</span>
          <button className="todoBtns editBtn" onClick={()=>this.setState({key:key,})}>
             <i className="bx bx-edit"></i>
