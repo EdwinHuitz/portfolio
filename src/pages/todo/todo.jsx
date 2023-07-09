@@ -7,11 +7,13 @@ class Todo extends Component{
       this.state={
          input:"",
          list:[],
-         edit:0,
+         edit:"",
+         key:0,
       }
    }
-   updateInput(text){
-      this.setState({input:text})
+   updateInput(text,int){
+      int===0?this.setState({input:text}):
+      this.setState({edit:text})
    }
    addInput(){
       if (this.state.input!==""){
@@ -25,7 +27,8 @@ class Todo extends Component{
          this.setState({
             list,
             input:"",
-            edit:0,
+            edit:"",
+            key:0,
          })
       }
    }
@@ -41,7 +44,7 @@ class Todo extends Component{
       return(<>
          <input className="checkBox" type="checkbox"></input>
          <span className="todoText">{item}</span>
-         <button className="todoBtns editBtn" onClick={()=>this.setState({edit:1,})}>
+         <button className="todoBtns editBtn" onClick={()=>this.setState({key:key,})}>
             <i className="bx bx-edit"></i>
          </button>
          <button className="todoBtns trashBtn" onClick={()=>this.removeInput(key)}>
@@ -52,18 +55,31 @@ class Todo extends Component{
    showEditor(item,key){
       return(<>
          <form onSubmit={this.handleSubmit}>
-            <input type="text" defaultValue={item} onSubmit={()=>this.editInput(item,key)}></input>
+            <input type="text" className="userInput" defaultValue={item} onChange={(item)=>{this.updateInput(item.target.value,1)}} onSubmit={()=>this.editInput(this.state.edit,key)}></input>
+            <button className="hiddenBtn" onClick={()=>this.editInput(this.state.edit,key)}></button>
          </form>
-         <button className="todoBtns saveBtn" onClick={()=>this.editInput(item,key)}>
+         <button className="todoBtns saveBtn" onClick={()=>this.editInput(this.state.edit,key)}>
             <i className="bx bx-save"></i>
+         </button>
+         <button className="todoBtns trashBtn" onClick={()=>this.removeInput(key)}>
+            <i className="bx bx-trash"></i>
          </button>
          </>)
    }
    editInput(item,key){
-      //const list = [...this.state.list]
-      // return(
-         
-      //    )
+      const list = [...this.state.list]
+      
+      let newItem=item.trim()
+      if(newItem!==""){
+         let newList = [...list]
+         newList[key].value=newItem
+         this.setState({
+            list:newList,
+            input:"",
+            edit:"",
+            key:0,
+         })
+      }
    }
    render(){return(<>
       <div className="todoBody">
@@ -74,13 +90,13 @@ class Todo extends Component{
             {this.state.list.map((item,i)=>{
                return(
                   <div className="todoRow" key={i}>
-                     {this.state.edit===0?this.showInput(item.value,item.id):this.showEditor(item.value,item.key)}
+                     {this.state.key!==item.id?this.showInput(item.value,item.id):this.showEditor(item.value,i)}
                   </div>
                )
             })}
          </div>
          <form className="todoInput" onSubmit={this.handleSubmit}>
-            <input type="text" className="addInput" placeholder="Add your To-Do items here" value={this.state.input} onChange={(item)=>{this.updateInput(item.target.value)}} onSubmit={()=>this.addInput()}></input>
+            <input type="text" className="addInput" placeholder="Add your To-Do items here" value={this.state.input} onChange={(item)=>{this.updateInput(item.target.value,0)}} onSubmit={()=>this.addInput()}></input>
             <button className="addTodo" onClick={()=>this.addInput()}><span className="plus">+</span></button>
          </form>
       </div>

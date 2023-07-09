@@ -30,21 +30,36 @@
 }
 .todoContent .checkBox{
    grid-area:checkBox;
-   padding:1em;
+   position:relative;
+   left:0.2em;
 }
 .todoContent .todoText{
    grid-area:userInput;
 }
+.todoContent .userInput{
+   grid-area:userInput;
+   position:relative;
+   top:0.1em;
+   left:0.2em;
+   max-width:10.5em;
+}
 .todoContent .todoBtns{
    border-radius: 20%;
    border:none;
-   position:relative;
-   top:0.1em;
-   right:0.1em
+   display:flex;
+   justify-self:center;
+   align-self: center;
+   max-height:2em;
+   max-width:2em;
+}
+.todoContent .hiddenBtn{
+   display:none;
 }
 .todoContent .editBtn{
    grid-area:edit;
-   right:0.2em;
+}
+.todoContent .saveBtn{
+   grid-area:edit;
 }
 .todoContent .trashBtn{
    grid-area:trash;
