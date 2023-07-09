@@ -36,6 +36,9 @@
 .todoContent .todoText{
    grid-area:userInput;
 }
+.todoContent .struck{
+   text-decoration: line-through;
+}
 .todoContent .userInput{
    grid-area:userInput;
    position:relative;

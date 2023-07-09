@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './todo.css'
 import { weekDay,currentDate } from '../../plugins/localTime.js'
+//TODO:add styling and fix checkbox not sticking to correct item when deletions happen. Also add more features
 class Todo extends Component{
    constructor(props){
       super(props)
@@ -39,41 +40,44 @@ class Todo extends Component{
    handleSubmit(e){
       e.preventDefault()
    }
-   removeInput(key){
+   removeInput(key,i){
       const list = [...this.state.list]
       const tasks = [...this.state.tasks]
       const updatedList = list.filter((item)=>item.id!==key)
-      let updatedTasks=tasks
-      if(updatedTasks.length>updatedList.length && updatedTasks.length>0){
-         updatedTasks=updatedTasks.slice(0,-1)
-      }
+      const updatedTasks=tasks.slice(0,-1)
+      console.log(i)
+      console.log(tasks)
+      console.log(updatedTasks)
       this.setState({list:updatedList,tasks:updatedTasks,})
    }
-   checkTask(key){
-
+   checkTask(i){
+      const tasks = [...this.state.tasks]
+      let updatedTasks = tasks
+      updatedTasks[i]===0?updatedTasks[i]=1:updatedTasks[i]=0
+      this.setState({tasks:updatedTasks,})
    }
-   showInput(item,key){
+   showInput(item,key,i){
       return(<>
-         <input className="checkBox" type="checkbox" onClick={()=>this.checkTask(key)}></input>
-         <span className="todoText">{item}</span>
+         <input className="checkBox" type="checkbox" onClick={()=>this.checkTask(i)}></input>
+         <span className={this.state.tasks[i]===1?"struck todoText":"todoText"}>{item}</span>
          <button className="todoBtns editBtn" onClick={()=>this.setState({key:key,})}>
             <i className="bx bx-edit"></i>
          </button>
-         <button className="todoBtns trashBtn" onClick={()=>this.removeInput(key)}>
+         <button className="todoBtns trashBtn" onClick={()=>this.removeInput(key,i)}>
             <i className="bx bx-trash"></i>
          </button>
          </>)
    }
-   showEditor(item,key){
+   showEditor(item,key,i){
       return(<>
          <form onSubmit={this.handleSubmit}>
-            <input type="text" className="userInput" defaultValue={item} onChange={(item)=>{this.updateInput(item.target.value,1)}} onSubmit={()=>this.editInput(this.state.edit,key)}></input>
-            <button className="hiddenBtn" onClick={()=>this.editInput(this.state.edit,key)}></button>
+            <input type="text" className="userInput" defaultValue={item} onChange={(item)=>{this.updateInput(item.target.value,1)}} onSubmit={()=>this.editInput(this.state.edit,i)}></input>
+            <button className="hiddenBtn" onClick={()=>this.editInput(this.state.edit,i)}></button>
          </form>
-         <button className="todoBtns saveBtn" onClick={()=>this.editInput(this.state.edit,key)}>
+         <button className="todoBtns saveBtn" onClick={()=>this.editInput(this.state.edit,i)}>
             <i className="bx bx-save"></i>
          </button>
-         <button className="todoBtns trashBtn" onClick={()=>this.removeInput(key)}>
+         <button className="todoBtns trashBtn" onClick={()=>this.removeInput(key,i)}>
             <i className="bx bx-trash"></i>
          </button>
          </>)
@@ -102,7 +106,7 @@ class Todo extends Component{
             {this.state.list.map((item,i)=>{
                return(
                   <div className="todoRow" key={i}>
-                     {this.state.key!==item.id?this.showInput(item.value,item.id):this.showEditor(item.value,i)}
+                     {this.state.key!==item.id?this.showInput(item.value,item.id,i):this.showEditor(item.value,item.id,i)}
                   </div>
                )
             })}
