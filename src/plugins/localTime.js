@@ -27,7 +27,7 @@ function currentDate(){
   let date= d.getDate().toString()
       let n
       if(date.length===2){
-         n=date[1]
+        date==="11"?n=date:n=date[1]
       }
       else{
          n=date[0]
