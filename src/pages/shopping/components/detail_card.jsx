@@ -15,7 +15,15 @@ class detailCard extends Component{
       this.props.setBool(false)
    }
    splitClothes(){
-      return (this.props.clothes+"").split("-")
+      const clothes=[...this.props.clothes]
+      const newClothes=[]
+      clothes.map((letter)=>(
+         (newClothes.length===0)?newClothes.push(letter.toUpperCase()):
+         letter==="-"?newClothes.push(" "):
+         newClothes[newClothes.length-1]===" "?newClothes.push(letter.toUpperCase()):
+         newClothes.push(letter)
+      ))
+      return newClothes.toString().replaceAll(",","")
    }
    splitPrice(){
       return (this.props.price+"").split(".")
@@ -26,7 +34,7 @@ class detailCard extends Component{
          <div className="detailBackground"></div>
          <div className="detailCard">
             <img className="zoomImage" src={this.props.path} alt={this.props.clothes}></img>
-            <h4 className="title">{this.splitClothes()[0] + " " + this.splitClothes()[1]}</h4><h6 className="price">$<span className="largePrice">{this.splitPrice()[0]}</span><span className="smallPrice">{this.splitPrice()[1]}</span><br/><span className="inStock">In Stock</span></h6>
+            <h4 className="title">{this.splitClothes()}</h4><h6 className="price">$<span className="largePrice">{this.splitPrice()[0]}</span><span className="smallPrice">{this.splitPrice()[1]}</span><br/><span className="inStock">In Stock</span></h6>
             <button className="button">Add to Cart</button>
             <h5 className="exit" onClick={()=>this.closeWindow()}>X</h5>
          </div>
