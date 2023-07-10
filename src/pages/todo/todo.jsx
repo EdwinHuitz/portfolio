@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import './todo.css'
-import { weekDay,currentDate } from '../../plugins/localTime.js'
+import { weekDay,currentMonth,currentDate } from '../../plugins/localTime.js'
 //TODO:add styling and fix checkbox not sticking to correct item when deletions happen. Also add more features
 class Todo extends Component{
    constructor(props){
@@ -26,7 +26,7 @@ class Todo extends Component{
          const list = [...this.state.list]
          const tasks = [...this.state.tasks]
          list.push(userInput)
-         tasks.push(0)
+         tasks.push([0,userInput.id])
          //reset state for next item
          this.setState({
             list:list,
@@ -44,22 +44,26 @@ class Todo extends Component{
       const list = [...this.state.list]
       const tasks = [...this.state.tasks]
       const updatedList = list.filter((item)=>item.id!==key)
-      const updatedTasks=tasks.slice(0,-1)
+      tasks[i][0]=0
+      this.setState({tasks:tasks})
+      const updatedTasks = tasks.filter((task)=>task.id!==key)
       console.log(i)
-      console.log(tasks)
-      console.log(updatedTasks)
+      console.log("tasks: "+tasks)
+      console.log("updated tasks: "+updatedTasks)
       this.setState({list:updatedList,tasks:updatedTasks,})
    }
    checkTask(i){
       const tasks = [...this.state.tasks]
-      let updatedTasks = tasks
-      updatedTasks[i]===0?updatedTasks[i]=1:updatedTasks[i]=0
+      const updatedTasks = tasks
+      updatedTasks[i][0]===0?updatedTasks[i][0]=1:updatedTasks[i][0]=0
       this.setState({tasks:updatedTasks,})
    }
    showInput(item,key,i){
       return(<>
-         <input className="checkBox" type="checkbox" onClick={()=>this.checkTask(i)}></input>
-         <span className={this.state.tasks[i]===1?"struck todoText":"todoText"}>{item}</span>
+         {(this.state.tasks[i][0]===1)?
+         <input name="checkBox" defaultValue="true" className="checkBox" type="checkbox" checked onChange={()=>this.checkTask(i)}></input>
+         :<input name="checkBox" defaultValue="" className="checkBox" type="checkbox" onChange={()=>this.checkTask(i)}></input>}
+         <span className={this.state.tasks[i][0]===1?"struck todoText":"todoText"}>{item}</span>
          <button className="todoBtns editBtn" onClick={()=>this.setState({key:key,})}>
             <i className="bx bx-edit"></i>
          </button>
@@ -82,13 +86,13 @@ class Todo extends Component{
          </button>
          </>)
    }
-   editInput(item,key){
+   editInput(item,i){
       const list = [...this.state.list]
       
       let newItem=item.trim()
       if(newItem!==""){
          let newList = [...list]
-         newList[key].value=newItem
+         newList[i].value=newItem
          this.setState({
             list:newList,
             input:"",
@@ -100,7 +104,7 @@ class Todo extends Component{
    render(){return(<>
       <div className="todoBody">
          <div className="todoHeader">
-            <h5>{weekDay()+" the "+currentDate()} To-Do List</h5>
+            <h5>{weekDay()+", "+currentMonth()+" "+currentDate()} To-Do List</h5>
          </div>
          <div className="todoContent">
             {this.state.list.map((item,i)=>{

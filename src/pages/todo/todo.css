@@ -8,13 +8,13 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   border-radius:10px;
+   border-radius:8px;
+   margin-bottom:20vh;
 }
 .todoHeader{
    color:black;
 }
 .todoContent{
-   background-color:silver;
    min-height:25em;
    max-height:35em;
    min-width:20em;
@@ -27,6 +27,9 @@
    grid-template-rows: 100%;
    grid-template-areas: "checkBox userInput edit trash";
    margin-bottom:5px;
+   border-bottom: solid;
+   border-width:0.25px;
+   border-color:lightgrey;
 }
 .todoContent .checkBox{
    grid-area:checkBox;
@@ -38,6 +41,8 @@
 }
 .todoContent .struck{
    text-decoration: line-through;
+   font-style: italic;
+   color:darkgrey;
 }
 .todoContent .userInput{
    grid-area:userInput;
@@ -54,6 +59,7 @@
    align-self: center;
    max-height:2em;
    max-width:2em;
+   border-radius:45px;
 }
 .todoContent .hiddenBtn{
    display:none;
@@ -66,28 +72,41 @@
 }
 .todoContent .trashBtn{
    grid-area:trash;
+   background-color:salmon;
+   color:white;
+}
+.todoContent .trashBtn:hover{
+   background-color:rgb(255, 71, 71);
+}
+.todoContent .trashBtn:active{
+   background-color:crimson;
 }
 .todoInput{
    position:relative;
-   left:0.33em;
+   top:0.25em;
+   left:0.5em;
    display:flex;
    justify-content:center;
    align-items:center;
 }
 .todoInput .addInput{
-   min-width:15em;
+   min-width:20em;
    text-align:center;
+   border-radius:33px;
+   border:none;
+   box-shadow: 0px 0px 3px grey;
 }
 .todoInput .addTodo{
-
-   height:2em;
+   position:relative;
+   left:-1.25em;
+   max-height:1.1em;
    border-radius: 45px;
    border:none;
 }
 .todoInput .plus{
    position:relative;
    top:-0.4em;
-   font-size: 2em;
+   font-size: 1em;
 }
 @media(max-width: 800px){
    .todoBody{
