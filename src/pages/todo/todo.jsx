@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import './todo.css'
 import { weekDay,currentMonth,currentDate } from '../../plugins/localTime.js'
-//TODO:fix checkboxes not updating as soon as checked and also add more features
+//TODO:add more features
 class Todo extends Component{
    constructor(props){
       super(props)
@@ -45,15 +45,15 @@ class Todo extends Component{
    checkTask(i){
       const tasks = [...this.state.list]
       const updatedTasks = tasks
-      updatedTasks[i][2]===false?updatedTasks[i][2]=true:updatedTasks[i][2]=false
+      updatedTasks[i]["check"]===false?updatedTasks[i]["check"]=true:updatedTasks[i]["check"]=false
       this.setState({list:updatedTasks,})
    }
    showInput(item,key,i){
       return(<>
-         {(this.state.list[i][2]===true)?
+         {(this.state.list[i]["check"]===true)?
          <input name="checkBox" defaultValue="" className="checkBox" type="checkbox" checked onChange={()=>this.checkTask(i)}></input>
          :<input name="checkBox" defaultValue="" className="checkBox" type="checkbox" onChange={()=>this.checkTask(i)}></input>}
-         <span className={this.state.list[i][2]===true?"struck todoText":"todoText"}>{item}</span>
+         <span className={this.state.list[i]["check"]===true?"struck todoText":"todoText"}>{item}</span>
          <button className="todoBtns editBtn" onClick={()=>this.setState({key:key,})}>
             <i className="bx bx-edit"></i>
          </button>
@@ -94,19 +94,21 @@ class Todo extends Component{
    render(){return(<>
       <div className="todoBody">
          <div className="todoHeader">
-            <h5>{weekDay()+", "+currentMonth()+" "+currentDate()} To-Do List</h5>
+            <h5>{weekDay()+", "+currentMonth()+" "+currentDate()}<br/> To-Do List</h5>
          </div>
          <div className="todoContent">
-            {this.state.list.map((item,i)=>{
-               return(
-                  <div className="todoRow" key={i}>
-                     {this.state.key!==item.id?this.showInput(item.value,item.id,i):this.showEditor(item.value,item.id,i)}
-                  </div>
-               )
+            {
+               this.state.list.length===0?<div className="todoFiller"><p>Items added to the list will go here</p></div>:
+               this.state.list.map((item,i)=>{
+                  return(
+                     <div className="todoRow" key={i}>
+                        {this.state.key!==item.id?this.showInput(item.value,item.id,i):this.showEditor(item.value,item.id,i)}
+                     </div>
+                  )
             })}
          </div>
          <form className="todoInput" onSubmit={this.handleSubmit}>
-            <input type="text" className="addInput" placeholder="Add your To-Do items here" value={this.state.input} onChange={(item)=>{this.updateInput(item.target.value,0)}} onSubmit={()=>this.addInput()}></input>
+            <input type="text" className="addInput" placeholder="Type your To-Do items here" value={this.state.input} onChange={(item)=>{this.updateInput(item.target.value,0)}} onSubmit={()=>this.addInput()}></input>
             <button className="addTodo" onClick={()=>this.addInput()}><span className="plus">+</span></button>
          </form>
       </div>

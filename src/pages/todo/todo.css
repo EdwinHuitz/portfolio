@@ -1,7 +1,7 @@
 .todoBody{
    background-color:white;
-   min-height:30em;
-   max-height:40em;
+   min-height:33em;
+   max-height:33em;
    min-width:25em;
    max-width:30em;
    display:flex;
@@ -16,17 +16,24 @@
 }
 .todoContent{
    min-height:25em;
-   max-height:35em;
+   max-height:25em;
    min-width:20em;
    max-width:25em;
    overflow-y:auto;
 }
+.todoContent .todoFiller{
+   display: flex;
+   min-height:100%;
+   align-items: center;
+   justify-content: center;
+}
 .todoContent .todoRow{
    display:grid;
-   grid-template-columns: 1.1em 15em 2em 2em;
+   grid-template-columns: 1.1em 17em 2em 2em;
    grid-template-rows: 100%;
    grid-template-areas: "checkBox userInput edit trash";
-   margin-bottom:5px;
+   margin-top:0.5em;
+   padding-bottom:0.5em;
    border-bottom: solid;
    border-width:0.25px;
    border-color:lightgrey;
@@ -49,7 +56,12 @@
    position:relative;
    top:0.1em;
    left:0.2em;
-   max-width:10.5em;
+   min-width:15em;
+   max-width:17em;
+   text-align: center;
+   border-radius:33px;
+   border:none;
+   box-shadow: 0px 0px 3px grey;
 }
 .todoContent .todoBtns{
    border-radius: 20%;
@@ -110,22 +122,29 @@
 }
 @media(max-width: 800px){
    .todoBody{
-      min-height:30em;
-      max-height:40em;
+      min-height:33em;
+      max-height:33em;
       min-width:20em;
       max-width:30em;
    }
    .todoContent{
       min-height:25em;
-      max-height:35em;
-      min-width:15em;
-      max-width:25em;
+      max-height:25em;
+      min-width:20em;
+      max-width:20em;
    }
    .todoContent .todoRow{
       display:grid;
-      grid-template-columns: 1.1em 10em 2em 2em;
+      grid-template-columns: 1.1em 15em 2em 2em;
       grid-template-rows: 100%;
       grid-template-areas: "checkBox userInput edit trash";
       margin-bottom:5px;
+   }
+   .todoContent .userInput{
+      min-width:10em;
+      max-width:13em;
+   }
+   .todoInput{
+      margin-top:1em;
    }
 }
