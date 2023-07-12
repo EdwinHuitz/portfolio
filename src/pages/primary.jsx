@@ -13,6 +13,7 @@ export default function Primary(){
    let hash= window.location.hash
    let tags=['#home','#portfolio','#game','#weather','#todo','#menu','#shopping','#contact']
    let bgColor="#040b14"
+   hash===tags[0]?bgColor="#000000":
    hash===tags[1]?bgColor="#0F052E":
    hash===tags[4]?bgColor="#e9e9e9":
    hash===tags[5]?bgColor="#e6fbfd":

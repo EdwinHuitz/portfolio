@@ -1,4 +1,5 @@
 import React, {useState,useEffect} from "react"
+import Particles from "./components/particles"
 import './home.css'
 //!Add stars to background
 export default function Home(){
@@ -39,7 +40,7 @@ export default function Home(){
       }
    }, [])
    const [skill,setSkill]=useState('')
-   return(
+   return(<>
    <div id="home" className="d-flex flex-column justify-content-center align-items-center">
          <h1 className="name" title="Edwin Huitz: Full-Stack Web Developer">Edwin Huitz</h1>
          <p>{skill}<span className="cursor">|</span> Developer.</p>
@@ -49,5 +50,7 @@ export default function Home(){
             <a href="https://github.com/EdwinHuitz" target="_blank" rel="noreferrer" title="My GitHub"><i className="bx bxl-github"></i></a>
          </div>
       </div>
+      <Particles id="tsparticles" />
+      </>
    )
 }
