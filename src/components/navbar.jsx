@@ -23,7 +23,7 @@ export default function Nav(){
             <i className="bx bx-menu"></i>
          </button>
 
-         <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offCanvasLabel" style={{backgroundColor:hash===tags[1]?"#0F052E":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14"}}>
+         <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offCanvasLabel" style={{backgroundColor:hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14"}}>
             <div className="w-100 p-3 d-flex justify-content-end offcanvas-header">
                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{backgroundColor:"white"}}></button>
             </div>

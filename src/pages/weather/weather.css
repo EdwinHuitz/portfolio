@@ -23,7 +23,7 @@
 .tempBox{
   width:100%;
   height:100%;
-  background-color: #282c34;
+  background-color: #232f3e;
   padding:.25rem;
   border-radius:calc(.25rem - 1px);
   opacity:0.95;
@@ -90,7 +90,7 @@
   margin:0px;
 }
 .wBtn:hover{
-  background-color: #282c34;
+  background-color: #232f3e;
 }
 .refresh{
   font-size:8em;
