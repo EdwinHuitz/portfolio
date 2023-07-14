@@ -1,7 +1,6 @@
-import React, {useState,useEffect} from "react"
+import { useState,useEffect } from "react"
 import Particles from "./components/particles"
 import './home.css'
-//!Add stars to background
 export default function Home(){
    useEffect(() => {
       let i=0

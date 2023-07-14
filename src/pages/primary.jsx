@@ -1,4 +1,3 @@
-import React from 'react'
 import Home from './home/home'
 import Portfolio from './portfolio/portfolio'
 import Weather from './weather/weather'
@@ -6,6 +5,7 @@ import Todo from './todo/todo'
 import Menu from './menu/menu'
 import Shopping from './shopping/shopping'
 import Contact from './contact/contact'
+import Nav from '../components/navbar'
 import Footer from '../components/footer'
 
 export default function Primary(){
@@ -33,6 +33,7 @@ export default function Primary(){
             <Home/>}
          </main>
          <Footer color={[bgColor,hash===tags[4]?"black":"white"]} />
+         <Nav/>
       </>
    )
 }
