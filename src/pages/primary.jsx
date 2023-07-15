@@ -32,7 +32,7 @@ export default function Primary(){
             hash===tags[7]?<Contact/>:
             <Home/>}
          </main>
-         <Footer color={[bgColor,hash===tags[4]?"black":"white"]} />
+         <Footer color={[bgColor,hash===tags[4]?"black":hash===tags[5]?"#149ddd":"white"]} />
          <Nav/>
       </>
    )

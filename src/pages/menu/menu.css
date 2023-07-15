@@ -15,7 +15,7 @@
 .menuNav hr{
    background-color: #149ddd;
    align-self: center;
-   width:20vw;
+   width:5.5em;
    height:5px;
 }
 .menuNav .title{
@@ -31,14 +31,12 @@
    padding:10px;
    margin-left:10px;
    margin-right:10px;
-   padding-top:1px;
-   padding-bottom:1px;
    color:#149ddd;
    text-align:center;
    text-decoration: none;
    background:none;
    border:none;
-   border-radius: 10%;
+   border-radius: 45%;
    transition: 0.5s ease-in-out;
 }
 .tabs button:hover{
@@ -81,7 +79,7 @@
 .foodPrice{
    color:#149ddd;
 }
-@media (max-width: 1080px) {
+@media (max-width: 991.5px) {
    img{
       height:33vh;
    }
