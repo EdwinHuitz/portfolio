@@ -47,7 +47,7 @@ export default function Nav(){
                               <a href="/#todo" ><i className="bx bx-list-ul"></i>To-Do List</a>
                            </li>
                            <li className={hash===tags[5]?"active":""}>
-                              <a href="/#menu" ><i className="bx bx-food-menu"></i>Breakfast Menu</a>
+                              <a href="/#menu" ><i className="bx bx-food-menu"></i>Diner Menu</a>
                            </li>
                            <li className={hash===tags[6]?"active":""}>
                               <a href="/#shopping" ><i className="bx bx-cart"></i> Shopping Page</a>
