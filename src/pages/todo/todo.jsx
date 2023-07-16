@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import './todo.css'
-import { weekDay,currentMonth,currentDate } from '../../plugins/localTime.js'
+import { today } from '../../plugins/localTime.js'
 //TODO:add more features
 class Todo extends Component{
    constructor(props){
@@ -94,7 +94,7 @@ class Todo extends Component{
    render(){return(<>
       <div className="todoBody">
          <div className="todoHeader">
-            <h5>{weekDay()+", "+currentMonth()+" "+currentDate()}<br/> To-Do List</h5>
+            <h5>{today()}<br/> To-Do List</h5>
          </div>
          <div className="todoContent">
             {
