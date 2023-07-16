@@ -12,7 +12,7 @@
 }
 .contact .info {
    padding: 30px;
-   height:60vh;
+   height:50em;
    width: 30vw;
    border-radius: 5px;
    background-color: #9EBBC7;
@@ -32,7 +32,7 @@
 }
 
 .contact .infoDetail {
-padding-bottom: 20px;
+padding-bottom: 1.5em;
 }
 
 .contact .info .infoDetail h5 {
@@ -47,73 +47,29 @@ margin-bottom: 20px;
 font-size: 14px;
 color: #173b6c;
 }
- 
-.contact .email-form {
-   align-content: center;
-   height:60vh;
-   padding: 30px;
-   border-radius: 5px;
-   background-color: #9EBBC7;
-}
-.contact .email-form input, .contact .email-form textarea {
-   background-color:#fff;
-   border-radius: 4px;
-   box-shadow: none;
-   font-size: 14px;
-   margin-bottom:0.3em;
- }
- 
- .contact .email-form input {
-   height: 44px;
- }
- 
- .contact .email-form textarea {
-   padding: 10px 10px;
- }
- 
- .contact .email-form button[type="submit"] {
-   border: 0;
-   padding: 10px 24px;
-   color: #fff;
-   transition: 0.3s;
-   border-radius: 4px;
- }
-@media(max-width:1199px){
+
+@media(max-width:991.5px){
    .contact{
-      padding:10px;
+      padding:1em;
       width:90vw;
       height:90vh;
       margin:0vw;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
    }
-   .contact .info {
-      position:absolute;
-      left:-110vw;
-      display:none;
-   }
-   .contact .email-form {
-      width:99vw;
-      box-shadow: 0px 0px 20px 10px #172B3E;
-      margin-left:-51vw;
+   .contact .info{
+      min-height: 9em;
+      max-height: 10em;
+      display:flex;
+      position:relative;
+      top:-9.5em;
+      flex-direction:column;
+      align-content: center;
    }
 }
 .hiddenPhone {
    color:white;
    font-size: 0.01em !important;
-}
-@-webkit-keyframes animate-loading {
-   0% {
-      transform: rotate(0deg);
-   }
-   100% {
-      transform: rotate(360deg);
-   }
-}
-
-@keyframes animate-loading {
-   0% {
-      transform: rotate(0deg);
-   }
-   100% {
-      transform: rotate(360deg);
-   }
 }
