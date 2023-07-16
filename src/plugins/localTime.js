@@ -27,7 +27,7 @@ function currentDate(){
   let date= d.getDate().toString()
   let n
   if(date.length===2){
-    date==="11"?n=date:n=date[1]
+    date==="11"||date==="12"||date==="13"?n=date:n=date[1]
   }
   else{
       n=date[0]
@@ -59,4 +59,8 @@ function currentMonth(){
   }
   return month
 }
-export{weekDay,currentMonth,currentTime,currentDate}
+function today(){
+  let today=weekDay()+", "+currentMonth()+" "+currentDate()
+  return today
+}
+export{today,weekDay,currentMonth,currentTime,currentDate}
