@@ -19,13 +19,13 @@ export default function Nav(){
    let tags=['#home','#portfolio','#game','#weather','#todo','#menu','#shopping','#contact']
    return(
       <>
-         <button className="mobile-nav-toggle" title="Open Navigation Menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft" aria-label="Toggle navigation" >
+         <button className="mobile-nav-toggle" title="Open Navigation Menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft" aria-label="Toggle navigation" style={{visibility:window.innerWidth>991.5 && hash===""?"hidden":window.innerWidth>991.5 && hash==="#home"?"hidden":"visible"}}>
             <i className="bx bx-menu"></i>
          </button>
 
-         <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offCanvasLabel" style={{backgroundColor:hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14"}}>
+         <div className={window.innerWidth>991.5?"offcanvas offcanvas-start show":"offcanvas offcanvas-start"} data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offCanvasLabel" style={{backgroundColor:hash===tags[0]?"#000000":hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14",opacity:"0.9",maxWidth:"15em"}}>
             <div className="w-100 p-3 d-flex justify-content-end offcanvas-header">
-               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{backgroundColor:"white"}}></button>
+               <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{backgroundColor:"white",visibility:window.innerWidth>991.5 && hash===""?"hidden":window.innerWidth>991.5 && hash==="#home"?"hidden":"visible"}}></button>
             </div>
             <div className="offcanvas-body">
                   <div className="d-flex flex-column">
