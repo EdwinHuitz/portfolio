@@ -9,9 +9,12 @@ export default function Menu(){
    let numbers = [...Array(12).keys()]
    let path="assets/img/food/"
 
-   function menuItems(foodType,foodName,foodPrice){
+   function menuItems(foodType,foodName,foodPrice,index){
       let newName=''
       let newPath=''
+      
+      let nonPlural=checkPlurality(1,foodName).toLowerCase()
+      let toPlural=checkPlurality(2,foodName)
       if(foodName.indexOf(' ')>=0){
          newName=foodName.replaceAll(' ','-')
          newPath = path+newName+".jpg"
@@ -19,49 +22,66 @@ export default function Menu(){
       else{
          newPath = path+foodName+".jpg"
       }
+
          return (<>
-               <div className="menuItem" id={foodType} style={{display:foodType===cat?'flex':cat===3?'flex':'none'}}>
+               <div key={index} className="menuItem" id={foodType} style={{display:foodType===cat?'flex':cat===3?'flex':'none'}}>
                      <img src={newPath} alt="" className="foodPic"></img>
                      <div className="foodDetail">
                         <span className="foodText"><b>{foodName}</b> <b className="foodPrice">${foodPrice}</b></span>
                         <hr></hr>
-                        <p>{foodName} are made of {foodName} mix which is made of {foodName} mix which is made of {foodName} mix which is made of {foodName}!</p>
+                        <p>{toPlural} are made straight from {nonPlural} mix in our kitchens. Which is brought to us fresh every single morning, straight from local farms bright and early!</p>
                      </div>
                </div>
       </>)
    
    }
-   function foodTypes(){
-      let breakfast=path+foodArray[0][1]+".jpg"
-      let lunch=path+foodArray[7][1].replace(" ","-")+".jpg"
-      let drinks=path+foodArray[10][1]+".jpg"
-      return(<>
-         <div className="menuItem" id="breakfast" style={{display:cat===4?'flex':'none',cursor:"pointer",}} onClick={()=>setCat(0)}>
-            <img src={breakfast} alt="" className="foodPic"></img>
-            <div className="foodDetail">
-               <span className="foodText justify-content-center"><b>Breakfast</b></span>
-               <hr></hr>
-               <p>An assortment of our delicious breakfast menu items<br/> available to order 24/7!</p>
-            </div>
-         </div>
-         <div className="menuItem" id="lunch" style={{display:cat===4?'flex':'none',cursor:"pointer"}} onClick={()=>setCat(1)}>
-            <img src={lunch} alt="" className="foodPic"></img>
-            <div className="foodDetail">
-               <span className="foodText justify-content-center"><b>Lunch</b></span>
-               <hr></hr>
-               <p>An assortment of our delicious lunch menu items<br/> available to order 24/7!</p>
-            </div>
-         </div>
-         <div className="menuItem" id="drinks" style={{display:cat===4?'flex':'none',cursor:"pointer"}} onClick={()=>setCat(2)}>
-            <img src={drinks} alt="" className="foodPic"></img>
-            <div className="foodDetail">
-               <span className="foodText justify-content-center"><b>Refreshments</b></span>
-               <hr></hr>
-               <p>An assortment of our delicious refreshments<br/> available to order 24/7!</p>
-            </div>
-         </div>
-      </>)
+   function checkPlurality(int,foodName){
+      //name of food
+      const n = foodName
+      //length of name
+      let l = n.length-1
+      let val = n
+      if(int===1){
+         //ies to y
+         if(n[l-2]==="i" && n[l-1]==="e" && n[l]==="s"){
+            val=val.substring(0,l-2)
+            val+="y"
+         }
+         //s to ""
+         else if(n[l]==="s"){
+            val=val.substring(0,l)
+         }
+      }else if(int===2){
+         //convert h i y to proper plurals
+         if(n[l]==="h" || n[l]==="i"){
+            val+="es"
+         }
+         else if(n[l]==="y"){
+            val=val.substring(0,l)
+            val+="ies"
+         }
+         else if(n[l]!=="s"){
+            val+="s"
+         }
+      }
+      return val
    }
+   function foodTypes(){
+      let newPath=path
+      let foods=[foodArray[0][1]+".jpg",foodArray[7][1].replace(" ","-")+".jpg",foodArray[10][1]+".jpg"]
+      const foodNames=["Breakfast","Lunch","Refreshments"]
+      return(
+         foodNames.map((food,i)=>(
+            <div key={i} className="menuItem" id={foodNames[i]} style={{display:cat===4?'flex':'none',cursor:"pointer",}} onClick={()=>setCat(0)}>
+               <img src={newPath+foods[i]} alt="" className="foodPic"></img>
+               <div className="foodDetail">
+                  <span className="foodText justify-content-center"><b>{food}</b></span>
+                  <hr></hr>
+                  <p>{i===2?"A delicious assortment of our ":"A tasty selection of our "}{i===2?`${food.toLowerCase()},`:food.toLowerCase()+" meals, fresh from our kitchens and"}<br/>available to order 24/7!</p>
+               </div>
+            </div>
+         ))
+      )}
    return(
    <>
       <div className="menuWrap">
@@ -77,8 +97,8 @@ export default function Menu(){
          </div>
          <div className="menuList">
             {foodTypes()}
-            {numbers.map((num)=>(
-               menuItems(foodArray[num][0],foodArray[num][1],foodArray[num][2])
+            {numbers.map((num,i)=>(
+               menuItems(foodArray[num][0],foodArray[num][1],foodArray[num][2],i)
             ))}
          </div>
       </div>
