@@ -43,7 +43,7 @@ app.get('/services', (req, res)=> {
   queries()
 })
   // app.get('/services', function(req, res) {
-    //   // Add your code here
+ // Add your code here
 //   res.json({success: 'get call succeed!', url: req.url});
 // });
 
@@ -55,11 +55,6 @@ app.get('/services/*', function(req, res) {
 /****************************
  * Example post method *
 ****************************/
-
-app.post('/services/mail', function(req, res) {
-  const mailer = require('./controllers/mailer')
-  mailer(req,res)
-})
 
 app.post('/services', function(req, res) {
     // Add your code here

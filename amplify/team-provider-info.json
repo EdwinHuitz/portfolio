@@ -20,7 +20,7 @@
         },
         "sendMail": {
           "deploymentBucketName": "amplify-portfolio-dev-53125-deployment",
-          "s3Key": "amplify-builds/sendMail-4b464157684368496331-build.zip"
+          "s3Key": "amplify-builds/sendMail-67724c425a337a4e6b6d-build.zip"
         }
       },
       "api": {
