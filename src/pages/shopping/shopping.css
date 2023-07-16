@@ -8,20 +8,6 @@
    min-width:10vw;
    min-height:100vh;
 }
-.navHead{
-   background-color: #131921;
-   margin-top:0px;
-   padding:0px;
-   padding-left:3em;
-   position:fixed;
-   top:0px;
-   min-height: 2em;
-   max-height:4em;
-   width:100vw;
-   display:flex;
-   flex-flow: row;
-   justify-content:space-evenly;
-}
 .sApp i{
    font-size:3em;
    color:white;
@@ -29,62 +15,88 @@
 .sApp i:hover{
    cursor:pointer;
 }
-.navHead h4{
-   color:white;
-   padding:1%;
-   margin:1px;
-}
-.navHead h4:hover{
-   margin:0px;
-   cursor:pointer;
-}
 .mainDisplay{
    width:100vw;
+   max-height:100vh;
    display:flex;
    justify-content: space-evenly;
    align-items: center;
    align-content: space-around;
+   overflow-y:scroll;
+}
+.navLinkBtn{
+   background-color:#131921;
+   color:white;
+   border:none;
+   border-radius:15px;
+   display:flex;
+   align-items: center;
+   height:2em;
+   font-size: 1.1em;
+   margin:0px;
+   margin-top:0.33em;
+}
+.navLinkBtn:hover{
+   background-color:rgb(70, 80, 100);
+   color:white;
+   transition: background-color 1.5s ease-in-out;
 }
 .shoppingCart{
    padding:1%;
 }
-.shoppingLinks:hover{
-   border-color:white;
-   border:solid;
-   border-width:1px;
-}
 .brand{
    font-family:'Brush Script MT',cursive;
-   color:orange !important;
+   color:orange;
 }
 .brand:hover{
-   cursor:default !important;
-   border:solid;
-   border-color:#131921;
-   border-width:1px;
+   color:orange;
 }
-.larger{
-   display:block;
+.brand:visited{
+   color:orange;
+}
+.cardRow{
+   display:flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   column-gap: 0.5em;
 }
 .smaller{
    display:none;
+   padding:0;
+   margin:0;
 }
-@media(max-width:800px){
-   /* .sApp{
-   } */
-   .navHead{
-      width:100vw;
-      margin-bottom: 1em;
-   }
-   /* .brand{
-   } */
+@media(max-width:991.5px){
    .mainDisplay{
+      margin-top:8em;
       flex-direction:column;
+      justify-content:space-between;
+      row-gap: 10px;
    }
-   .larger{
-      display:none;
+   .cardRow{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      column-gap: 5px;
    }
    .smaller{
       display:block;
+   }
+   .smaller ul{
+      list-style-type:none;
+   }
+   .navLinkBtn{
+      background-color:#131921;
+      color:white;
+      border:none;
+      border-radius:15px;
+      display:flex;
+      align-items: center;
+      height:2em;
+      font-size: 1.1em;
+      margin:0px;
+      margin-top:0.33em;
+      padding:0px;
+      padding-left:2px;
+      padding-right:2px;
    }
 }
