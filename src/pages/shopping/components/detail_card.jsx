@@ -10,9 +10,17 @@ class detailCard extends Component{
       this.closeWindow.bind(this)
       this.splitClothes.bind(this)
       this.splitPrice.bind(this)
+      this.addToCart.bind(this)
    }
    closeWindow(){
       this.props.setBool(false)
+   }
+   addToCart(){
+      let price=this.props.price
+      let clothes=this.splitClothes()
+      const keySet=[...this.props.cart]
+      keySet.push({[clothes]:price})
+      this.props.setKey(keySet)
    }
    splitClothes(){
       const clothes=[...this.props.clothes]
@@ -31,11 +39,11 @@ class detailCard extends Component{
    render(){
       return(
          <>
-         <div className="detailBackground"></div>
+         <div className="detailBackground" onClick={()=>this.closeWindow()}></div>
          <div className="detailCard">
             <img className="zoomImage" src={this.props.path} alt={this.props.clothes}></img>
             <h4 className="title">{this.splitClothes()}</h4><h6 className="price">$<span className="largePrice">{this.splitPrice()[0]}</span><span className="smallPrice">{this.splitPrice()[1]}</span><br/><span className="inStock">In Stock</span></h6>
-            <button className="button">Add to Cart</button>
+            <button className="button" onClick={()=>this.addToCart()}>Add to Cart</button>
             <h5 className="exit" onClick={()=>this.closeWindow()}>X</h5>
          </div>
       </>)
