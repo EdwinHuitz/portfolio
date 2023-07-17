@@ -12,7 +12,14 @@ export default function Shopping(){
       if(cList[0].classList.contains("shakingShoppingCart")){
          cList[0].classList.remove("shakingShoppingCart")
          cList[1].classList.remove("shakingShoppingCart")
+         setTimeout(addAnimations,250)
+      }else{
+         cList[0].classList.add("shakingShoppingCart")
+         cList[1].classList.add("shakingShoppingCart")
       }
+   }
+   function addAnimations(){
+      let cList=document.getElementsByClassName("shoppingCart")
       cList[0].classList.add("shakingShoppingCart")
       cList[1].classList.add("shakingShoppingCart")
    }

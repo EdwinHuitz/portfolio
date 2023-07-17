@@ -45,12 +45,13 @@
    padding:1%;
 }
 .shakingShoppingCart{
-   animation: 1s shakingCart linear infinite;
+   animation: 1s shakingCart linear;
 }
 @keyframes shakingCart {
    0%,100%{transform: translateX(0%);transform-origin: 50% 50%;}
    20% {transform: translateX(-3px) rotate(-6deg);}
 	40% {transform: translateX(3px) rotate(6deg);}
+   50% {color:limegreen}
 	60% {transform: translateX(-3px) rotate(-6deg);}
    80% {transform: translateX(3px) rotate(6deg);}
 }

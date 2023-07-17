@@ -21,6 +21,7 @@ class detailCard extends Component{
       const keySet=[...this.props.cart]
       keySet.push({[clothes]:price})
       this.props.setKey(keySet)
+      this.closeWindow()
    }
    splitClothes(){
       const clothes=[...this.props.clothes]
