@@ -11,9 +11,9 @@
    color:white;
 }
 .contact .info {
-   padding: 30px;
-   height:50em;
-   width: 30vw;
+   padding: 1em;
+   height:27em;
+   width: 27em;
    border-radius: 5px;
    background-color: #9EBBC7;
 }
@@ -38,7 +38,8 @@ padding-bottom: 1.5em;
 .contact .info .infoDetail h5 {
    font-size: 15px;
    font-weight: 600;
-   color: #050d18;
+   color: white;
+   text-shadow:0px 0px 0.5em black;
 }
 
 .contact .info p {
@@ -47,7 +48,22 @@ margin-bottom: 20px;
 font-size: 14px;
 color: #173b6c;
 }
-
+.emailBox{
+   max-width:35em;
+   background-color:#9EBBC7;
+   border-radius:5px;
+}
+.amplify-label{
+   color:white;
+   text-shadow:0px 0px 0.5em black;
+}
+.amplify-input, .amplify-textarea{
+   background-color:white;
+   color:black;
+}
+.amplify-textarea{
+   overflow-wrap:anywhere;
+}
 @media(max-width:991.5px){
    .contact{
       padding:1em;
@@ -62,11 +78,16 @@ color: #173b6c;
    .contact .info{
       min-height: 9em;
       max-height: 10em;
+      min-width:25vw;
+      max-width:33vw;
       display:flex;
       position:relative;
       top:-9.5em;
       flex-direction:column;
       align-content: center;
+   }
+   .emailBox{
+      min-width:60vw;
    }
 }
 .hiddenPhone {
