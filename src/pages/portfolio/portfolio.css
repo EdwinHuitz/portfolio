@@ -115,9 +115,9 @@ div #portfolio_main{
 .hide{
    display:none;
 }
-.show{
-   z-index:10000;
-}
+/* .show{
+   z-index:100;
+} */
 .zoom-bg{
    display:block;
    position:fixed;
@@ -128,7 +128,7 @@ div #portfolio_main{
    height:100vh;
    background-color:black;
 }
-@media(max-width:1199px){
+@media(max-width:991.5px){
    div #main{
       min-width:100vw;
       margin-top:0vh;

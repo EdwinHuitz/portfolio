@@ -22,8 +22,7 @@ export default function Nav(){
          <button className="mobile-nav-toggle" title="Open Navigation Menu" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft" aria-label="Toggle navigation" style={{visibility:window.innerWidth>991.5 && hash===""?"hidden":window.innerWidth>991.5 && hash==="#home"?"hidden":"visible"}}>
             <i className="bx bx-menu"></i>
          </button>
-
-         <div className={window.innerWidth>991.5?"offcanvas offcanvas-start show":"offcanvas offcanvas-start"} data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offCanvasLabel" style={{backgroundColor:hash===tags[0]?"#000000":hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14",opacity:"0.93",maxWidth:"15em"}}>
+         <div className={window.innerWidth>991.5?"offcanvas offcanvas-start show":"offcanvas offcanvas-start"} data-bs-scroll="true" data-bs-backdrop={hash===""?false:hash==="#home"?false:true} tabIndex="-1" id="offcanvasLeft" aria-labelledby="offCanvasLabel" style={{backgroundColor:hash===tags[0]?"#000000":hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14",opacity:"0.93",maxWidth:"15em"}}>
             <div className="w-100 p-3 d-flex justify-content-end offcanvas-header">
                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style={{backgroundColor:"white",visibility:window.innerWidth>991.5 && hash===""?"hidden":window.innerWidth>991.5 && hash==="#home"?"hidden":"visible"}}></button>
             </div>
@@ -37,7 +36,7 @@ export default function Nav(){
                         </li>
                         <li className={hash===tags[1]?"active dropdown":"dropdown"}>
                            <a href="/#portfolio" role="button" data-bs-toggle="dropdown" aria-expanded="false" className="dropdown-toggle" ><i className="bx bx-book-content"></i> Portfolio</a>
-                           <ul class="dropdown-menu" style={{backgroundColor:hash===tags[0]?"#000000":hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14",border:"none",opacity:"0.93",maxWidth:"15em"}}>
+                           <ul className="dropdown-menu" style={{backgroundColor:hash===tags[0]?"#000000":hash===tags[1]?"#0F052E":hash===tags[3]?"#232f3e":hash===tags[4]?"#0B1828":hash===tags[5]?"#232f3e":"#040b14",border:"none",opacity:"0.93",maxWidth:"15em"}}>
                               <li className={hash===tags[2]?"active":""}>
                                  <a href="http://infinite-hunger.surge.sh/" target="_blank" rel="noreferrer" ><i className="bx bx-game"></i>Arcade Game</a></li>
                                  <li className={hash===tags[3]?"active":""}>
@@ -55,7 +54,7 @@ export default function Nav(){
                            </ul>
                         </li>
                         <li className={hash===tags[7]?"active":""}>
-                           <a href="/#contact" ><i className="bx bx-envelope"></i> Contact</a>
+                           <a href="/#contact" ><i className="bx bx-envelope"></i> Contact Me</a>
                         </li>
                      </ul>
                   </nav>
