@@ -1,27 +1,29 @@
 import { useState } from 'react'
 import './shopping.css'
 import Card from './components/card.jsx'
-//TODO: animate the shopping cart and add a number to it whenever the user clicks the buy button 
 export default function Shopping(){
    const [shoppingCart, setShoppingCart]=useState([])
+   let cList=document.getElementsByClassName("shoppingCart")
    function setCart(n){
       const list=[...shoppingCart]
       list.push(n)
       setShoppingCart(list)
-      let cList=document.getElementsByClassName("shoppingCart")
       if(cList[0].classList.contains("shakingShoppingCart")){
-         cList[0].classList.remove("shakingShoppingCart")
-         cList[1].classList.remove("shakingShoppingCart")
+         removeAnimations()
          setTimeout(addAnimations,250)
+         setTimeout(removeAnimations,1010)
       }else{
-         cList[0].classList.add("shakingShoppingCart")
-         cList[1].classList.add("shakingShoppingCart")
+         addAnimations()
+         setTimeout(removeAnimations,1010)
       }
    }
    function addAnimations(){
-      let cList=document.getElementsByClassName("shoppingCart")
       cList[0].classList.add("shakingShoppingCart")
       cList[1].classList.add("shakingShoppingCart")
+   }
+   function removeAnimations(){
+      cList[0].classList.remove("shakingShoppingCart")
+      cList[1].classList.remove("shakingShoppingCart")
    }
    return(
    <>

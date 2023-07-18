@@ -39,6 +39,9 @@
 .nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
    color: #149ddd;
 }
+.offcanvas-backdrop{
+   visibility:hidden;
+}
 /* Mobile Navigation */
 .mobile-nav-toggle {
    position: fixed;

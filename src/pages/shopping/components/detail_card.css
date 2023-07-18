@@ -4,8 +4,8 @@
    max-height:35em;
    min-width:20em;
    max-width:25em;
-   left:40%;
-   top:20%;
+   left:35.45em;
+   top:8em;
    display:grid;
    grid-template-columns: 8em 8em 9em;
    grid-template-rows: 2em 7em 7em 7em 2em 3em 2em;
@@ -92,7 +92,8 @@
    background-color:black;
    opacity:60%;
 }
-@media(max-width:800px){
+/* tablet */
+@media(max-width:991.5px){
 
    .detailCard{
       grid-template-rows: 0.01em 7em 7em 7em 2em 2em 1em;
@@ -101,7 +102,27 @@
       max-height:30em;
       min-width:15em;
       max-width:20em;
-      left:8%;
+      left:15em;
+      top:15em;
+   }
+   .button{
+      font-size: 0.8em;
+   }
+   .exit{
+      position:relative;
+      top:1.5em;
+   }
+}
+/* phone */
+@media(max-width:500px){
+   .detailCard{
+      grid-template-rows: 0.01em 7em 7em 7em 2em 2em 1em;
+      grid-template-columns: 6em 7em 7em;
+      min-height:25em;
+      max-height:30em;
+      min-width:20em;
+      max-width:20em;
+      left:8vw;
    }
    .button{
       font-size: 0.8em;

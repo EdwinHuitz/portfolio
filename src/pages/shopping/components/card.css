@@ -4,10 +4,10 @@
    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
    grid-template-areas:
    "title title"
-   "img1 img2"
-   "price1 price2"
-   "img3 img4"
-   "price3 price4";
+   "img0 img1"
+   "price0 price1"
+   "img2 img3"
+   "price2 price3";
 }
 .Card{
    background-color: white;
@@ -36,15 +36,19 @@ img{
    max-width:5em;
    margin:3%;
 }
+.Pic0{grid-area: img0;}
 .Pic1{grid-area: img1;}
 .Pic2{grid-area: img2;}
 .Pic3{grid-area: img3;}
-.Pic4{grid-area: img4;}
+.Price0{grid-area: price0;}
 .Price1{grid-area: price1;}
 .Price2{grid-area: price2;}
 .Price3{grid-area: price3;}
-.Price4{grid-area: price4;}
-
+.Price0,.Price1,.Price2,.Price3{
+   display:flex;
+   justify-self: center;
+   align-self:center;
+}
 .hideDetailCard{
    visibility: hidden;
 }

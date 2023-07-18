@@ -9,9 +9,16 @@ class GeneratePrices extends Component{
    sendPrice(price){
       this.props.setPrice(price)
    }
+   splitPrice(price){
+      let newPrice=(price+"").split(".")
+      return newPrice
+   }
    genPrices(){
       
-      return(<>{this.props.prices.map((price,i)=>(<h6 key={price+i} className={"Price"+i} onClick={()=>this.sendPrice(price)} >{price}</h6>))}</>)
+      return(<>{this.props.prices.map((price,i)=>(
+      <div key={i} className={"Price"+i} onClick={()=>this.sendPrice(price)}>
+         <span className={"largePrice"}>${this.splitPrice(price)[0]}</span><span className={"smallPrice"}>{this.splitPrice(price)[1]}</span>
+         </div>))}</>)
    }
    render(){
       return(<>{this.genPrices()}</>)
