@@ -8,7 +8,6 @@ class Card extends Component{
    constructor(props){
       super(props)
       this.state = {
-         allClothes:["Hats","Shirts","Pants"],
          allPrices:[14.75,12.95,19.49,16.99],
          bool:false,
          cart:[],

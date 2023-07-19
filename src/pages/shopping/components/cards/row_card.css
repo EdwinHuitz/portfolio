@@ -1,10 +1,10 @@
 .Row{
    display:grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
    grid-template-rows: 1fr 1fr;
    grid-template-areas:
-   "img0 img1 img2 img3"
-   "price0 price1 price2 price3";
+   "img0 img0 img1 img1 img2 img2 img3 img3"
+   "t0 price0 t1 price1 t2 price2 t3 price3";
    min-width:100vw;
    justify-items: center;
 }
@@ -12,3 +12,7 @@
    min-width:10em;
    min-height:10em;
 }
+.t0{grid-area: t0;}
+.t1{grid-area: t1;}
+.t2{grid-area: t2;}
+.t3{grid-area: t3;}

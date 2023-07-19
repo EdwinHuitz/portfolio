@@ -28,6 +28,17 @@ export default function Shopping(){
       cList[0].classList.remove("shakingShoppingCart")
       cList[1].classList.remove("shakingShoppingCart")
    }
+   function showDisplay(){
+      let display
+      tabs===1?display=<RowCard clothes="Hats" setCart={setCart} />
+      :tabs===2?display=<RowCard clothes="Scarves" setCart={setCart} />
+      :tabs===3?display=<RowCard clothes="Shirts" setCart={setCart} />
+      :tabs===4?display=<RowCard clothes="Belts" setCart={setCart} />
+      :tabs===5?display=<RowCard clothes="Pants" setCart={setCart} />
+      :tabs===6?display=<RowCard clothes="Shoes" setCart={setCart} />
+      :display=<><div className="cardRow d-flex justify-content-evenly"><Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} /></div><div className="cardRow d-flex justify-content-evenly"><Card clothes="Shirts" setCart={setCart} /><Card clothes="Belts" setCart={setCart} /></div><div className="cardRow d-flex justify-content-evenly"><Card clothes="Pants" setCart={setCart} /><Card clothes="Shoes" setCart={setCart} /></div></>
+      return(display)
+   }
    return(
    <>
       <div className="sApp">
@@ -59,22 +70,8 @@ export default function Shopping(){
 
             </div>
          </nav>
-         <div className="mainDisplay">
-         {tabs===0?
-            <><div className="cardRow d-flex justify-content-evenly">
-            <Card clothes="Hats" setCart={setCart} />
-            <Card clothes="Scarves" setCart={setCart} />
-            </div>
-            <div className="cardRow d-flex justify-content-evenly">
-            <Card clothes="Shirts" setCart={setCart} />
-            <Card clothes="Belts" setCart={setCart} />
-            </div>
-            <div className="cardRow d-flex justify-content-evenly">
-            <Card clothes="Pants" setCart={setCart} />
-            <Card clothes="Shoes" setCart={setCart} />
-            </div></>
-         :tabs===1?<RowCard clothes="Hats" setCart={setCart} />:""
-      }
+         <div id="shopDisplay" className="mainDisplay">   
+         {document.getElementById("shopDisplay")!==null?showDisplay():""}
          </div>
       </div>
    </>)
