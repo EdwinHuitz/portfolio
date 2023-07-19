@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './card.css'
-import GeneratePics from './pic_generator.jsx'
-import GeneratePrices from './price_generator.jsx'
+import GeneratePics from '../generators/pic_generator.jsx'
+import GeneratePrices from '../generators/price_generator.jsx'
 import DetailCard from './detail_card.jsx'
 
 class Card extends Component{

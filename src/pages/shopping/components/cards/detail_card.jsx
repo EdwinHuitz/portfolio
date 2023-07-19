@@ -19,7 +19,7 @@ class detailCard extends Component{
       let price=this.props.price
       let clothes=this.splitClothes()
       const keySet=[...this.props.cart]
-      keySet.push({[clothes]:price})
+      keySet.push({title:clothes,price:price,url:this.props.path,amount:1})
       this.props.setKey(keySet)
       this.closeWindow()
    }

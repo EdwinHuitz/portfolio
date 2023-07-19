@@ -1,0 +1,14 @@
+.Row{
+   display:grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   grid-template-areas:
+   "img0 img1 img2 img3"
+   "price0 price1 price2 price3";
+   min-width:100vw;
+   justify-items: center;
+}
+.Row img{
+   min-width:10em;
+   min-height:10em;
+}
