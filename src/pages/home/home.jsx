@@ -7,7 +7,8 @@ export default function Home(){
       let erase=false
       let letters = ''
       let pause,loop
-      const langs=["HTML5", "Python", "React", "CSS3", "Full-Stack", "Django", "JavaScript", "Node.js"]
+      //skips every two languages so array has to be an odd number or it will go in a loop. Example: a,b,c,d would just repeat a,d
+      const langs=["Full-Stack", "Django", "React", "HTML5", "Java", "Node.js", "CSS3", "C#", "Python", "JavaScript"]
       loop = setInterval(async() => {
          if(erase===false){
             if(letters.length!==langs[i].length){
