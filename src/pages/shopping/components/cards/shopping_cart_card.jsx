@@ -12,9 +12,10 @@ export default function ShoppingCart(props){
       else{
          content.map((item)=>(sum+=item[0].price))
          return(content.map((clothes,i)=>(
-            <><img key={i} className="SCImg" src={clothes[0].url} alt={clothes[0].title}></img>
-            <h4 className="w-100 p-3">{clothes[0].title}</h4>
-            <h4>{clothes[0].price}</h4>
+            <><span key={i} className="SCItem"><img className="SCImg" src={clothes[0].url} alt={clothes[0].title}></img>
+            <h4 className="SCTitle p-3">{clothes[0].title}</h4>
+            <h4 className="SCPrice p-3">{clothes[0].price}</h4>
+            <input className="SCInput p-3" type="number" defaultValue={clothes[0].amount} /></span>
             </>
             //console.log(clothes[0].title,clothes[0].price,clothes[0].url,clothes[0].amount)
          )))
@@ -31,8 +32,9 @@ export default function ShoppingCart(props){
       }
       return(newSum)
    }
-   return(<div className="d-flex justify-content-center align-items-center w-100 p-3">
+   return(<div className="d-flex flex-column justify-content-center align-items-center w-100 p-3">
    {checkCart()}
+   <hr className="w-100 p-1"/>
    {content.length>0?<h4>Total Cost: ${splitSum(sum)[0]}.{splitSum(sum)[1]}</h4>:""}
    </div>)
 }
