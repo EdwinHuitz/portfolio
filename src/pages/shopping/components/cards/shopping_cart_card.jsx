@@ -10,12 +10,12 @@ export default function ShoppingCart(props){
          return(<h1>This cart is currently empty...</h1>)
       }
       else{
-         content.map((item)=>(sum+=item[0].price))
+         content.map((item,i)=>(sum+=item[i].price))
          return(content.map((clothes,i)=>(
-            <><span key={i} className="SCItem"><img className="SCImg" src={clothes[0].url} alt={clothes[0].title}></img>
-            <h4 className="SCTitle p-3">{clothes[0].title}</h4>
-            <h4 className="SCPrice p-3">{clothes[0].price}</h4>
-            <input className="SCInput p-3" type="number" defaultValue={clothes[0].amount} /></span>
+            <><span key={i} className="SCItem"><img className="SCImg" src={clothes[i].url} alt={clothes[i].title}></img>
+            <h4 className="SCTitle p-3">{clothes[i].title}</h4>
+            <h4 className="SCPrice p-3">${clothes[i].price}</h4>
+            <input className="SCInput p-3" type="number" defaultValue={clothes[i].amount} /></span>
             </>
             //console.log(clothes[0].title,clothes[0].price,clothes[0].url,clothes[0].amount)
          )))
