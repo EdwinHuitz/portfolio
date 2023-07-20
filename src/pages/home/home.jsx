@@ -45,7 +45,7 @@ export default function Home(){
          <h1 className="name" title="Edwin Huitz: Full-Stack Web Developer">Edwin Huitz</h1>
          <p>{skill}<span className="cursor">|</span> Developer.</p>
          <div className="links">
-            <a href="mailto:edwinhuitz@gmail.com" title="My E-Mail"><i className="bx bx-envelope"></i></a>
+            <a href="mailto:contact@edwinhuitz.com" title="My E-Mail"><i className="bx bx-envelope"></i></a>
             <a href="https://www.linkedin.com/in/edwin-huitz/" target="_blank" rel="noreferrer" title="My LinkedIn"><i className="bx bxl-linkedin"></i></a>
             <a href="https://github.com/EdwinHuitz" target="_blank" rel="noreferrer" title="My GitHub"><i className="bx bxl-github"></i></a>
          </div>
