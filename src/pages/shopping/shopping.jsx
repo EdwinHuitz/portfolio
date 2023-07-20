@@ -3,9 +3,13 @@ import './shopping.css'
 import Card from './components/cards/card'
 import RowCard from './components/cards/row_card'
 export default function Shopping(){
+   //state for each piece of clothing's page
    const [tabs, setTabs]=useState(0)
+   //shopping cart's state
    const [shoppingCart, setShoppingCart]=useState([])
+   //shopping cart's class list for animations
    let cList=document.getElementsByClassName("shoppingCart")
+   
    function setCart(n){
       const list=[...shoppingCart]
       list.push(n)
@@ -28,17 +32,6 @@ export default function Shopping(){
       cList[0].classList.remove("shakingShoppingCart")
       cList[1].classList.remove("shakingShoppingCart")
    }
-   function showDisplay(){
-      let display
-      tabs===1?display=<RowCard clothes="Hats" setCart={setCart} />
-      :tabs===2?display=<RowCard clothes="Scarves" setCart={setCart} />
-      :tabs===3?display=<RowCard clothes="Shirts" setCart={setCart} />
-      :tabs===4?display=<RowCard clothes="Belts" setCart={setCart} />
-      :tabs===5?display=<RowCard clothes="Pants" setCart={setCart} />
-      :tabs===6?display=<RowCard clothes="Shoes" setCart={setCart} />
-      :display=<><div className="cardRow d-flex justify-content-evenly"><Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} /></div><div className="cardRow d-flex justify-content-evenly"><Card clothes="Shirts" setCart={setCart} /><Card clothes="Belts" setCart={setCart} /></div><div className="cardRow d-flex justify-content-evenly"><Card clothes="Pants" setCart={setCart} /><Card clothes="Shoes" setCart={setCart} /></div></>
-      return(display)
-   }
    return(
    <>
       <div className="sApp">
@@ -54,7 +47,7 @@ export default function Shopping(){
                      <li className="nav-item"><button className="navLinkBtn" onClick={()=>setTabs(5)}>Pants</button></li>
                      <li className="nav-item"><button className="navLinkBtn" onClick={()=>setTabs(6)}>Shoes</button></li>
                      <li className="nav-item">
-                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}}><span className="nav-item fs-6">{shoppingCart.length>0?shoppingCart.length:""}</span></button>
+                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?shoppingCart.length:""}</span></button>
                      </li>
                   </ul>
                </div>
@@ -63,15 +56,31 @@ export default function Shopping(){
                      <li className="nav-item"><button className="navLinkBtn">Clothes</button></li>
                      <li className="nav-item"><button className="navLinkBtn">Accessories</button></li>
                      <li className="nav-item">
-                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}}><span className="nav-item fs-6">{shoppingCart.length>0?shoppingCart.length:""}</span></button>
+                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?shoppingCart.length:""}</span></button>
                      </li>
                   </ul>
                </div>
-
             </div>
          </nav>
-         <div id="shopDisplay" className="mainDisplay">   
-         {document.getElementById("shopDisplay")!==null?showDisplay():""}
+         <div id="shopDisplay" className="mainDisplay">
+            <span className={tabs===1?"d-block":"d-none"}><RowCard clothes="Hats" setCart={setCart} /></span>
+            <span className={tabs===2?"d-block":"d-none"}><RowCard clothes="Scarves" setCart={setCart} /></span>
+            <span className={tabs===3?"d-block":"d-none"}><RowCard clothes="Shirts" setCart={setCart} /></span>
+            <span className={tabs===4?"d-block":"d-none"}><RowCard clothes="Belts" setCart={setCart} /></span>
+            <span className={tabs===5?"d-block":"d-none"}><RowCard clothes="Pants" setCart={setCart} /></span>
+            <span className={tabs===6?"d-block":"d-none"}><RowCard clothes="Shoes" setCart={setCart} /></span>
+            <span className={tabs===7?"d-block":"d-none"}></span>
+            <span className={tabs===0?"d-flex justify-content-evenly w-100 p-3":"d-none"}>
+               <div className="cardRow">
+                  <Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} />
+               </div>
+               <div className="cardRow">
+                  <Card clothes="Shirts" setCart={setCart} /><Card clothes="Belts" setCart={setCart} />
+               </div>
+               <div className="cardRow">
+                  <Card clothes="Pants" setCart={setCart} /><Card clothes="Shoes" setCart={setCart} />
+               </div>
+            </span>
          </div>
       </div>
    </>)
