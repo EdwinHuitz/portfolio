@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './shopping.css'
 import Card from './components/cards/card'
 import RowCard from './components/cards/row_card'
+import ShoppingCartCard from './components/cards/shopping_cart_card'
 export default function Shopping(){
    //state for each piece of clothing's page
    const [tabs, setTabs]=useState(0)
@@ -69,7 +70,7 @@ export default function Shopping(){
             <span className={tabs===4?"d-block":"d-none"}><RowCard clothes="Belts" setCart={setCart} /></span>
             <span className={tabs===5?"d-block":"d-none"}><RowCard clothes="Pants" setCart={setCart} /></span>
             <span className={tabs===6?"d-block":"d-none"}><RowCard clothes="Shoes" setCart={setCart} /></span>
-            <span className={tabs===7?"d-block":"d-none"}></span>
+            <span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} /></span>
             <span className={tabs===0?"d-flex justify-content-evenly w-100 p-3":"d-none"}>
                <div className="cardRow">
                   <Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} />
