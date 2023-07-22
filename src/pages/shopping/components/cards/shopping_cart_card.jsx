@@ -4,9 +4,8 @@ import './shopping_cart_card.css'
 import sortArray from '../sort_array'
 export default function ShoppingCart(props){
    //const [cart,setCart]=useState(0)
-   const content=props.cart
-   const cCart=sortArray(content)
-   console.log("Sorted Array:",cCart)
+   const content=sortArray(props.cart)
+   console.log("Sorted Array:",content)
    let sum=0
    function checkCart(){
       if(content.length===0){
@@ -14,28 +13,17 @@ export default function ShoppingCart(props){
       }
       else{
          let cartContent=[]
-         let int=100
-         content.forEach(c => {
-            if(c.length>1){
-               c.map((item)=>(sum+=item.price))
-               cartContent.push(c.map((clothes,i)=>(
-               <span key={i} className="SCItem">
-                  <img className="SCImg" src={clothes.url} alt={clothes.title}></img>
-                  <h4 className="SCTitle p-3">{clothes.title}</h4>
-                  <h4 className="SCPrice p-3">${clothes.price}</h4>
-                  <input className="SCInput p-3" type="number" defaultValue={clothes.amount} />
-               </span>
-               //console.log(clothes[0].title,clothes[0].price,clothes[0].url,clothes[0].amount)
-               )))
-            }else if(c.length===1){
-               sum+=c[0].price
-               cartContent.push(<span key={int} className="SCItem">
-               <img className="SCImg" src={c[0].url} alt={c[0].title}></img>
-               <h4 className="SCTitle p-3">{c[0].title}</h4>
-               <h4 className="SCPrice p-3">${c[0].price}</h4>
-               <input className="SCInput p-3" type="number" defaultValue={c[0].amount} />
-               </span>)
-               int++
+         content.forEach((cItem,i)=>{
+            try{
+            sum+=cItem.price
+            cartContent.push(<span key={i} className="SCItem">
+            <img className="SCImg" src={cItem.url} alt={cItem.title}></img>
+            <h4 className="SCTitle p-3">{cItem.title}</h4>
+            <h4 className="SCPrice p-3">${cItem.price}</h4>
+            <input className="SCInput p-3" type="number" defaultValue={cItem.amount} />
+            </span>)
+            }catch(e){
+               console.error(e)
             }
          })
          return(cartContent)

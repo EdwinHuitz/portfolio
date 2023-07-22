@@ -3,6 +3,7 @@ import './shopping.css'
 import Card from './components/cards/card'
 import RowCard from './components/cards/row_card'
 import ShoppingCartCard from './components/cards/shopping_cart_card'
+//import sortArray from './components/sort_array'
 export default function Shopping(){
    //state for each piece of clothing's page
    const [tabs, setTabs]=useState(0)
@@ -14,6 +15,8 @@ export default function Shopping(){
    function setCart(n){
       const list=[...shoppingCart]
       list.push(n)
+      //const newList=sortArray([...list])
+      //console.log("shopping carts:",list,newList)
       setShoppingCart(list)
       if(cList[0].classList.contains("shakingShoppingCart")){
          removeAnimations()
