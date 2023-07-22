@@ -15,7 +15,6 @@ export default function Shopping(){
       const list=[...shoppingCart]
       list.push(n)
       setShoppingCart(list)
-      console.log(shoppingCart)
       if(cList[0].classList.contains("shakingShoppingCart")){
          removeAnimations()
          setTimeout(addAnimations,250)
