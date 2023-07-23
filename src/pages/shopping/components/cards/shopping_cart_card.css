@@ -18,18 +18,26 @@
 }
 .SCPrice{
    grid-area:'price';
+
 }
 .SCInput{
    grid-area:'input';
-   position:relative;
-   top:12.5px;
+}
+.SCMainCart{
+   overflow-y: scroll;
+}
+.addOne,.subtractOne{
+   min-height:1em;
+   max-height:1em;
+   min-width:1em;
+   max-width:1em;
+   background-color: none;
+   border-radius: 10%;
+}
+/* .subtractOne{
+   grid-area:'subFrom';
    min-height:2em;
    max-height:2em;
    min-width:3em;
    max-width:4em;
-   padding-right:0!important;
-}
-.SCMainCart{
-   overflow-y: scroll;
-   
-}
+} */
