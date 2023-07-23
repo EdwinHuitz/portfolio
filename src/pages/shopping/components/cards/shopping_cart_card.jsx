@@ -1,10 +1,8 @@
 //TODO:list of items, remove and edit quantity of items in cart, total price of items, recommended items
-//import {useState} from 'react'
 import './shopping_cart_card.css'
 import sortArray from '../sort_array'
 export default function ShoppingCart(props){
-   //const [cart,setCart]=useState(0)
-   const content=sortArray(props.cart)
+   const content=[...sortArray(props.cart)]
    console.log("Sorted Array:",content)
    let sum=0
    function checkCart(){
@@ -14,17 +12,13 @@ export default function ShoppingCart(props){
       else{
          let cartContent=[]
          content.forEach((cItem,i)=>{
-            try{
             sum+=cItem.price
             cartContent.push(<span key={i} className="SCItem">
             <img className="SCImg" src={cItem.url} alt={cItem.title}></img>
             <h4 className="SCTitle p-3">{cItem.title}</h4>
             <h4 className="SCPrice p-3">${cItem.price}</h4>
-            <input className="SCInput p-3" type="number" defaultValue={cItem.amount} />
+            <h4 className="SCInput p-3 d-flex flex-row justify-content-center align-content-center"><button className="subtractOne"><span style={{position:"relative",top:"-6px"}}>-</span></button><span className="px-3">{cItem.amount}</span><button className="addOne"><span style={{position:"relative",top:"-6px"}}>+</span></button></h4>
             </span>)
-            }catch(e){
-               console.error(e)
-            }
          })
          return(cartContent)
       }

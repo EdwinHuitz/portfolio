@@ -3,7 +3,6 @@ import './shopping.css'
 import Card from './components/cards/card'
 import RowCard from './components/cards/row_card'
 import ShoppingCartCard from './components/cards/shopping_cart_card'
-//import sortArray from './components/sort_array'
 export default function Shopping(){
    //state for each piece of clothing's page
    const [tabs, setTabs]=useState(0)
@@ -13,11 +12,8 @@ export default function Shopping(){
    let cList=document.getElementsByClassName("shoppingCart")
    
    function setCart(n){
-      const list=[...shoppingCart]
-      list.push(n)
-      //const newList=sortArray([...list])
-      //console.log("shopping carts:",list,newList)
-      setShoppingCart(list)
+      setShoppingCart([...shoppingCart,n[n.length-1]])
+      console.log("Original Cart:",shoppingCart)
       if(cList[0].classList.contains("shakingShoppingCart")){
          removeAnimations()
          setTimeout(addAnimations,250)
@@ -27,6 +23,13 @@ export default function Shopping(){
          setTimeout(removeAnimations,1010)
       }
    }
+   // function filterCart(n){
+   //    if(shoppingCart.length>1){
+   //       setShoppingCart(shoppingCart.map(item=>(
+   //          item.filter(i=>(i.title!==n.title))
+   //       )))
+   //    }
+   // }
    function addAnimations(){
       cList[0].classList.add("shakingShoppingCart")
       cList[1].classList.add("shakingShoppingCart")
@@ -72,7 +75,7 @@ export default function Shopping(){
             <span className={tabs===4?"d-block":"d-none"}><RowCard clothes="Belts" setCart={setCart} /></span>
             <span className={tabs===5?"d-block":"d-none"}><RowCard clothes="Pants" setCart={setCart} /></span>
             <span className={tabs===6?"d-block":"d-none"}><RowCard clothes="Shoes" setCart={setCart} /></span>
-            <span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} /></span>
+            {shoppingCart.length>0?<span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} /></span>:''}
             <span className={tabs===0?"d-flex justify-content-evenly w-100 p-3":"d-none"}>
                <div className="cardRow">
                   <Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} />
