@@ -28,13 +28,13 @@ function sortArray(data){
       if(newList.length>0){
          const titleSearch=newList.find(q=>checkTitles(q,item))
          const duplicateSearch=newList.find(q=>checkTitles(q,item))
-         console.log(duplicateSearch)
+         console.log('dup find',duplicateSearch.amount,item.amount)
          //if the list does not already include this item
          if(titleSearch===undefined){
             newList.push(item)
             //if the list finds a match for this item
          }else if(searchTitles(newList,item)===true){
-            newList.splice(duplicateSearch,1,{...item,amount:duplicateSearch.amount+1})
+            newList.splice(duplicateSearch,1,{...item,amount:duplicateSearch.amount+item.amount})
          }
       //if newly sorted array doesn't hold any values yet
       }else{

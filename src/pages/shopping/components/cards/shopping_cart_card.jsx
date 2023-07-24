@@ -2,7 +2,7 @@
 import './shopping_cart_card.css'
 import sortArray from '../sort_array'
 export default function ShoppingCart(props){
-   const content=[...sortArray(props.cart)]
+   const content=(props.cart.length>0)?[...sortArray(props.cart)]:[]
    console.log("Sorted Array:",content)
    let sum=0
    function checkCart(){
@@ -12,12 +12,13 @@ export default function ShoppingCart(props){
       else{
          let cartContent=[]
          content.forEach((cItem,i)=>{
-            sum+=cItem.price
-            cartContent.push(<span key={i} className="SCItem">
+            sum+=cItem.price*cItem.amount
+            cartContent.push(
+            <span key={i} className="SCItem justify-content-center align-content-center">
             <img className="SCImg" src={cItem.url} alt={cItem.title}></img>
             <h4 className="SCTitle p-3">{cItem.title}</h4>
-            <h4 className="SCPrice p-3">${cItem.price}</h4>
-            <h4 className="SCInput p-3 d-flex flex-row justify-content-center align-content-center"><button className="subtractOne"><span style={{position:"relative",top:"-6px"}}>-</span></button><span className="px-3">{cItem.amount}</span><button className="addOne"><span style={{position:"relative",top:"-6px"}}>+</span></button></h4>
+            <h4 className="SCPrice p-3">${splitSum(cItem.price*cItem.amount)[0]}.{splitSum(cItem.price*cItem.amount)[1]}</h4>
+            <h4 className="SCInput p-3 d-flex flex-row"><button className="subtractOne" onClick={()=>setKey(cItem,-1)}><span style={{position:"relative",top:"-6px"}}>-</span></button><input className={"px-3 SCNum "+i} readOnly={true} value={cItem.amount}></input><button className="addOne" onClick={()=>setKey(cItem,1)}><span style={{position:"relative",top:"-6px"}}>+</span></button></h4>
             </span>)
          })
          return(cartContent)
@@ -34,6 +35,11 @@ export default function ShoppingCart(props){
       }
       return(newSum)
    }
+
+   function setKey(newItem,newAmount){
+      props.setCart([{...newItem,amount:newAmount}])
+   }
+   
    return(<div className="d-flex flex-column justify-content-center align-items-center w-100 p-3">
    {checkCart()}
    

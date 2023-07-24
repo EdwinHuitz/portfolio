@@ -1,7 +1,7 @@
 .SCItem{
    margin-top:10px;
    display:grid;
-   grid-template-columns: 25% 35% 25% 15%;
+   grid-template-columns: 25% 31% 25% 19%;
    grid-template-rows: 1fr;
    grid-template-areas: 'img title price input';
 }
@@ -25,6 +25,14 @@
 }
 .SCMainCart{
    overflow-y: scroll;
+}
+.SCNum{
+   border:none;
+   min-width:2em;
+   max-width:12em;
+   min-height:1em;
+   max-height:1em;
+   background-color: inherit;
 }
 .addOne,.subtractOne{
    min-height:1em;
