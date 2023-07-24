@@ -1,9 +1,9 @@
-//TODO:list of items, remove and edit quantity of items in cart, total price of items, recommended items
+//TODO:recommended items
 import './shopping_cart_card.css'
 import sortArray from '../sort_array'
 export default function ShoppingCart(props){
    const content=(props.cart.length>0)?[...sortArray(props.cart)]:[]
-   console.log("Sorted Array:",content)
+   console.log("sorted cart:",content)
    let sum=0
    function checkCart(){
       if(content.length===0){
@@ -14,11 +14,22 @@ export default function ShoppingCart(props){
          content.forEach((cItem,i)=>{
             sum+=cItem.price*cItem.amount
             cartContent.push(
-            <span key={i} className="SCItem justify-content-center align-content-center">
-            <img className="SCImg" src={cItem.url} alt={cItem.title}></img>
-            <h4 className="SCTitle p-3">{cItem.title}</h4>
-            <h4 className="SCPrice p-3">${splitSum(cItem.price*cItem.amount)[0]}.{splitSum(cItem.price*cItem.amount)[1]}</h4>
-            <h4 className="SCInput p-3 d-flex flex-row"><button className="subtractOne" onClick={()=>setKey(cItem,-1)}><span style={{position:"relative",top:"-6px"}}>-</span></button><input className={"px-3 SCNum "+i} readOnly={true} value={cItem.amount}></input><button className="addOne" onClick={()=>setKey(cItem,1)}><span style={{position:"relative",top:"-6px"}}>+</span></button></h4>
+            <span key={i} className="SCItem justify-content-center align-items-center">
+               <img className="SCImg" src={cItem.url} alt={cItem.title}></img>
+               <h4 className="SCTitle p-3">{cItem.title}</h4>
+               <h4 className="SCPrice p-3">${splitSum(cItem.price*cItem.amount)[0]}.{splitSum(cItem.price*cItem.amount)[1]}</h4>
+               <h4 className="SCInput p-3 d-flex flex-row">
+                  <button type="button" className="btn btn-danger editBtns" onClick={()=>setKey(cItem,-1)}>
+                     <span style={{position:"relative",top:"-.55em",left:"-.20em"}}>-</span>
+                  </button>
+                  <input className={"px-3 SCNum"} readOnly={true} value={cItem.amount}></input>
+                  <button type="button" className="btn btn-success editBtns" onClick={()=>setKey(cItem,1)}>
+                     <span style={{position:"relative",top:"-.55em",left:"-.30em"}}>+</span>
+                  </button>
+                  <button type="button" className="btn btn-secondary ms-1 editBtns" onClick={()=>setKey(cItem,cItem.amount*-1)}>
+                     <span className="bx bx-trash" style={{position:"relative",top:"-.4em",left:"-.5em"}}></span>
+                  </button>
+               </h4>
             </span>)
          })
          return(cartContent)
@@ -27,7 +38,14 @@ export default function ShoppingCart(props){
    //splits the cent and dollar amount for the total price and makes sure the cents don't go under or over 2 decimals
    function splitSum(s){
       let newSum=(s+"").split(".")
-      if(newSum[1].length===1){
+      if(newSum[0].length>3){
+         let hundreds=newSum[0].slice(newSum[0].length-3)
+         newSum[0]=newSum[0].slice(0,newSum[0].length-3)+","+hundreds
+      }
+      if(newSum[1]===undefined){
+         newSum[1]="00"
+      }
+      else if(newSum[1].length===1){
          newSum[1]=newSum[1]+"0"
       }
       else if(newSum[1].length>2){
@@ -37,9 +55,10 @@ export default function ShoppingCart(props){
    }
 
    function setKey(newItem,newAmount){
+      console.log("new item:",newItem)
       props.setCart([{...newItem,amount:newAmount}])
    }
-   
+
    return(<div className="d-flex flex-column justify-content-center align-items-center w-100 p-3">
    {checkCart()}
    

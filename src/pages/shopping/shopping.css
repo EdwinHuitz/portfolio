@@ -44,14 +44,25 @@
 .shoppingCart{
    padding:1%;
 }
-.shakingShoppingCart{
-   animation: 1s shakingCart linear;
+.addShoppingCart{
+   animation: 0.75s addToCart linear;
 }
-@keyframes shakingCart {
+.removeShoppingCart{
+   animation: 0.75s removeFromCart linear;
+}
+@keyframes addToCart {
    0%,100%{transform: translateX(0%);transform-origin: 50% 50%;}
    20% {transform: translateX(-3px) rotate(-6deg);}
 	40% {transform: translateX(3px) rotate(6deg);}
    50% {color:limegreen}
+	60% {transform: translateX(-3px) rotate(-6deg);}
+   80% {transform: translateX(3px) rotate(6deg);}
+}
+@keyframes removeFromCart {
+   0%,100%{transform: translateX(0%);transform-origin: 50% 50%;}
+   20% {transform: translateX(-3px) rotate(-6deg);}
+	40% {transform: translateX(3px) rotate(6deg);}
+   50% {color:indianred}
 	60% {transform: translateX(-3px) rotate(-6deg);}
    80% {transform: translateX(3px) rotate(6deg);}
 }

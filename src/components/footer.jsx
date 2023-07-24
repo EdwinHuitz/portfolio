@@ -8,7 +8,7 @@ export default function Footer(props){
    }
    return(
       <>
-      <footer style={(props.color===null)?'':{backgroundColor:props.color[0],color:props.color[1]}}>
+      <footer className="fixed-bottom" style={(props.color===null)?'':{backgroundColor:props.color[0],color:props.color[1]}}>
          <div className="container">
             <div>
             &copy; <strong>{date()} All Rights Reserved</strong>

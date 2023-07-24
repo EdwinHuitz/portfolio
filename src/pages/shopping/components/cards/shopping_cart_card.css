@@ -1,7 +1,7 @@
 .SCItem{
    margin-top:10px;
    display:grid;
-   grid-template-columns: 25% 31% 25% 19%;
+   grid-template-columns: 25% 25% 25% 25%;
    grid-template-rows: 1fr;
    grid-template-areas: 'img title price input';
 }
@@ -14,10 +14,14 @@
 }
 .SCTitle{
    grid-area:'title';
-   min-width:8em;
+   min-width:7em;
+   max-width:7em;
 }
 .SCPrice{
    grid-area:'price';
+   min-width:4em;
+   max-width:4em;
+   text-align:center;
 
 }
 .SCInput{
@@ -32,20 +36,14 @@
    max-width:12em;
    min-height:1em;
    max-height:1em;
+   text-align: center;
    background-color: inherit;
 }
-.addOne,.subtractOne{
+.editBtns{
    min-height:1em;
-   max-height:1em;
+   max-height:1.5em;
    min-width:1em;
-   max-width:1em;
+   max-width:1.5em;
    background-color: none;
-   border-radius: 10%;
+   border-radius: 25%;
 }
-/* .subtractOne{
-   grid-area:'subFrom';
-   min-height:2em;
-   max-height:2em;
-   min-width:3em;
-   max-width:4em;
-} */

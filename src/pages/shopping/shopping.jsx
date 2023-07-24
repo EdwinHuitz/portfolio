@@ -14,13 +14,13 @@ export default function Shopping(){
    function setCart(n){
       setShoppingCart([...shoppingCart,n[n.length-1]])
       console.log("Original Cart:",shoppingCart)
-      if(cList[0].classList.contains("shakingShoppingCart")){
+      if(cList[0].classList.contains("addShoppingCart")||cList[0].classList.contains("removeShoppingCart")){
          removeAnimations()
-         setTimeout(addAnimations,250)
-         setTimeout(removeAnimations,1010)
+         setTimeout(()=>addAnimations(n[n.length-1].amount),250)
+         setTimeout(removeAnimations,900)
       }else{
-         addAnimations()
-         setTimeout(removeAnimations,1010)
+         addAnimations(n[n.length-1].amount)
+         setTimeout(removeAnimations,900)
       }
    }
    function getItems(){
@@ -28,13 +28,21 @@ export default function Shopping(){
       shoppingCart.map(item=>(num+=item.amount))
       return num
    }
-   function addAnimations(){
-      cList[0].classList.add("shakingShoppingCart")
-      cList[1].classList.add("shakingShoppingCart")
+   function addAnimations(val){
+      console.log("value:",val)
+      if(val>0){
+         cList[0].classList.add("addShoppingCart")
+         cList[1].classList.add("addShoppingCart")
+      }else{
+         cList[0].classList.add("removeShoppingCart")
+         cList[1].classList.add("removeShoppingCart")
+      }
    }
    function removeAnimations(){
-      cList[0].classList.remove("shakingShoppingCart")
-      cList[1].classList.remove("shakingShoppingCart")
+      cList[0].classList.remove("addShoppingCart")
+      cList[1].classList.remove("addShoppingCart")
+      cList[0].classList.remove("removeShoppingCart")
+      cList[1].classList.remove("removeShoppingCart")
    }
    return(
    <>
@@ -60,7 +68,7 @@ export default function Shopping(){
                      <li className="nav-item"><button className="navLinkBtn">Clothes</button></li>
                      <li className="nav-item"><button className="navLinkBtn">Accessories</button></li>
                      <li className="nav-item">
-                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?getItems:0}</span></button>
+                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?getItems():0}</span></button>
                      </li>
                   </ul>
                </div>
@@ -73,7 +81,7 @@ export default function Shopping(){
             <span className={tabs===4?"d-block":"d-none"}><RowCard clothes="Belts" setCart={setCart} /></span>
             <span className={tabs===5?"d-block":"d-none"}><RowCard clothes="Pants" setCart={setCart} /></span>
             <span className={tabs===6?"d-block":"d-none"}><RowCard clothes="Shoes" setCart={setCart} /></span>
-            {shoppingCart.length>0?<span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} setCart={setCart} /></span>:''}
+            {shoppingCart.length>0?<span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} setCart={setCart} /></span>:<h1  className={tabs===7?"d-block":"d-none"}>This cart is currently empty...</h1>}
             <span className={tabs===0?"d-flex justify-content-evenly w-100 p-3":"d-none"}>
                <div className="cardRow">
                   <Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} />
