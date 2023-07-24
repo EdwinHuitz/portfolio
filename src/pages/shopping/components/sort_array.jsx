@@ -34,7 +34,12 @@ function sortArray(data){
             newList.push(item)
             //if the list finds a match for this item
          }else if(searchTitles(newList,item)===true){
-            newList.splice(duplicateSearch,1,{...item,amount:duplicateSearch.amount+item.amount})
+            if(duplicateSearch.amount+item.amount>0){
+               newList.splice(duplicateSearch,1,{...item,amount:duplicateSearch.amount+item.amount})
+            }
+            else{
+               newList.splice(duplicateSearch,1)
+            }
          }
       //if newly sorted array doesn't hold any values yet
       }else{

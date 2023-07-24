@@ -12,7 +12,7 @@ export default function Shopping(){
    let cList=document.getElementsByClassName("shoppingCart")
    
    function setCart(n){
-      setShoppingCart([...shoppingCart,n[n.length-1]])//.filter(item=>(item.amount>0)))
+      setShoppingCart([...shoppingCart,n[n.length-1]])
       console.log("Original Cart:",shoppingCart)
       if(cList[0].classList.contains("shakingShoppingCart")){
          removeAnimations()
@@ -22,6 +22,11 @@ export default function Shopping(){
          addAnimations()
          setTimeout(removeAnimations,1010)
       }
+   }
+   function getItems(){
+      let num=0
+      shoppingCart.map(item=>(num+=item.amount))
+      return num
    }
    function addAnimations(){
       cList[0].classList.add("shakingShoppingCart")
@@ -46,7 +51,7 @@ export default function Shopping(){
                      <li className="nav-item"><button className="navLinkBtn" onClick={()=>setTabs(5)}>Pants</button></li>
                      <li className="nav-item"><button className="navLinkBtn" onClick={()=>setTabs(6)}>Shoes</button></li>
                      <li className="nav-item">
-                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?shoppingCart.length:""}</span></button>
+                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?getItems():0}</span></button>
                      </li>
                   </ul>
                </div>
@@ -55,7 +60,7 @@ export default function Shopping(){
                      <li className="nav-item"><button className="navLinkBtn">Clothes</button></li>
                      <li className="nav-item"><button className="navLinkBtn">Accessories</button></li>
                      <li className="nav-item">
-                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?shoppingCart.length:""}</span></button>
+                        <button className="navLinkBtn bx bx-cart shoppingCart" style={{fontSize:"1.5em",paddingLeft:"8px",paddingRight:"8px",margin:"0"}} onClick={()=>setTabs(7)}><span className="nav-item fs-6">{shoppingCart.length>0?getItems:0}</span></button>
                      </li>
                   </ul>
                </div>
