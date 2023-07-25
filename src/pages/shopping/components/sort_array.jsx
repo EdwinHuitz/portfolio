@@ -36,7 +36,7 @@ function sortArray(data){
             //if the list finds a match for this item
          }else if(searchTitles(newList,item)===true){
             if(duplicateSearch.amount+item.amount>0){
-               console.log("duplicates found:",duplicateSearch,item)
+               //console.log("duplicates found:",duplicateSearch,item)
                newList.splice(duplicateSearch,1,{...item,amount:duplicateSearch.amount+item.amount})
             }
             else{
@@ -52,4 +52,4 @@ function sortArray(data){
    })
    return(newList)
 }
-module.exports=sortArray
+export default sortArray
