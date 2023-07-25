@@ -2,33 +2,31 @@
    transition: all 0.3s ease-in-out;
    color:white;
    min-height:100vh;
+   max-height:none;
    min-width:100vw;
    padding-top:10vh;
-   margin-left:-5vw;
  }
 .contact h2{
-   /* margin-left:-5vw; */
    color:white;
 }
 .contact .info {
    padding: 1em;
-   height:27em;
-   width: 27em;
+   min-height:25em;
+   max-height:30em;
+   min-width:25em;
+   max-width:30em;
    border-radius: 5px;
    background-color: #9EBBC7;
 }
  
-.contact .info i {
-   font-size: 20px;
+.contact .info .bxIcons {
    color: #149ddd;
-   float: left;
-   width: 44px;
-   height: 44px;
+   width: 2em;
+   height: 2em;
    background: #dff3fc;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   border-radius: 50px;
+   border-radius: 50%;
+   text-align:center;
+   text-shadow:none;
 }
 
 .contact .infoDetail {
@@ -39,7 +37,7 @@ padding-bottom: 1.5em;
    font-size: 15px;
    font-weight: 600;
    color: white;
-   text-shadow:0px 0px 0.5em black;
+   text-shadow:0px 0px 0.15em black;
 }
 
 .contact .info p {
@@ -49,17 +47,21 @@ font-size: 14px;
 color: #173b6c;
 }
 .emailBox{
-   max-width:35em;
+   min-height:25em;
+   max-height:30em;
+   min-width:25em;
+   max-width:30em;
    background-color:#9EBBC7;
    border-radius:5px;
 }
 .amplify-label{
-   color:white;
-   text-shadow:0px 0px 0.5em black;
+   display:none;
 }
 .amplify-input, .amplify-textarea{
    background-color:white;
    color:black;
+   min-width: 20em;
+   max-width: 30em;
 }
 .amplify-textarea{
    overflow-wrap:anywhere;
@@ -78,16 +80,19 @@ color: #173b6c;
    .contact .info{
       min-height: 9em;
       max-height: 10em;
-      min-width:25vw;
-      max-width:33vw;
+      min-width:14em;
+      max-width:15em;
       display:flex;
-      position:relative;
-      top:-9.5em;
       flex-direction:column;
       align-content: center;
    }
    .emailBox{
       min-width:60vw;
+      align-content:center;
+   }
+   .amplify-input, .amplify-textarea{
+      min-width: 10em;
+      max-width: 20em;
    }
 }
 .hiddenPhone {
