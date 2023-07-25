@@ -72,7 +72,7 @@ export default function Menu(){
       const foodNames=["Breakfast","Lunch","Refreshments"]
       return(
          foodNames.map((food,i)=>(
-            <div key={i} className="menuItem" id={foodNames[i]} style={{display:cat===4?'flex':'none',cursor:"pointer",}} onClick={()=>setCat(0)}>
+            <div key={i} className="menuItem" id={foodNames[i]} style={{display:cat===4?'flex':'none',cursor:"pointer",}} onClick={()=>setCat(i)}>
                <img src={newPath+foods[i]} alt="" className="foodPic"></img>
                <div className="foodDetail">
                   <span className="foodText justify-content-center"><b>{food}</b></span>
