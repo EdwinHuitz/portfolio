@@ -3,46 +3,26 @@ import './shopping.css'
 import Card from './components/cards/card'
 import RowCard from './components/cards/row_card'
 import ShoppingCartCard from './components/cards/shopping_cart_card'
+import cartAnimation from './components/cart_animation'
 export default function Shopping(){
    //state for each piece of clothing's page
    const [tabs, setTabs]=useState(0)
    //shopping cart's state
    const [shoppingCart, setShoppingCart]=useState([])
-   //shopping cart's class list for animations
-   let cList=document.getElementsByClassName("shoppingCart")
    
    function setCart(n){
       setShoppingCart([...shoppingCart,n[n.length-1]])
       console.log("Original Cart:",shoppingCart)
-      if(cList[0].classList.contains("addShoppingCart")||cList[0].classList.contains("removeShoppingCart")){
-         removeAnimations()
-         setTimeout(()=>addAnimations(n[n.length-1].amount),250)
-         setTimeout(removeAnimations,900)
-      }else{
-         addAnimations(n[n.length-1].amount)
-         setTimeout(removeAnimations,900)
-      }
+      cartAnimation(n[n.length-1])
+   }
+   function updateCart(n){
+      setShoppingCart(n)
+      console.log("updatedCart:",shoppingCart)
    }
    function getItems(){
       let num=0
       shoppingCart.map(item=>(num+=item.amount))
       return num
-   }
-   function addAnimations(val){
-      console.log("value:",val)
-      if(val>0){
-         cList[0].classList.add("addShoppingCart")
-         cList[1].classList.add("addShoppingCart")
-      }else{
-         cList[0].classList.add("removeShoppingCart")
-         cList[1].classList.add("removeShoppingCart")
-      }
-   }
-   function removeAnimations(){
-      cList[0].classList.remove("addShoppingCart")
-      cList[1].classList.remove("addShoppingCart")
-      cList[0].classList.remove("removeShoppingCart")
-      cList[1].classList.remove("removeShoppingCart")
    }
    return(
    <>
@@ -81,7 +61,7 @@ export default function Shopping(){
             <span className={tabs===4?"d-block":"d-none"}><RowCard clothes="Belts" setCart={setCart} /></span>
             <span className={tabs===5?"d-block":"d-none"}><RowCard clothes="Pants" setCart={setCart} /></span>
             <span className={tabs===6?"d-block":"d-none"}><RowCard clothes="Shoes" setCart={setCart} /></span>
-            {shoppingCart.length>0?<span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} setCart={setCart} /></span>:<h1  className={tabs===7?"d-block":"d-none"}>This cart is currently empty...</h1>}
+            {shoppingCart.length>0?<span className={tabs===7?"d-block":"d-none"}><ShoppingCartCard cart={shoppingCart} setCart={setCart} updateCart={updateCart} /></span>:<h1  className={tabs===7?"d-block":"d-none"}>This cart is currently empty...</h1>}
             <span className={tabs===0?"d-flex justify-content-evenly w-100 p-3":"d-none"}>
                <div className="cardRow">
                   <Card clothes="Hats" setCart={setCart} /><Card clothes="Scarves" setCart={setCart} />
