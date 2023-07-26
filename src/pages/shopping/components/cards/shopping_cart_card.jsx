@@ -4,15 +4,9 @@ import cartAnimation from '../cart_animation'
 import {useState} from 'react'
 export default function ShoppingCart(props){
    const [content,setContent]=useState([])
-   //cart
-   const [cart,setCart]=useState([])
-   const [num,setNum]=useState(0)
    if(props.cart.length>0){
-      if(content.length !== props.cart.length && num===0){
+      if(content.length !== props.cart.length){
          setContent(props.cart)
-         //cart
-         setCart(props.cart)
-         setNum(1)
          console.log("sorted cart:",content)
       }
    }
@@ -80,9 +74,8 @@ export default function ShoppingCart(props){
       else{
          setContent(content.filter(item=>item.url!==newItem.url))
       }
-      props.updateCart(cart.map(i=>{return i}))
-      console.log("CART:",cart,content)
-      setNum(0)
+      props.updateCart(content.map(i=>{return i}))
+      console.log("CART:",content)
    }
 
    return(<div className="d-flex flex-column justify-content-center align-items-center w-100 p-3">
