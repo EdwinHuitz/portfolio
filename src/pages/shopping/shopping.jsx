@@ -13,11 +13,11 @@ export default function Shopping(){
    function setCart(n){
       setShoppingCart([...shoppingCart,n[n.length-1]])
       console.log("Original Cart:",shoppingCart)
-      cartAnimation(n[n.length-1])
+      cartAnimation(n[n.length-1].amount)
    }
    function updateCart(n){
-      setShoppingCart(n)
-      console.log("updatedCart:",shoppingCart)
+      setShoppingCart(n.map((item)=>{return item}))
+      console.log("Updated Cart:",shoppingCart)
    }
    function getItems(){
       let num=0

@@ -16,11 +16,11 @@
         "mainLambda": {
           "secretsPathAmplifyAppId": "dnfzmryt7q432",
           "deploymentBucketName": "amplify-portfolio-dev-53125-deployment",
-          "s3Key": "amplify-builds/mainLambda-3447372f2b61466f4d52-build.zip"
+          "s3Key": "amplify-builds/mainLambda-676670786b796b7a5350-build.zip"
         },
         "sendMail": {
           "deploymentBucketName": "amplify-portfolio-dev-53125-deployment",
-          "s3Key": "amplify-builds/sendMail-67724c425a337a4e6b6d-build.zip"
+          "s3Key": "amplify-builds/sendMail-777374756a4465387635-build.zip"
         }
       },
       "api": {

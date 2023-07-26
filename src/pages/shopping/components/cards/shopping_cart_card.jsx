@@ -1,9 +1,21 @@
 //TODO:recommended items
 import './shopping_cart_card.css'
-import sortArray from '../sort_array'
+import cartAnimation from '../cart_animation'
+import {useState} from 'react'
 export default function ShoppingCart(props){
-   const content=(props.cart.length>0)?[...sortArray(props.cart)]:[]
-   console.log("sorted cart:",content)
+   const [content,setContent]=useState([])
+   //cart
+   const [cart,setCart]=useState([])
+   const [num,setNum]=useState(0)
+   if(props.cart.length>0){
+      if(content.length !== props.cart.length && num===0){
+         setContent(props.cart)
+         //cart
+         setCart(props.cart)
+         setNum(1)
+         console.log("sorted cart:",content)
+      }
+   }
    let sum=0
    function checkCart(){
       if(content.length===0){
@@ -26,7 +38,7 @@ export default function ShoppingCart(props){
                   <button type="button" className="btn btn-success editBtns" onClick={()=>setKey(cItem,1)}>
                      <span style={{position:"relative",top:"-.55em",left:"-.30em"}}>+</span>
                   </button>
-                  <button type="button" className="btn btn-secondary ms-1 editBtns" onClick={()=>setKey(cItem,cItem.amount*-1)}>
+                  <button type="button" className="btn btn-secondary ms-1 editBtns" onClick={()=>setKey(cItem,0)}>
                      <span className="bx bx-trash" style={{position:"relative",top:"-.4em",left:"-.5em"}}></span>
                   </button>
                </h4>
@@ -53,10 +65,24 @@ export default function ShoppingCart(props){
       }
       return(newSum)
    }
-
    function setKey(newItem,newAmount){
-      console.log("new item:",newItem)
-      props.setCart([{...newItem,amount:newAmount}])
+      //console.log("new item:",newItem)
+      cartAnimation(newAmount)
+      if(newAmount!==0){
+         setContent(content.map((item)=>{
+            if(item.title===newItem.title){
+               return {...newItem,amount:newItem.amount+newAmount}
+            }else{
+               return item
+            }
+         }))
+      }
+      else{
+         setContent(content.filter(item=>item.url!==newItem.url))
+      }
+      props.updateCart(cart.map(i=>{return i}))
+      console.log("CART:",cart,content)
+      setNum(0)
    }
 
    return(<div className="d-flex flex-column justify-content-center align-items-center w-100 p-3">

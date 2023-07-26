@@ -131,6 +131,7 @@ export default function ContactFormCreateForm(props) {
         label="Name"
         isRequired={true}
         isReadOnly={false}
+        placeholder="Name"
         value={Name}
         onChange={(e) => {
           let { value } = e.target;
@@ -158,6 +159,7 @@ export default function ContactFormCreateForm(props) {
         label="Email"
         isRequired={true}
         isReadOnly={false}
+        placeholder="Email"
         value={Email}
         onChange={(e) => {
           let { value } = e.target;
@@ -185,6 +187,7 @@ export default function ContactFormCreateForm(props) {
         label="Subject"
         isRequired={true}
         isReadOnly={false}
+        placeholder="Subject"
         value={Subject}
         onChange={(e) => {
           let { value } = e.target;
@@ -212,6 +215,7 @@ export default function ContactFormCreateForm(props) {
         label="Message"
         isRequired={true}
         isReadOnly={false}
+        placeholder="Message"
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
