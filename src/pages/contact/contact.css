@@ -19,12 +19,14 @@
    background-color: #9EBBC7;
 }
  
-.contact .info .bxIcons {
+.contact .info .bIcons {
+   min-width: 2em;
+   max-width: 2em;
+   min-height: 2em;
+   max-height: 2em;
    color: #149ddd;
-   width: 2em;
-   height: 2em;
    background: #dff3fc;
-   border-radius: 50%;
+   border-radius: 47%;
    text-align:center;
    text-shadow:none;
 }
