@@ -10,14 +10,23 @@ export default function Shopping(){
    //shopping cart's state
    const [shoppingCart, setShoppingCart]=useState([])
    
-   function setCart(n){
-      setShoppingCart([...shoppingCart,n[n.length-1]])
-      console.log("Original Cart:",shoppingCart)
-      cartAnimation(n[n.length-1].amount)
+   function setCart(item){
+      cartAnimation(item.amount)
+      if(shoppingCart.length>0){
+         setShoppingCart(shoppingCart.map(i=>{
+            if(i.title===item.title){
+               return {...i,amount:i.amount+item.amount}
+            }else{return i}
+         }))
+         setShoppingCart([...shoppingCart,item])
+      }else{
+         setShoppingCart([...shoppingCart,item])
+      }
+      console.log("Original ShoppingCart:",shoppingCart)
    }
    function updateCart(n){
-      setShoppingCart(n.map((item)=>{return item}))
-      console.log("Updated Cart:",shoppingCart)
+      setShoppingCart([...n])
+      console.log("Updated ShoppingCart:",shoppingCart)
    }
    function getItems(){
       let num=0

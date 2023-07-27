@@ -3,12 +3,9 @@ import './shopping_cart_card.css'
 import cartAnimation from '../cart_animation'
 import {useState} from 'react'
 export default function ShoppingCart(props){
-   const [content,setContent]=useState([])
+   const [content,setContent]=useState(props.cart.length>0?props.cart:[])
    if(props.cart.length>0){
-      if(content.length !== props.cart.length){
-         setContent(props.cart)
-         console.log("sorted cart:",content)
-      }
+      setTimeout(()=>props.cart.length!==content.length?setContent(props.cart):"", 500)
    }
    let sum=0
    function checkCart(){
@@ -60,9 +57,11 @@ export default function ShoppingCart(props){
       return(newSum)
    }
    function setKey(newItem,newAmount){
-      //console.log("new item:",newItem)
       cartAnimation(newAmount)
-      if(newAmount!==0){
+      if(newAmount===0 || newItem.amount+newAmount<=0){
+         const contentFilter=content.filter(item=>{return item.title !== newItem.title})
+         props.updateCart(contentFilter.map(item=>{return item}))
+      }else{
          setContent(content.map((item)=>{
             if(item.title===newItem.title){
                return {...newItem,amount:newItem.amount+newAmount}
@@ -70,12 +69,9 @@ export default function ShoppingCart(props){
                return item
             }
          }))
+         props.updateCart(content)
       }
-      else{
-         setContent(content.filter(item=>item.url!==newItem.url))
-      }
-      props.updateCart(content.map(i=>{return i}))
-      console.log("CART:",content)
+      
    }
 
    return(<div className="d-flex flex-column justify-content-center align-items-center w-100 p-3">
