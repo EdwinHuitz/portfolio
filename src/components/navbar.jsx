@@ -42,7 +42,7 @@ export default function Nav(){
                <div className="d-flex flex-column">
                   <nav className="nav-menu">
                      <ul>
-                        <li className="active" style={{paddingBottom:"5vh"}}><a href={"assets/files/Edwin_Huitz_Resume_"+new Date().getFullYear()+".pdf"} rel="noreferrer"><i className="bx bx-file"></i> <span>Resume</span></a><br/></li>
+                        <li className="active" style={{paddingBottom:"5vh"}}><!--a href={"assets/files/Edwin_Huitz_Resume_"+new Date().getFullYear()+".pdf"} rel="noreferrer"><i className="bx bx-file"></i> <span>Resume</span></a--><br/></li>
                         <li className={hash===tags[0]?"active":""}>
                            <a href="/#home" ><i className="bx bx-home"></i> <span>Home</span></a>
                         </li>
